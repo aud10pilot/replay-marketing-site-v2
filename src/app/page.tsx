@@ -74,22 +74,7 @@ export default function Home() {
             Replay records your app, runs automated root-cause analysis, and
             sends a detailed fix to your agent — no manual debugging required.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a
-              href="https://docs.replay.io/basics/replay-mcp/overview"
-              className="rounded-full px-7 py-3.5 text-base font-medium text-white hover:opacity-90 transition"
-              style={{ background: "var(--brand-gradient)" }}
-            >
-              Add Replay MCP to Your Agent
-            </a>
-            <a
-              href="#how-it-works"
-              className="rounded-full border border-border px-7 py-3.5 text-base font-medium text-muted hover:border-foreground/20 hover:text-foreground transition"
-            >
-              See How It Works
-            </a>
-          </div>
-          <div className="mt-14 w-full px-2">
+          <div className="mt-12 w-full px-2">
             <AudienceSplit />
           </div>
         </section>
