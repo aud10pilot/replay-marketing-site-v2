@@ -71,8 +71,9 @@ export default function Home() {
             <span className="text-brand-pink">your agent</span>
           </h1>
           <p className="text-lg text-muted max-w-2xl mb-10 leading-relaxed">
-            Replay records your app, runs automated root-cause analysis, and
-            sends a detailed fix to your agent — no manual debugging required.
+            Replay captures exactly what happened in the browser — and tells
+            your coding agent or AI tool how to fix it. No manual debugging
+            required.
           </p>
           <div className="mt-12 w-full px-2">
             <AudienceSplit />
@@ -507,16 +508,23 @@ export default function Home() {
           Let Replay do it.
         </h2>
         <p className="text-muted max-w-xl mx-auto mb-8 text-lg">
-          Free to get started. No credit card required. Add Replay MCP to your
-          coding agent and turn every bug into an automated fix.
+          Free to get started. No credit card required.
         </p>
-        <a
-          href="https://docs.replay.io/basics/replay-mcp/overview"
-          className="inline-block rounded-full px-8 py-3.5 text-base font-medium text-white hover:opacity-90 transition"
-          style={{ background: "var(--brand-gradient)" }}
-        >
-          Add Replay MCP to Your Agent
-        </a>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a
+            href="https://docs.replay.io/basics/replay-mcp/overview"
+            className="inline-block rounded-full px-8 py-3.5 text-base font-medium text-white hover:opacity-90 transition"
+            style={{ background: "var(--brand-gradient)" }}
+          >
+            Add Replay MCP to Your Agent
+          </a>
+          <a
+            href="/for-engineers"
+            className="text-sm font-medium text-muted hover:text-foreground transition"
+          >
+            Or start with the Chrome extension &rarr;
+          </a>
+        </div>
       </section>
 
       <Footer />

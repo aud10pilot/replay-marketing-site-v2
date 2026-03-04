@@ -9,8 +9,10 @@ export default function AudienceSplit() {
         </p>
         <h3 className="text-lg font-semibold mb-2">Building with an IDE?</h3>
         <p className="text-sm text-muted leading-relaxed mb-6 flex-1">
-          Replay MCP connects directly to your coding agent. One command to
-          install.
+          The browser extension is the fastest way to your first Replay
+          recording — install in seconds, no setup required. Ready for more?
+          Replay MCP connects directly to your coding agent for automated
+          root-cause analysis and specific fixes.
         </p>
         <Link
           href="/for-engineers"
@@ -29,8 +31,9 @@ export default function AudienceSplit() {
           Building with Lovable, Replit, or Base44?
         </h3>
         <p className="text-sm text-muted leading-relaxed mb-6 flex-1">
-          Replay Extension runs in Chrome. No setup needed. Capture a bug, get a
-          fix.
+          The Replay extension is your primary tool — record a bug in Chrome,
+          get a fix to paste straight into your AI. No coding required. Also
+          using Cursor or Claude Code? Replay MCP works there too.
         </p>
         <Link
           href="/for-vibe-coders"

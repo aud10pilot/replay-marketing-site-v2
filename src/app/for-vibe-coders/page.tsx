@@ -144,6 +144,30 @@ export default function ForVibeCodersPage() {
         </section>
       </div>
 
+      {/* IDE Agent Callout */}
+      <section className="px-6 py-12 max-w-3xl mx-auto">
+        <div className="rounded-xl border border-brand-purple/20 bg-brand-purple/5 p-8">
+          <p className="text-xs font-medium uppercase tracking-widest text-brand-purple mb-3">
+            Also using Cursor or Claude Code?
+          </p>
+          <h3 className="text-xl font-semibold mb-3">
+            Replay MCP works there too.
+          </h3>
+          <p className="text-base text-muted leading-relaxed">
+            If you also use an IDE-based coding agent, Replay MCP connects
+            directly to it — delivering automated root-cause analysis and a
+            specific fix for every bug. Same recording engine, deeper
+            integration.
+          </p>
+          <a
+            href="https://docs.replay.io/basics/replay-mcp/overview"
+            className="inline-block mt-4 text-sm font-medium text-brand-purple hover:opacity-80 transition"
+          >
+            Learn about Replay MCP &rarr;
+          </a>
+        </div>
+      </section>
+
       {/* Early Access */}
       <section className="px-6 py-24 max-w-3xl mx-auto">
         <h2 className="text-3xl font-bold mb-6">

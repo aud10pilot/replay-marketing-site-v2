@@ -206,7 +206,9 @@ export default function HowItWorksPage() {
             Replay works wherever you build.
           </h2>
           <p className="text-muted text-center max-w-2xl mx-auto mb-12">
-            Two paths, one product. Choose the one that fits your workflow.
+            The browser extension gets you recording in seconds. Replay MCP
+            gives your coding agent automated root-cause analysis. Both use the
+            same recording engine.
           </p>
           <AudienceSplit />
         </section>

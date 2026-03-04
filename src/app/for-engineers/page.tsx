@@ -56,19 +56,33 @@ export default function ForEngineersPage() {
             fix bugs &mdash; not loop on them.
           </p>
 
-          <div className="w-full max-w-lg">
-            <p className="text-sm text-muted mb-3">
-              Add Replay MCP to your agent:
-            </p>
-            <div className="rounded-xl border border-border bg-surface p-4 font-mono text-sm text-foreground text-left select-all">
-              npx replay-mcp install
+          <div className="w-full max-w-lg flex flex-col gap-5">
+            <div>
+              <a
+                href="#"
+                className="inline-block w-full rounded-full px-7 py-3.5 text-base font-medium text-white hover:opacity-90 transition text-center"
+                style={{ background: "var(--brand-gradient)" }}
+              >
+                Install Replay for Chrome &mdash; it&apos;s free
+              </a>
+              <p className="text-xs text-muted text-center mt-2">
+                No setup. Record your first bug in 30 seconds.
+              </p>
             </div>
-            <a
-              href="https://docs.replay.io/basics/replay-mcp/overview"
-              className="inline-block mt-4 text-sm font-medium text-brand-pink hover:opacity-80 transition"
-            >
-              Read the docs &rarr;
-            </a>
+            <div>
+              <p className="text-sm text-muted mb-2">
+                Using a coding agent? Add Replay MCP:
+              </p>
+              <div className="rounded-xl border border-border bg-surface p-4 font-mono text-sm text-foreground text-left select-all">
+                npx replay-mcp install
+              </div>
+              <a
+                href="https://docs.replay.io/basics/replay-mcp/overview"
+                className="inline-block mt-3 text-sm font-medium text-brand-pink hover:opacity-80 transition"
+              >
+                Read the docs &rarr;
+              </a>
+            </div>
           </div>
         </section>
       </div>
@@ -178,12 +192,59 @@ export default function ForEngineersPage() {
       <div className="bg-surface-tinted">
         <section className="px-6 py-24 max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-4">
-            Set up in under two minutes.
+            Two ways to start. Both free.
           </h2>
           <p className="text-muted text-center max-w-2xl mx-auto mb-12">
-            Pick your agent and follow the steps.
+            The extension gets you recording in 30 seconds. Replay MCP
+            connects directly to your coding agent for automated fixes.
           </p>
-          <AgentTabs />
+
+          {/* Step 1: Extension */}
+          <div className="rounded-xl border border-border bg-surface p-6 mb-4">
+            <div className="flex items-start gap-4">
+              <div className="w-8 h-8 rounded-full bg-brand-pink/10 border border-brand-pink/30 text-brand-pink text-sm font-semibold flex items-center justify-center flex-shrink-0 mt-0.5">
+                1
+              </div>
+              <div className="flex-1">
+                <h3 className="text-base font-semibold mb-1">
+                  Start with the Chrome extension
+                </h3>
+                <p className="text-sm text-muted leading-relaxed mb-4">
+                  Install in 30 seconds. Click record, reproduce the bug, stop
+                  recording. Replay analyzes what happened and tells you exactly
+                  what broke.
+                </p>
+                <a
+                  href="#"
+                  className="inline-block rounded-full px-5 py-2.5 text-sm font-medium text-white hover:opacity-90 transition"
+                  style={{ background: "var(--brand-gradient)" }}
+                >
+                  Install Replay for Chrome &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Step 2: MCP */}
+          <div className="rounded-xl border border-border bg-surface p-6">
+            <div className="flex items-start gap-4">
+              <div className="w-8 h-8 rounded-full bg-brand-pink/10 border border-brand-pink/30 text-brand-pink text-sm font-semibold flex items-center justify-center flex-shrink-0 mt-0.5">
+                2
+              </div>
+              <div className="flex-1">
+                <h3 className="text-base font-semibold mb-1">
+                  Add Replay MCP to your coding agent
+                </h3>
+                <p className="text-sm text-muted leading-relaxed mb-4">
+                  Pick your agent below. Replay MCP connects automatically and
+                  delivers root-cause analysis and a specific fix for every bug
+                  your agent hits.
+                </p>
+                <AgentTabs />
+              </div>
+            </div>
+          </div>
+
           <p className="text-sm text-muted text-center mt-8">
             That&apos;s it. Every bug your agent hits from here is a bug Replay
             can diagnose.
@@ -313,20 +374,29 @@ export default function ForEngineersPage() {
 
       {/* Final CTA */}
       <section className="px-6 py-24 max-w-3xl mx-auto text-center">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-6 leading-tight">
-          Get started in one command.
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4 leading-tight">
+          Stop debugging for your agent.
+          <br />
+          Let Replay do it.
         </h2>
-        <div className="max-w-lg mx-auto mb-4">
-          <div className="rounded-xl border border-border bg-surface p-4 font-mono text-sm text-foreground select-all">
-            npx replay-mcp install
-          </div>
+        <p className="text-muted max-w-xl mx-auto mb-8 text-lg">
+          Free to get started. No credit card required.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a
+            href="#"
+            className="inline-block rounded-full px-8 py-3.5 text-base font-medium text-white hover:opacity-90 transition"
+            style={{ background: "var(--brand-gradient)" }}
+          >
+            Install Replay for Chrome
+          </a>
+          <a
+            href="https://docs.replay.io/basics/replay-mcp/overview"
+            className="text-sm font-medium text-muted hover:text-foreground transition"
+          >
+            Or set up Replay MCP &rarr;
+          </a>
         </div>
-        <a
-          href="https://docs.replay.io/basics/replay-mcp/overview"
-          className="inline-block text-sm font-medium text-brand-pink hover:opacity-80 transition"
-        >
-          Read the docs &rarr;
-        </a>
       </section>
 
       <Footer />
