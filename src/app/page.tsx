@@ -149,10 +149,14 @@ export default function Home() {
             Same recording engine. Two ways to connect.
           </p>
           <div className="grid sm:grid-cols-2 gap-6">
-            <div className="rounded-xl border border-border bg-surface p-6">
+            <div className="rounded-xl border border-border bg-surface p-6 flex flex-col">
               <p className="text-xs font-medium uppercase tracking-widest text-brand-purple mb-3">
                 From your IDE
               </p>
+              {/* TODO: Replace with MCP demo GIF */}
+              <div className="rounded-lg border border-dashed border-border bg-surface-tinted aspect-video mb-4 flex items-center justify-center">
+                <span className="text-xs text-muted/50">GIF placeholder — MCP demo</span>
+              </div>
               <div className="rounded-lg bg-surface-tinted font-mono text-sm px-4 py-3 mb-4 select-all">
                 npx replay-mcp install
               </div>
@@ -162,17 +166,18 @@ export default function Home() {
               </p>
               <a
                 href="https://docs.replay.io/basics/replay-mcp/overview"
-                className="text-sm font-medium text-brand-purple hover:opacity-80 transition"
+                className="text-sm font-medium text-brand-purple hover:opacity-80 transition mt-auto"
               >
                 Read the docs &rarr;
               </a>
             </div>
-            <div className="rounded-xl border border-border bg-surface p-6">
+            <div className="rounded-xl border border-border bg-surface p-6 flex flex-col">
               <p className="text-xs font-medium uppercase tracking-widest text-brand-pink mb-3">
                 From Chrome
               </p>
-              <div className="rounded-lg bg-surface-tinted text-sm px-4 py-3 mb-4 text-muted">
-                Replay Chrome Extension
+              {/* TODO: Replace with Chrome extension demo GIF */}
+              <div className="rounded-lg border border-dashed border-border bg-surface-tinted aspect-video mb-4 flex items-center justify-center">
+                <span className="text-xs text-muted/50">GIF placeholder — extension demo</span>
               </div>
               <p className="text-sm text-muted leading-relaxed mb-4">
                 Record a bug in your browser, get a plain-English fix to paste
@@ -180,7 +185,7 @@ export default function Home() {
               </p>
               <a
                 href="#"
-                className="text-sm font-medium text-brand-pink hover:opacity-80 transition"
+                className="text-sm font-medium text-brand-pink hover:opacity-80 transition mt-auto"
               >
                 Install for Chrome &rarr;
               </a>
