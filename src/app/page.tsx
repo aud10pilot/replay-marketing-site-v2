@@ -1,4 +1,6 @@
 import Image from "next/image";
+import browserSidebarRevealGif from "@/images/BrowserSidebarReveal.gif";
+import cliAnimationGif from "@/images/CLIAnimation.gif";
 import FeatureTabs from "@/components/FeatureTabs";
 import Footer from "@/components/Footer";
 import { FAQSchema, OrganizationSchema } from "@/components/JsonLd";
@@ -153,12 +155,13 @@ export default function Home() {
               <p className="text-xs font-medium uppercase tracking-widest text-brand-purple mb-3">
                 From your IDE
               </p>
-              {/* TODO: Replace with MCP demo GIF */}
-              <div className="rounded-lg border border-dashed border-border bg-surface-tinted aspect-video mb-4 flex items-center justify-center">
-                <span className="text-xs text-muted/50">GIF placeholder — MCP demo</span>
-              </div>
-              <div className="rounded-lg bg-surface-tinted font-mono text-sm px-4 py-3 mb-4 select-all">
-                npx replay-mcp install
+              <div className="rounded-lg border border-border bg-surface-tinted overflow-hidden mb-4">
+                <Image
+                  src={cliAnimationGif}
+                  alt="Replay MCP install demo"
+                  className="w-full h-auto"
+                  unoptimized
+                />
               </div>
               <p className="text-sm text-muted leading-relaxed mb-4">
                 Connects to Cursor, Claude Code, Copilot, and Windsurf. Your
@@ -175,20 +178,21 @@ export default function Home() {
               <p className="text-xs font-medium uppercase tracking-widest text-brand-pink mb-3">
                 From Chrome
               </p>
-              {/* TODO: Replace with Chrome extension demo GIF */}
-              <div className="rounded-lg border border-dashed border-border bg-surface-tinted aspect-video mb-4 flex items-center justify-center">
-                <span className="text-xs text-muted/50">GIF placeholder — extension demo</span>
+              <div className="rounded-lg border border-border bg-surface-tinted overflow-hidden mb-4">
+                <Image
+                  src={browserSidebarRevealGif}
+                  alt="Replay Chrome extension demo"
+                  className="w-full h-auto"
+                  unoptimized
+                />
               </div>
               <p className="text-sm text-muted leading-relaxed mb-4">
                 Record a bug in your browser, get a plain-English fix to paste
                 into your AI tool. No setup required.
               </p>
-              <a
-                href="#"
-                className="text-sm font-medium text-brand-pink hover:opacity-80 transition mt-auto"
-              >
-                Install for Chrome &rarr;
-              </a>
+              <span className="text-xs font-medium px-3 py-1.5 rounded-full bg-brand-pink/10 text-brand-pink border border-brand-pink/20 mt-auto self-start">
+                Coming Soon
+              </span>
             </div>
           </div>
         </section>
