@@ -29,6 +29,9 @@ export default function Footer() {
         <a href="mailto:support@replay.io" className="hover:text-foreground transition">
           Contact
         </a>
+        <a href="/llms.txt" className="hover:text-foreground transition">
+          For LLMs
+        </a>
       </div>
     </footer>
   );
