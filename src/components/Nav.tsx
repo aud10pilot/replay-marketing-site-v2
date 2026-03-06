@@ -7,6 +7,7 @@ import Link from "next/link";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const links = [
+  { href: "/", label: "Overview" },
   { href: "/how-it-works", label: "How it Works" },
   { href: "/pricing", label: "Pricing" },
   { href: "https://docs.replay.io/basics/replay-mcp/overview", label: "Docs" },
