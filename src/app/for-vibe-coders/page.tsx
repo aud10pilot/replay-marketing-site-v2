@@ -51,7 +51,7 @@ export default function ForVibeCodersPage() {
           </span>
           <HeroFormula />
           <h1 className="text-5xl sm:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
-            Build fearlessly with the Replay Chrome extension.
+            Vibe fearlessly with the Replay Chrome extension.
           </h1>
           <p className="text-lg text-muted max-w-2xl mb-10 leading-relaxed">
             The Replay Chrome extension is like having a senior engineer
