@@ -66,7 +66,7 @@ export default function Home() {
         />
         <section className="hero-fade-in relative z-10 flex flex-col items-center text-center px-6 pt-24 pb-16 max-w-4xl mx-auto">
           <h1 className="text-5xl sm:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
-            Your agent can&apos;t fix
+            Your coding agent can&apos;t fix
             <br />
             <span className="text-brand-pink">what it can&apos;t see.</span>
           </h1>
