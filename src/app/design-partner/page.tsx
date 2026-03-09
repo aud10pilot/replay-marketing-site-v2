@@ -7,20 +7,20 @@ import DesignPartnerForm from "./DesignPartnerForm";
 export const metadata: Metadata = {
   title: "Become a Replay MCP Design Partner",
   description:
-    "Get free access to Replay MCP for a month, direct time with the Replay engineering team, and help shape the future of AI-assisted debugging.",
+    "Get free access to Replay MCP for 30 days to 3 months, direct time with the Replay engineering team, and preferred pricing when the engagement wraps.",
   alternates: { canonical: "/design-partner" },
   openGraph: {
     title: "Become a Replay MCP Design Partner",
     description:
-      "Get free access to Replay MCP for a month, direct time with the Replay engineering team, and help shape the future of AI-assisted debugging.",
+      "Get free access to Replay MCP for 30 days to 3 months, direct time with the Replay engineering team, and preferred pricing when the engagement wraps.",
   },
 };
 
 const perks = [
   {
-    title: "Free for a full month",
+    title: "Free for the full engagement",
     description:
-      "Full access to Replay MCP at no cost for 30 days. No credit card. No catch. Use it on real work and see if it changes how your team debugs.",
+      "Full access to Replay MCP at no cost for the duration of the partnership — a minimum of 30 days, up to three months. No credit card. No catch. Use it on real work.",
   },
   {
     title: "Direct line to the engineering team",
@@ -31,6 +31,11 @@ const perks = [
     title: "Your workflow shapes the product",
     description:
       "We'll schedule occasional calls to hear how you're using Replay MCP — what's clicking, what's still painful. Your feedback directly influences what we build next.",
+  },
+  {
+    title: "Preferred pricing when you're ready",
+    description:
+      "At the end of the engagement, we're happy to work out friendly pricing that reflects the relationship we've built. Design partners won't be treated like strangers at renewal.",
   },
 ];
 
@@ -123,7 +128,7 @@ export default function DesignPartnerPage() {
         <p className="text-muted text-center max-w-2xl mx-auto mb-16">
           This isn&apos;t a beta waitlist. It&apos;s a working relationship.
         </p>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {perks.map((perk) => (
             <div
               key={perk.title}
