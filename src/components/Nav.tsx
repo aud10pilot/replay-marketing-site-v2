@@ -10,7 +10,7 @@ const links = [
   { href: "/", label: "Overview" },
   { href: "/how-it-works", label: "How it Works" },
   { href: "/for-engineers", label: "For engineers" },
-  { href: "/for-vibecoders", label: "For vibecoders" },
+  { href: "/for-vibe-coders", label: "For vibecoders" },
   { href: "/pricing", label: "Pricing" },
   { href: "https://docs.replay.io/basics/replay-mcp/overview", label: "Docs" },
 ];
