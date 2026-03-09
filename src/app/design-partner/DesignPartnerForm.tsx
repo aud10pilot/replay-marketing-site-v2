@@ -2,11 +2,15 @@
 
 import { useState } from "react";
 
+const TEAM_SIZE_OPTIONS = ["1–10", "11–50", "51–200", "200+"] as const;
+type TeamSize = (typeof TEAM_SIZE_OPTIONS)[number] | "";
+
 interface FormState {
   companyName: string;
   fullName: string;
   email: string;
   linkedin: string;
+  teamSize: TeamSize;
   useCase: string;
 }
 
@@ -15,6 +19,7 @@ const initialState: FormState = {
   fullName: "",
   email: "",
   linkedin: "",
+  teamSize: "",
   useCase: "",
 };
 
@@ -24,12 +29,12 @@ export default function DesignPartnerForm() {
   const [submitting, setSubmitting] = useState(false);
 
   function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
-  async function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitting(true);
     // TODO: wire up to a form backend (e.g. Formspree, HubSpot, API route)
@@ -124,6 +129,25 @@ export default function DesignPartnerForm() {
           placeholder="https://linkedin.com/in/janesmith"
           className="rounded-lg border border-border bg-background px-4 py-2.5 text-sm outline-none focus:border-brand-purple transition placeholder:text-muted/50"
         />
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <label htmlFor="teamSize" className="text-sm font-medium">
+          Engineering team size <span className="text-brand-pink">*</span>
+        </label>
+        <select
+          id="teamSize"
+          name="teamSize"
+          required
+          value={form.teamSize}
+          onChange={handleChange}
+          className="rounded-lg border border-border bg-background px-4 py-2.5 text-sm outline-none focus:border-brand-purple transition"
+        >
+          <option value="" disabled>Select a range…</option>
+          {TEAM_SIZE_OPTIONS.map((opt) => (
+            <option key={opt} value={opt}>{opt}</option>
+          ))}
+        </select>
       </div>
 
       <div className="flex flex-col gap-2">
