@@ -1,6 +1,12 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function PromoBanner() {
+  const pathname = usePathname();
+  if (pathname === "/design-partner") return null;
+
   return (
     <div
       className="w-full py-2.5 px-4 text-center text-sm text-white flex items-center justify-center gap-3 flex-wrap"
