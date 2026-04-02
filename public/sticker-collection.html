@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Replay Timetravel Sticker Collection</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --replay-red: #E4234E;
+      --replay-pink: #FF3366;
+      --wood-light: #C9956A;
+      --wood-mid: #A8764C;
+      --wood-dark: #7A5230;
+      --wood-deep: #5C3A1E;
+      --cream: #F5EDD6;
+      --ink: #1C0D00;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      min-height: 100vh;
+      font-family: 'Libre Baskerville', Georgia, serif;
+    }
+
+    body {
+      background-color: var(--wood-mid);
+      background-image:
+        /* Fine grain overlay */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E"),
+        /* Wood grain streaks */
+        repeating-linear-gradient(
+          172deg,
+          transparent 0px,
+          transparent 18px,
+          rgba(255,255,255,0.025) 18px,
+          rgba(255,255,255,0.025) 19px,
+          transparent 19px,
+          transparent 38px,
+          rgba(0,0,0,0.04) 38px,
+          rgba(0,0,0,0.04) 40px
+        ),
+        repeating-linear-gradient(
+          168deg,
+          transparent 0px,
+          transparent 60px,
+          rgba(255,255,255,0.03) 60px,
+          rgba(255,255,255,0.03) 62px,
+          transparent 62px,
+          transparent 130px,
+          rgba(0,0,0,0.05) 130px,
+          rgba(0,0,0,0.05) 133px
+        ),
+        /* Base wood tone gradient */
+        linear-gradient(
+          165deg,
+          #C9956A 0%,
+          #B07840 15%,
+          #C18A55 28%,
+          #9B6835 42%,
+          #BE8C58 55%,
+          #A47240 68%,
+          #C19060 80%,
+          #8C5E2A 92%,
+          #B07840 100%
+        );
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Subtle vignette */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 50%, rgba(50, 25, 5, 0.45) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ===================== HEADER ===================== */
+    header {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 56px 24px 32px;
+    }
+
+    .logo-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .replay-logo {
+      width: 28px;
+      height: 33px;
+    }
+
+    .replay-wordmark {
+      font-family: 'DM Mono', monospace;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: var(--cream);
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    h1 {
+      font-family: 'Abril Fatface', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      line-height: 0.95;
+      color: var(--cream);
+      text-shadow:
+        3px 4px 0 rgba(0,0,0,0.25),
+        0 0 60px rgba(255, 235, 200, 0.15);
+      letter-spacing: -0.01em;
+      margin-bottom: 14px;
+    }
+
+    .header-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(245, 237, 214, 0.6);
+    }
+
+    .collection-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      background: rgba(228, 35, 78, 0.15);
+      border: 1px solid rgba(228, 35, 78, 0.35);
+      border-radius: 100px;
+      padding: 7px 18px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--replay-pink);
+    }
+
+    .collection-badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--replay-red);
+      box-shadow: 0 0 8px var(--replay-red);
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    /* ===================== DIVIDER ===================== */
+    .divider {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      max-width: 500px;
+      margin: 0 auto 8px;
+      padding: 0 32px;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(245, 237, 214, 0.2);
+    }
+
+    .divider-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(245, 237, 214, 0.35);
+    }
+
+    /* ===================== STICKER BOARD ===================== */
+    .sticker-board {
+      position: relative;
+      z-index: 5;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 48px 80px;
+    }
+
+    /* Scattered grid: 4 columns, stickers offset for organic feel */
+    .sticker-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px 32px;
+      align-items: center;
+    }
+
+    /* ===================== STICKER CARD ===================== */
+    .sticker-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Each sticker gets a natural scatter rotation via nth-child */
+    .sticker-wrap:nth-child(1) { --rot: -6deg; --tx: 12px; --ty: 8px; }
+    .sticker-wrap:nth-child(2) { --rot: 4deg;  --tx: -8px; --ty: 14px; }
+    .sticker-wrap:nth-child(3) { --rot: -3deg; --tx: 5px;  --ty: -10px; }
+    .sticker-wrap:nth-child(4) { --rot: 7deg;  --tx: -14px; --ty: 6px; }
+    .sticker-wrap:nth-child(5) { --rot: -8deg; --tx: 10px; --ty: -6px; }
+    .sticker-wrap:nth-child(6) { --rot: 5deg;  --tx: -6px; --ty: 12px; }
+    .sticker-wrap:nth-child(7) { --rot: -2deg; --tx: 8px;  --ty: -14px; }
+    .sticker-wrap:nth-child(8) { --rot: 9deg;  --tx: -12px; --ty: 4px; }
+
+    .sticker {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      cursor: pointer;
+      transform: rotate(var(--rot, 0deg)) translate(var(--tx, 0), var(--ty, 0));
+      transition:
+        transform 0.3s ease-out,
+        box-shadow 0.3s ease-out,
+        filter 0.3s ease-out;
+      box-shadow:
+        4px 6px 12px rgba(50, 20, 0, 0.35),
+        8px 14px 28px rgba(50, 20, 0, 0.22),
+        0 2px 4px rgba(50, 20, 0, 0.4);
+      /* Subtle white edge (sticker paper feel) */
+      outline: 4px solid rgba(255, 255, 255, 0.92);
+      outline-offset: -2px;
+      position: relative;
+      will-change: transform;
+    }
+
+    .sticker::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.18) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .sticker img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 50%;
+    }
+
+    /* Missing image fallback */
+    .sticker-fallback {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.15);
+      gap: 8px;
+    }
+
+    .sticker-fallback .sticker-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 0 16px;
+      line-height: 1.4;
+    }
+
+    /* HOVER STATE */
+    .sticker-wrap:hover .sticker {
+      transform:
+        rotate(var(--rot, 0deg))
+        translate(var(--tx, 0), var(--ty, 0))
+        scale(1.1);
+      box-shadow:
+        6px 24px 40px rgba(40, 15, 0, 0.45),
+        12px 32px 64px rgba(40, 15, 0, 0.3),
+        0 4px 8px rgba(50, 20, 0, 0.5);
+      z-index: 100;
+      filter: brightness(1.04) contrast(1.02);
+      transition:
+        transform 0.3s ease-in,
+        box-shadow 0.3s ease-in,
+        filter 0.3s ease-in;
+    }
+
+    .sticker-wrap {
+      position: relative;
+      z-index: 1;
+      transition: z-index 0s;
+    }
+
+    .sticker-wrap:hover {
+      z-index: 100;
+    }
+
+    /* Sticker caption on hover */
+    .sticker-caption {
+      position: absolute;
+      bottom: -36px;
+      left: 50%;
+      transform: translateX(-50%) translateY(4px);
+      white-space: nowrap;
+      font-family: 'DM Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.08em;
+      color: var(--cream);
+      opacity: 0;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      pointer-events: none;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+      background: rgba(30, 10, 0, 0.55);
+      padding: 4px 12px;
+      border-radius: 100px;
+      backdrop-filter: blur(8px);
+    }
+
+    .sticker-wrap:hover .sticker-caption {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 24px 24px 48px;
+    }
+
+    .footer-text {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(245, 237, 214, 0.4);
+    }
+
+    .footer-text a {
+      color: rgba(228, 35, 78, 0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-text a:hover {
+      color: var(--replay-pink);
+    }
+
+    /* ===================== ENTRANCE ANIMATION ===================== */
+    @keyframes sticker-drop {
+      from {
+        opacity: 0;
+        transform: rotate(var(--rot, 0deg)) translate(var(--tx, 0), calc(var(--ty, 0) - 40px)) scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: rotate(var(--rot, 0deg)) translate(var(--tx, 0), var(--ty, 0)) scale(1);
+      }
+    }
+
+    .sticker {
+      animation: sticker-drop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+
+    .sticker-wrap:nth-child(1) .sticker { animation-delay: 0.05s; }
+    .sticker-wrap:nth-child(2) .sticker { animation-delay: 0.13s; }
+    .sticker-wrap:nth-child(3) .sticker { animation-delay: 0.21s; }
+    .sticker-wrap:nth-child(4) .sticker { animation-delay: 0.29s; }
+    .sticker-wrap:nth-child(5) .sticker { animation-delay: 0.37s; }
+    .sticker-wrap:nth-child(6) .sticker { animation-delay: 0.45s; }
+    .sticker-wrap:nth-child(7) .sticker { animation-delay: 0.53s; }
+    .sticker-wrap:nth-child(8) .sticker { animation-delay: 0.61s; }
+
+    @keyframes header-in {
+      from { opacity: 0; transform: translateY(-16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    header {
+      animation: header-in 0.7s ease both;
+    }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 900px) {
+      .sticker-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px 24px;
+      }
+
+      .sticker {
+        width: 175px;
+        height: 175px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .sticker-board {
+        padding: 24px 24px 60px;
+      }
+
+      .sticker-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px 20px;
+      }
+
+      .sticker {
+        width: 150px;
+        height: 150px;
+      }
+
+      h1 {
+        font-size: 2.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-lockup">
+      <svg class="replay-logo" width="34" height="40" viewBox="0 0 34 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M15.2233 8.58217L8.95319 4.91069L2.68305 1.23921C2.41111 1.08012 2.10269 0.9964 1.78875 0.99646C1.47482 0.99652 1.16642 1.08036 0.894545 1.23955C0.622668 1.39875 0.396884 1.6277 0.239864 1.90341C0.0828448 2.17911 0.000118376 2.49187 0 2.81026V17.496C0.000105567 17.8144 0.0828232 18.1272 0.239837 18.4029C0.396852 18.6786 0.622634 18.9076 0.894513 19.0668C1.16639 19.226 1.47479 19.3098 1.78874 19.3099C2.10268 19.31 2.41111 19.2262 2.68305 19.0671L8.95319 15.3957L15.2233 11.7243C15.4952 11.5651 15.721 11.336 15.878 11.0603C16.035 10.7845 16.1177 10.4717 16.1177 10.1532C16.1177 9.83477 16.035 9.52193 15.878 9.24616C15.721 8.97038 15.4952 8.74138 15.2233 8.58217V8.58217Z" fill="#F02D5E"/>
+        <path d="M15.2233 29.0322L8.95319 25.3608L2.68305 21.6893C2.41111 21.5302 2.10268 21.4465 1.78873 21.4465C1.47479 21.4466 1.16639 21.5304 0.894513 21.6896C0.622634 21.8488 0.396847 22.0778 0.239833 22.3535C0.0828188 22.6292 0.000105567 22.942 0 23.2604V37.9461C0.000105567 38.2645 0.0828188 38.5773 0.239833 38.853C0.396847 39.1287 0.622634 39.3577 0.894513 39.5169C1.16639 39.6761 1.47479 39.7599 1.78873 39.76C2.10268 39.76 2.41111 39.6763 2.68305 39.5172L8.95319 35.8458L15.2233 32.1743C15.4952 32.0151 15.721 31.7861 15.878 31.5103C16.035 31.2346 16.1177 30.9217 16.1177 30.6033C16.1177 30.2848 16.035 29.9719 15.878 29.6962C15.721 29.4204 15.4952 29.1914 15.2233 29.0322Z" fill="#F02D5E"/>
+        <path d="M33.1056 18.809L26.8355 15.1375L20.5654 11.4661C20.2935 11.307 19.985 11.2233 19.6711 11.2233C19.3572 11.2234 19.0488 11.3072 18.7769 11.4664C18.505 11.6256 18.2792 11.8546 18.1222 12.1303C17.9652 12.406 17.8825 12.7187 17.8823 13.0371V27.7229C17.8825 28.0413 17.9652 28.354 18.1222 28.6297C18.2792 28.9055 18.505 29.1344 18.7769 29.2936C19.0488 29.4528 19.3572 29.5366 19.6711 29.5367C19.985 29.5367 20.2935 29.453 20.5654 29.2939L26.8355 25.6225L33.1056 21.9511C33.3775 21.7918 33.6033 21.5628 33.7603 21.2871C33.9173 21.0113 34 20.6985 34 20.38C34 20.0616 33.9173 19.7487 33.7603 19.473C33.6033 19.1972 33.3775 18.9682 33.1056 18.809V18.809Z" fill="#F02D5E"/>
+      </svg>
+      <span class="replay-wordmark">replay.io</span>
+    </div>
+
+    <h1>The Replay Timetravel<br>Sticker&nbsp;Collection</h1>
+    <p class="header-sub">Legendary bugs. Legendary stickers.</p>
+
+    <div>
+      <span class="collection-badge">8 of 9 collected</span>
+    </div>
+  </header>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-dot"></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <main class="sticker-board">
+    <div class="sticker-grid">
+
+      <!-- 1. Replay Time-Travel Passport -->
+      <div class="sticker-wrap">
+        <div class="sticker">
+          <img
+            src="stickers/Passport.png"
+            alt="Replay Time-Travel Passport — Collect All 9"
+            onerror="this.parentElement.innerHTML=fallback('Time-Travel Passport')"
+          />
+        </div>
+        <span class="sticker-caption">Time-Travel Passport</span>
+      </div>
+
+      <!-- 2. The Hydration Error -->
+      <div class="sticker-wrap">
+        <div class="sticker">
+          <img
+            src="stickers/HydrationError.png"
+            alt="The Hydration Error — Replay Heritage Site"
+            onerror="this.parentElement.innerHTML=fallback('The Hydration Error')"
+          />
+        </div>
+        <span class="sticker-caption">The Hydration Error</span>
+      </div>
+
+      <!-- 3. The Async Hell -->
+      <div class="sticker-wrap">
+        <div class="sticker">
+          <img
+            src="stickers/AsyncHell.png"
+            alt="The Async Hell — Race To The Finish"
+            onerror="this.parentElement.innerHTML=fallback('The Async Hell')"
+          />
+        </div>
+        <span class="sticker-caption">The Async Hell</span>
+      </div>
+
+      <!-- 4. React Render Storm -->
+      <div class="sticker-wrap">
+        <div class="sticker">
+          <img
+            src="stickers/ReactStorm.png"
+            alt="I Survived React Render Storm — 1,154 renders, 227 commits"
+            onerror="this.parentElement.innerHTML=fallback('React Render Storm')"
+          />
+        </div>
+        <span class="sticker-caption">React Render Storm</span>
+      </div>
+
+      <!-- 5. The Memory Leak -->
+      <div class="sticker-wrap">
+        <div class="sticker">
+          <img
+            src="stickers/MemoryLeak.png"
+            alt="The Memory Leak — You Can Check Out But You Can't Leave"
+            onerror="this.parentElement.innerHTML=fallback('The Memory Leak')"
+          />
+        </div>
+        <span class="sticker-caption">The Memory Leak</span>
+      </div>
+
+      <!-- 6. The Race Condition -->
+      <div class="sticker-wrap">
+        <div class="sticker">
+          <img
+            src="stickers/Racecondition.png"
+            alt="The Race Condition — Commit #A4F7D92 Visited"
+            onerror="this.parentElement.innerHTML=fallback('The Race Condition')"
+          />
+        </div>
+        <span class="sticker-caption">The Race Condition</span>
+      </div>
+
+      <!-- 7. The Null Pointer Exception -->
+      <div class="sticker-wrap">
+        <div class="sticker">
+          <img
+            src="stickers/NullPointer.png"
+            alt="The Null Pointer Exception — The Black Hole Of Variables"
+            onerror="this.parentElement.innerHTML=fallback('Null Pointer Exception')"
+          />
+        </div>
+        <span class="sticker-caption">Null Pointer Exception</span>
+      </div>
+
+      <!-- 8. The Call Stack -->
+      <div class="sticker-wrap">
+        <div class="sticker">
+          <img
+            src="stickers/CallStack.png"
+            alt="Greetings From The Call Stack — Just before the exception"
+            onerror="this.parentElement.innerHTML=fallback('Greetings From The Call Stack')"
+          />
+        </div>
+        <span class="sticker-caption">The Call Stack</span>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p class="footer-text">
+      Time-travel debugging by <a href="https://replay.io" target="_blank">replay.io</a>
+      &nbsp;·&nbsp; Collect all 9
+    </p>
+  </footer>
+
+  <script>
+    // Inline fallback renderer (called via onerror)
+    function fallback(name) {
+      return `<div class="sticker-fallback">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <polygon points="4,34 4,22 14,28" fill="#E4234E" opacity="0.7"/>
+          <polygon points="16,36 16,16 36,26" fill="#E4234E"/>
+          <polygon points="26,34 26,22 36,28" fill="#FF6688" opacity="0.5"/>
+        </svg>
+        <span class="sticker-name">${name}</span>
+      </div>`;
+    }
+  </script>
+
+</body>
+</html>
