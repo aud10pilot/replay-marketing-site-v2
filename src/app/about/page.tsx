@@ -54,12 +54,6 @@ const team = [
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum. Cras mattis consectetur purus sit amet fermentum aenean lacinia bibendum nulla sed.",
   },
   {
-    name: "Filip Hric",
-    role: "Community Manager",
-    photo: null,
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo. Vestibulum id ligula porta felis euismod semper.",
-  },
-  {
     name: "Brett Lamy",
     role: "Software Engineer",
     photo: null,
