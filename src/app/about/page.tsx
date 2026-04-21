@@ -135,8 +135,10 @@ export default function AboutPage() {
               &mdash; the full picture, down to the last detail.
             </p>
             <p>
-              That recording changes everything. When you can see what actually
-              happened, debugging goes from guessing to knowing.
+              In the early days, we gave developers a superpower: the ability to
+              time travel through their recordings. Step forward, step back,
+              inspect state at any point in time. No reproduction required. No
+              guessing. Just the truth.
             </p>
           </div>
         </section>
@@ -155,10 +157,18 @@ export default function AboutPage() {
             the same mistake.
           </p>
           <p>
-            Replay gives agents eyes on the runtime. Our MCP server analyzes
-            recordings automatically, finds the root cause, and delivers a
-            specific fix &mdash; so your agent implements the right solution on
-            the first try.
+            So we gave the time machine to the agent.{" "}
+            <span className="text-foreground font-medium">
+              Replay now enables your coding agent to time travel through
+              recordings for you.
+            </span>{" "}
+            It turns out they&apos;re way better at it anyway &mdash; no
+            fatigue, no missed details, no wrong turns.
+          </p>
+          <p>
+            Our MCP server analyzes recordings automatically, finds the root
+            cause, and delivers a specific fix &mdash; so your agent implements
+            the right solution on the first try.
           </p>
           <p>
             For developers, that means fewer debugging hours and faster CI. For
