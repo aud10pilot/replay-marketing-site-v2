@@ -14,27 +14,27 @@ type Tab = {
 
 const tabs: Tab[] = [
   {
-    title: "Fix bad button behavior",
+    title: "Test fails — Replay records",
     description:
-      "Sometimes buttons don\u2019t work. Now you can know why!",
+      "Every Playwright and Cypress run in CI is recorded automatically. When a test fails, the full runtime is captured — DOM mutations, network calls, JS execution frames — ready for your agent to analyze.",
     image: brokenButtonGif,
   },
   {
-    title: "Troubleshoot broken data imports",
+    title: "Agent time-travels through the recording",
     description:
-      "In this example, a .csv was imported but the company field data was added to the name field.",
+      "Replay MCP gives your coding agent access to the recording. It steps forward and backward through the execution, inspects state at any point in time, and traces the exact causal chain from failure to root cause.",
     image: dataImportGif,
   },
   {
-    title: "Detailed fix, delivered to your agent",
+    title: "Root cause identified — specific fix generated",
     description:
-      "Your coding agent receives a specific, implementation-ready fix with full context — which file, which function, what to change, and why.",
+      "Your agent receives a precise, implementation-ready fix: which file, which function, what to change, and why. Not a guess — drawn directly from the recorded execution.",
     video: "https://www.youtube.com/embed/d3yeUueEEJk",
   },
   {
-    title: "Agent implements, you review",
+    title: "Fix posted to your PR — you review",
     description:
-      "Your agent applies the fix and opens a PR. You review the change instead of debugging it yourself. Ship in minutes, not hours.",
+      "The CI Agent comments on your PR with the root cause analysis and suggested fix. You review the change instead of investigating the failure. Ship in minutes, not hours.",
     video: "https://www.youtube.com/embed/d3yeUueEEJk",
   },
 ];
@@ -54,10 +54,10 @@ export default function FeatureTabs() {
         }
       `}</style>
       <h2 className="text-3xl font-bold text-center mb-4 text-foreground">
-        From bug to fix — without touching DevTools
+        The full loop — test failure to merged fix
       </h2>
       <p className="text-muted text-center max-w-2xl mx-auto mb-16">
-        See how Replay MCP turns a failing test into a shipped fix, end to end.
+        How Replay turns a broken CI build into a shipped fix, without a human in the debugging loop.
       </p>
 
       <div className="flex flex-col md:flex-row gap-8 md:gap-12">

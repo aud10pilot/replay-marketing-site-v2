@@ -151,34 +151,31 @@ export default function AboutPage() {
         </p>
         <div className="space-y-6 text-muted text-lg leading-relaxed">
           <p>
-            Today, AI agents write code faster than any human. But when they hit
-            a bug, they&apos;re stuck &mdash; guessing at fixes with no way to
-            see what went wrong. They loop, retry, and burn through tokens on
-            the same mistake.
+            Today, AI agents write code faster than any human. But when a test
+            fails in CI, they&apos;re stuck &mdash; guessing at fixes with no
+            way to see what went wrong at runtime. They loop, retry, and burn
+            through tokens on the same mistake.
           </p>
           <p>
             So we gave the time machine to the agent.{" "}
             <span className="text-foreground font-medium">
-              Replay now enables your coding agent to time travel through
-              recordings for you.
+              Replay now enables your coding agent to time-travel through
+              recordings and fix failing tests without human intervention.
             </span>{" "}
             It turns out they&apos;re way better at it anyway &mdash; no
             fatigue, no missed details, no wrong turns.
           </p>
           <p>
-            Our MCP server analyzes recordings automatically, finds the root
-            cause, and delivers a specific fix &mdash; so your agent implements
-            the right solution on the first try.
+            The Replay CI Agent watches every PR. When a test fails, it records
+            the full runtime, analyzes the execution, and posts the root cause
+            plus a specific fix as a PR comment. Replay MCP brings the same
+            time-travel capability directly into your IDE, where your coding
+            agent already works.
           </p>
           <p>
-            For developers, that means fewer debugging hours and faster CI. For
-            builders using tools like Lovable, Bolt, and Replit, it means bugs
-            that actually get fixed instead of going in circles.
-          </p>
-          <p>
-            We&apos;re building toward a world where every bug report includes a
-            recording, every test failure comes with a root cause, and no one
-            &mdash; human or AI &mdash;{" "}
+            We&apos;re building toward a world where every test failure comes
+            with a root cause, every broken PR gets a fix, and no one &mdash;
+            human or AI &mdash;{" "}
             <span className="text-foreground font-medium">
               has to debug blind.
             </span>
@@ -267,22 +264,22 @@ export default function AboutPage() {
             See what your software is doing.
           </h2>
           <p className="text-muted max-w-xl mx-auto mb-8 text-lg">
-            Try Replay free &mdash; whether you&apos;re a developer adding MCP
-            to your agent or a builder who wants bugs fixed on the first try.
+            Install the CI Agent on your repo, or add Replay MCP to your coding
+            agent. Free to get started.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://docs.replay.io/basics/replay-mcp/overview"
+              href="https://docs.replay.io/basics/replay-ci-agent/overview"
               className="rounded-full px-8 py-3.5 text-base font-medium text-white hover:opacity-90 transition"
               style={{ background: "var(--brand-gradient)" }}
             >
-              Try Replay Free
+              Install the CI Agent
             </a>
             <a
-              href="/#how-it-works"
+              href="https://docs.replay.io/basics/replay-mcp/overview"
               className="rounded-full border border-border px-8 py-3.5 text-base font-medium text-muted hover:border-foreground/20 hover:text-foreground transition"
             >
-              See How It Works
+              Add Replay MCP
             </a>
           </div>
         </section>

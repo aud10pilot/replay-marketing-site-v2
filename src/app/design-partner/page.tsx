@@ -152,7 +152,7 @@ export default function DesignPartnerPage() {
               Replay MCP is purpose-built for debugging React-based web apps.
               If your team has meaningful surface area in React —
               a product, a platform, an internal tool — and you&apos;re using
-              AI coding agents like Cursor, Claude Code, Copilot, or Windsurf
+              AI coding agents like Cursor, Claude Code, Codex, Copilot, or Windsurf
               to build and fix it, this program is designed for you.
             </p>
             <p>

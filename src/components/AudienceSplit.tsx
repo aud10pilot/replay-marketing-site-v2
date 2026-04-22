@@ -33,7 +33,7 @@ export default function AudienceSplit() {
         <p className="text-sm text-muted leading-relaxed mb-6 flex-1">
           The Replay extension is your primary tool — record a bug in Chrome,
           get a fix to paste straight into your AI. No coding required. Also
-          using Cursor or Claude Code? Replay MCP works there too.
+          using Cursor, Claude Code, or Codex? Replay MCP works there too.
         </p>
         <Link
           href="/for-vibe-coders"

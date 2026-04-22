@@ -20,6 +20,14 @@ const agents = [
     ],
   },
   {
+    name: "Codex",
+    steps: [
+      "Run: npx replay-mcp install",
+      "Add Replay MCP to your Codex MCP config — see docs for the config snippet",
+      "Start debugging — Replay MCP is ready to use",
+    ],
+  },
+  {
     name: "Copilot",
     steps: [
       "Run: npx replay-mcp install",
