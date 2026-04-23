@@ -23,6 +23,7 @@ const team = [
     photo: "/team/brian-hackett.png",
     linkedin: "https://www.linkedin.com/in/brian-hackett-0969a070/",
     bio: "Stanford Ph.D. with 10 years at Mozilla, where he worked on the systems that power the Firefox browser engine. Brian started Replay to solve the problem he spent a decade fighting: helping developers understand complex systems when things go wrong. When he\u2019s not building Replay, he\u2019s sailing or traveling in a van.",
+    timeTravelDestination: null,
   },
   {
     name: "Mark Erikson",
@@ -30,6 +31,7 @@ const team = [
     photo: "/team/mark-erikson.png",
     linkedin: "https://www.linkedin.com/in/markerikson/",
     bio: "The maintainer of Redux and creator of Redux Toolkit \u2014 tools used by millions of React developers worldwide. Mark brings deep expertise in developer tooling and an obsessive focus on developer experience. Based in Southwest Ohio.",
+    timeTravelDestination: null,
   },
   {
     name: "Dominik Seifert",
@@ -37,13 +39,15 @@ const team = [
     photo: "/team/dominik-seifert.png",
     linkedin: "https://www.linkedin.com/in/dominik-seifert-phd-8b663b54/",
     bio: "Two decades of software engineering, from MMORPG servers to CUDA optimization. Dominik holds a Ph.D. in systems analysis and brings the kind of low-level systems knowledge that makes Replay\u2019s recording engine possible. Based in Taiwan, originally from Germany.",
+    timeTravelDestination: null,
   },
   {
     name: "Thomas Daly",
     role: "Head of Product",
     photo: "/team/thomasDaly_headshot.jpeg",
     linkedin: "https://www.linkedin.com/in/tomcdaly/",
-    bio: "Thomas is a product builder/maker that lives at the intersection of the customer and the product, while reading the tea leaves of the shifting landscape. Started out as a designer and evolved into a product manager. Obsessed with the details of making great things, and loves nothing more than to do with good people. He talks about hospitality vs. hostility a lot. He lives in the lower Hudson River valley in NY.",
+    bio: "Thomas is a product builder/maker that lives at the intersection of the customer and the product, while reading the tea leaves of the shifting landscape. Obsessed with the details of making great things, and loves nothing more than to do with good people. He talks about hospitality vs. hostility a lot. He lives in the lower Hudson River valley in NY.",
+    timeTravelDestination: "I\u2019d like to travel 1,000 years into the future to see if people are still Rick Rolling each other.",
   },
   {
     name: "Strider Wilson",
@@ -51,6 +55,7 @@ const team = [
     photo: "/team/strider_headshot.png",
     linkedin: "https://www.linkedin.com/in/strider-wilson/",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui vivamus sagittis lacus vel augue.",
+    timeTravelDestination: "I would go back in time to the recording of Led Zeppelin\u2019s live at the BBC album.",
   },
   {
     name: "Michael Ward",
@@ -58,6 +63,7 @@ const team = [
     photo: null,
     linkedin: null,
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum. Cras mattis consectetur purus sit amet fermentum aenean lacinia bibendum nulla sed.",
+    timeTravelDestination: null,
   },
   {
     name: "Brett Lamy",
@@ -65,6 +71,7 @@ const team = [
     photo: "/team/brett_headshot.jpeg",
     linkedin: "https://www.linkedin.com/in/blamy/",
     bio: "Staff Software Engineer with 15 years of experience delivering full-stack products for small startups and large high scale enterprises.",
+    timeTravelDestination: null,
   },
   {
     name: "Mateusz Burzy\u0144ski",
@@ -72,6 +79,7 @@ const team = [
     photo: "/team/mateusz_headshot.jpeg",
     linkedin: "https://www.linkedin.com/in/mateusz-burzy%C5%84ski-5183b0a3/",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu leo quam pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis est non commodo luctus.",
+    timeTravelDestination: "I\u2019d either travel backward to my first Harry Potter read or forward 20 years to see if GRRM finally finished the damn thing or not.",
   },
 ];
 
@@ -280,6 +288,18 @@ export default function AboutPage() {
                 <p className="text-sm text-muted leading-relaxed">
                   {person.bio}
                 </p>
+                <div className="mt-4 pt-4 border-t border-border">
+                  <p className="text-xs font-medium uppercase tracking-widest text-brand-pink mb-1.5">
+                    Ideal time-travel destination
+                  </p>
+                  {person.timeTravelDestination ? (
+                    <p className="text-sm text-muted leading-relaxed italic">
+                      &ldquo;{person.timeTravelDestination}&rdquo;
+                    </p>
+                  ) : (
+                    <p className="text-sm text-muted/40">—</p>
+                  )}
+                </div>
               </div>
             </div>
           ))}
