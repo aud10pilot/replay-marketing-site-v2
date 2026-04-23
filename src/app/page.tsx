@@ -1,5 +1,6 @@
 import Image from "next/image";
 import FeatureTabs from "@/components/FeatureTabs";
+import BugToFixTabs from "@/components/BugToFixTabs";
 import TwoWaysToConnect from "@/components/TwoWaysToConnect";
 import Footer from "@/components/Footer";
 import { FAQSchema, OrganizationSchema } from "@/components/JsonLd";
@@ -152,13 +153,16 @@ export default function Home() {
         </p>
       </section>
 
-      {/* Two Products */}
-      <TwoWaysToConnect />
-
       {/* How It Works — Interactive Tabs */}
       <div id="how-it-works" className="bg-surface-tinted">
         <FeatureTabs />
       </div>
+
+      {/* Two Products */}
+      <TwoWaysToConnect />
+
+      {/* Bug to Fix — MCP in action */}
+      <BugToFixTabs />
 
       {/* Technical Depth */}
       <section className="px-6 py-24 max-w-5xl mx-auto">
@@ -305,9 +309,9 @@ export default function Home() {
               },
               {
                 quote:
-                  "I think Replay has a very good chance of creating a new category around collaborative debugging.",
-                name: "Guillermo Rauch",
-                role: "Founder of Vercel",
+                  "After seeing what Replay can do, I'm going to set up a lot more Playwright tests on my PRs. Was afraid to before, due to the extra work of debugging failed tests.",
+                name: "Ben Ruckman",
+                role: "Co-founder, Getmallow.com",
               },
               {
                 quote:
