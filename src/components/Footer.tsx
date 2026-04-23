@@ -6,6 +6,9 @@ export default function Footer() {
       <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4">
         <span>&copy; 2026 Replay. All rights reserved.</span>
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+          <Link href="/" className="hover:text-foreground transition">
+            Home
+          </Link>
           <Link href="/about" className="hover:text-foreground transition">
             About
           </Link>
