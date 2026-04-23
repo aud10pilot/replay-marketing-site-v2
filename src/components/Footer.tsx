@@ -6,15 +6,6 @@ export default function Footer() {
       <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4">
         <span>&copy; 2026 Replay. All rights reserved.</span>
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
-          <Link href="/how-it-works" className="hover:text-foreground transition">
-            How it Works
-          </Link>
-          <Link href="/for-engineers" className="hover:text-foreground transition">
-            For Engineers
-          </Link>
-          <Link href="/for-vibe-coders" className="hover:text-foreground transition">
-            For Vibe Coders
-          </Link>
           <Link href="/about" className="hover:text-foreground transition">
             About
           </Link>

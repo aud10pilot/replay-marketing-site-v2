@@ -87,7 +87,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="hero-fade-in px-6 pt-24 pb-20 max-w-3xl mx-auto text-center">
         <h1 className="text-5xl sm:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
-          We make software{" "}
+          We make the invisible{" "}
           <span className="text-brand-pink">visible.</span>
         </h1>
         <p className="text-lg text-muted max-w-2xl mx-auto leading-relaxed">

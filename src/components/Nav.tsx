@@ -7,9 +7,8 @@ import Link from "next/link";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const links = [
-  { href: "/how-it-works", label: "How it Works" },
-  { href: "/for-engineers", label: "For Engineers" },
   { href: "/pricing", label: "Pricing" },
+  { href: "/about", label: "About" },
   { href: "https://docs.replay.io/basics/replay-mcp/overview", label: "Docs" },
 ];
 
@@ -48,14 +47,20 @@ export default function Nav() {
         </div>
 
         {/* Desktop: right actions */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
           <a
-            href="https://docs.replay.io/basics/replay-mcp/overview"
+            href="https://app.replay.io/login"
+            className="rounded-full px-4 py-2 text-sm font-medium text-muted border border-border hover:text-foreground hover:border-foreground/20 transition"
+          >
+            Sign In
+          </a>
+          <a
+            href="https://app.replay.io/sign-up"
             className="rounded-full px-4 py-2 text-sm font-medium text-white transition"
             style={{ background: "var(--brand-gradient)" }}
           >
-            Try Replay Free
+            Sign Up
           </a>
         </div>
 
@@ -133,12 +138,19 @@ export default function Nav() {
             );
           })}
           <a
-            href="https://docs.replay.io/basics/replay-mcp/overview"
+            href="https://app.replay.io/login"
+            onClick={() => setOpen(false)}
+            className="rounded-full px-4 py-2.5 text-sm font-medium text-muted border border-border text-center transition"
+          >
+            Sign In
+          </a>
+          <a
+            href="https://app.replay.io/sign-up"
             onClick={() => setOpen(false)}
             className="rounded-full px-4 py-2.5 text-sm font-medium text-white text-center transition"
             style={{ background: "var(--brand-gradient)" }}
           >
-            Try Replay Free
+            Sign Up
           </a>
         </div>
       )}
