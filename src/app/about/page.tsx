@@ -21,42 +21,56 @@ const team = [
     name: "Brian Hackett",
     role: "CEO",
     photo: "/team/brian-hackett.png",
+    linkedin: "https://www.linkedin.com/in/brian-hackett-0969a070/",
     bio: "Stanford Ph.D. with 10 years at Mozilla, where he worked on the systems that power the Firefox browser engine. Brian started Replay to solve the problem he spent a decade fighting: helping developers understand complex systems when things go wrong. When he\u2019s not building Replay, he\u2019s sailing or traveling in a van.",
   },
   {
     name: "Mark Erikson",
     role: "Software Engineer",
     photo: "/team/mark-erikson.png",
+    linkedin: "https://www.linkedin.com/in/markerikson/",
     bio: "The maintainer of Redux and creator of Redux Toolkit \u2014 tools used by millions of React developers worldwide. Mark brings deep expertise in developer tooling and an obsessive focus on developer experience. Based in Southwest Ohio.",
   },
   {
     name: "Dominik Seifert",
     role: "Software Engineer",
     photo: "/team/dominik-seifert.png",
+    linkedin: "https://www.linkedin.com/in/dominik-seifert-phd-8b663b54/",
     bio: "Two decades of software engineering, from MMORPG servers to CUDA optimization. Dominik holds a Ph.D. in systems analysis and brings the kind of low-level systems knowledge that makes Replay\u2019s recording engine possible. Based in Taiwan, originally from Germany.",
   },
   {
     name: "Thomas Daly",
     role: "Head of Product",
-    photo: null,
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    photo: "/team/thomasDaly_headshot.jpeg",
+    linkedin: "https://www.linkedin.com/in/tomcdaly/",
+    bio: "Thomas is a product builder/maker that lives at the intersection of the customer and the product, while reading the tea leaves of the shifting landscape. Started out as a designer and evolved into a product manager. Obsessed with the details of making great things, and loves nothing more than to do with good people. He talks about hospitality vs. hostility a lot. He lives in the lower Hudson River valley in NY.",
   },
   {
     name: "Strider Wilson",
     role: "Software Engineer",
-    photo: null,
+    photo: "/team/strider_headshot.png",
+    linkedin: "https://www.linkedin.com/in/strider-wilson/",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui vivamus sagittis lacus vel augue.",
   },
   {
     name: "Michael Ward",
     role: "Dev Ops",
     photo: null,
+    linkedin: null,
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum. Cras mattis consectetur purus sit amet fermentum aenean lacinia bibendum nulla sed.",
   },
   {
     name: "Brett Lamy",
+    role: "Staff Software Engineer",
+    photo: "/team/brett_headshot.jpeg",
+    linkedin: "https://www.linkedin.com/in/blamy/",
+    bio: "Staff Software Engineer with 15 years of experience delivering full-stack products for small startups and large high scale enterprises.",
+  },
+  {
+    name: "Mateusz Burzy\u0144ski",
     role: "Software Engineer",
-    photo: null,
+    photo: "/team/mateusz_headshot.jpeg",
+    linkedin: "https://www.linkedin.com/in/mateusz-burzy%C5%84ski-5183b0a3/",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu leo quam pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis est non commodo luctus.",
   },
 ];
@@ -220,7 +234,25 @@ export default function AboutPage() {
               className="rounded-xl border border-border bg-surface overflow-hidden"
             >
               <div className="aspect-square bg-surface-hover relative">
-                {person.photo ? (
+                {person.linkedin ? (
+                  <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="block w-full h-full absolute inset-0">
+                    {person.photo ? (
+                      <Image
+                        src={person.photo}
+                        alt={person.name}
+                        fill
+                        className="object-cover"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center text-muted/30">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                          <circle cx="12" cy="7" r="4" />
+                        </svg>
+                      </div>
+                    )}
+                  </a>
+                ) : person.photo ? (
                   <Image
                     src={person.photo}
                     alt={person.name}
@@ -229,16 +261,7 @@ export default function AboutPage() {
                   />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center text-muted/30">
-                    <svg
-                      width="64"
-                      height="64"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                       <circle cx="12" cy="7" r="4" />
                     </svg>
@@ -246,7 +269,13 @@ export default function AboutPage() {
                 )}
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-semibold">{person.name}</h3>
+                {person.linkedin ? (
+                  <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-brand-purple transition">
+                    <h3 className="text-lg font-semibold">{person.name}</h3>
+                  </a>
+                ) : (
+                  <h3 className="text-lg font-semibold">{person.name}</h3>
+                )}
                 <p className="text-sm text-brand-purple mb-3">{person.role}</p>
                 <p className="text-sm text-muted leading-relaxed">
                   {person.bio}
