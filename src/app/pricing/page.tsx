@@ -99,10 +99,6 @@ export default function PricingPage() {
 
             {/* Replay MCP */}
             <div className="relative flex flex-col rounded-xl border border-brand-pink bg-brand-pink/[0.03] dark:bg-brand-pink/[0.04] p-8">
-              <span className="absolute -top-px right-5 bg-brand-pink text-white text-[11px] font-semibold px-2.5 py-0.5 rounded-b-lg tracking-wide">
-                Most popular
-              </span>
-
               <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-brand-pink mb-2">
                 Replay MCP
               </p>
