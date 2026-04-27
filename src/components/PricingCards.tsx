@@ -90,7 +90,7 @@ export default function PricingCards() {
                 "Integrates with your test suite and GitHub PRs",
                 "AI root cause analysis on every test failure — automatically",
                 "Suggested fixes fed back to your coding agent",
-                "Recordings per month included",
+                "{X} recordings per month included",
                 "Playwright and Cypress support",
               ].map((f) => (
                 <li key={f} className="flex items-start gap-2.5 text-sm text-muted leading-snug">
