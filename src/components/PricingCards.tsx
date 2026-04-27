@@ -162,7 +162,7 @@ export default function PricingCards() {
 
         <p className="text-center text-sm text-muted mt-10">
           Not sure if it&apos;s worth it?{" "}
-          <a href="/roi" className="text-brand-purple hover:opacity-80 transition underline underline-offset-2">
+          <a href="/roi-calculator" className="text-brand-purple hover:opacity-80 transition underline underline-offset-2">
             Calculate your team&apos;s ROI →
           </a>
         </p>
