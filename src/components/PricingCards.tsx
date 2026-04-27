@@ -59,9 +59,16 @@ export default function PricingCards() {
           </button>
         </div>
 
+        <p className="text-center text-sm text-muted mb-8">
+          Not sure if it&apos;s worth it?{" "}
+          <a href="/roi-calculator" className="text-brand-purple hover:opacity-80 transition underline underline-offset-2">
+            Calculate your team&apos;s ROI →
+          </a>
+        </p>
+
         <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
 
-          {/* Replay MCP */}
+          {/* Replay Growth */}
           <div className="relative flex flex-col rounded-xl border border-brand-pink bg-brand-pink/[0.03] dark:bg-brand-pink/[0.04] p-8">
             <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-brand-pink mb-2">
               Replay Growth
@@ -159,13 +166,6 @@ export default function PricingCards() {
           </div>
 
         </div>
-
-        <p className="text-center text-sm text-muted mt-10">
-          Not sure if it&apos;s worth it?{" "}
-          <a href="/roi-calculator" className="text-brand-purple hover:opacity-80 transition underline underline-offset-2">
-            Calculate your team&apos;s ROI →
-          </a>
-        </p>
       </section>
     </div>
   );
