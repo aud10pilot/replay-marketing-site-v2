@@ -88,7 +88,7 @@ export default function PricingCards() {
             <ul className="flex flex-col gap-2.5 mb-8 flex-1">
               {[
                 "Integrates with your test suite and GitHub PRs",
-                "AI root cause analysis on every test failure — automatically",
+                "AI root cause analysis on test failures — automatically",
                 "Suggested fixes fed back to your coding agent",
                 "500 recordings per month included",
                 "Playwright and Cypress support",
