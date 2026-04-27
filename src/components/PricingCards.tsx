@@ -91,8 +91,7 @@ export default function PricingCards() {
                 "AI root cause analysis on every test failure — automatically",
                 "Suggested fixes fed back to your coding agent",
                 "Recordings per month included",
-                "Works with Claude Code, Codex, Cursor, Copilot, and Windsurf",
-                "Playwright and Cypress support · Selenium in progress",
+                "Playwright and Cypress support",
               ].map((f) => (
                 <li key={f} className="flex items-start gap-2.5 text-sm text-muted leading-snug">
                   <Check />
