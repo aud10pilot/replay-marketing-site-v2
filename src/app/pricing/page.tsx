@@ -210,9 +210,9 @@ export default function PricingPage() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-brand-purple mb-1.5">
               Design partners
             </p>
-            <h3 className="text-base font-semibold mb-1">Working with us? Get free access during the engagement.</h3>
+            <h3 className="text-base font-semibold mb-1">Become a Design Partner to help shape the future of Replay</h3>
             <p className="text-sm text-muted leading-relaxed max-w-lg">
-              We&apos;re working with a small group of engineering teams to build and refine Replay. Design partners get full, free access in exchange for real usage and regular feedback.
+              We&apos;re working with a small group of engineering teams who take CI/CD automation seriously to build and refine Replay. Design partners get full, free access in exchange for real usage and regular feedback.
             </p>
           </div>
           <a
