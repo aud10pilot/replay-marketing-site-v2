@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
+import PricingCards from "@/components/PricingCards";
 
 export const metadata: Metadata = {
   title: "Pricing — Replay",
@@ -13,23 +14,6 @@ export const metadata: Metadata = {
       "Replay MCP gives your coding agent time-travel debugging. $299/month for self-healing CI/CD. Start with a 14-day free trial.",
   },
 };
-
-const Check = () => (
-  <span className="mt-0.5 flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full bg-emerald-500/10 border border-emerald-500/30">
-    <svg
-      width="9"
-      height="9"
-      viewBox="0 0 9 9"
-      fill="none"
-      className="stroke-emerald-500"
-      strokeWidth="2.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <polyline points="1.5,4.5 3.5,7 7.5,2" />
-    </svg>
-  </span>
-);
 
 const faqs = [
   {
@@ -92,112 +76,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Pricing tiers */}
-      <div className="bg-surface-tinted">
-        <section className="px-6 py-20 max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-
-            {/* Replay MCP */}
-            <div className="relative flex flex-col rounded-xl border border-brand-pink bg-brand-pink/[0.03] dark:bg-brand-pink/[0.04] p-8">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-brand-pink mb-2">
-                Replay MCP
-              </p>
-              <h2 className="text-xl font-semibold tracking-tight mb-2 leading-snug">
-                Self-healing CI/CD for React and Next.js teams
-              </h2>
-              <p className="text-sm text-muted leading-relaxed mb-6">
-                When a test fails, Replay records it, your agent time-travels through
-                the recording, and the fix lands on your PR.
-              </p>
-
-              <div className="font-semibold tracking-tight mb-1 leading-none text-[42px]">
-                <sup className="text-xl font-medium align-top mr-0.5">$</sup>
-                299
-              </div>
-              <p className="text-xs text-muted mb-6">per month · billed annually</p>
-
-              <div className="h-px bg-border mb-5" />
-
-              <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-muted mb-3">
-                Includes
-              </p>
-              <ul className="flex flex-col gap-2.5 mb-8 flex-1">
-                {[
-                  "Integrates with your test suite and GitHub PRs",
-                  "AI root cause analysis on every test failure — automatically",
-                  "Suggested fixes fed back to your coding agent",
-                  "Recordings per month included",
-                  "Works with Claude Code, Codex, Cursor, Copilot, and Windsurf",
-                  "Playwright and Cypress support · Selenium in progress",
-                ].map((f) => (
-                  <li key={f} className="flex items-start gap-2.5 text-sm text-muted leading-snug">
-                    <Check />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href="https://docs.replay.io/basics/replay-ci-agent/overview"
-                className="block w-full text-center py-3 rounded-xl text-sm font-medium transition bg-brand-pink text-white hover:opacity-90"
-              >
-                Start integrating
-              </a>
-              <p className="text-center text-xs text-muted mt-3">
-                14-day free trial · No credit card required
-              </p>
-            </div>
-
-            {/* Enterprise */}
-            <div className="relative flex flex-col rounded-xl border border-border bg-surface p-8">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-muted mb-2">
-                Enterprise
-              </p>
-              <h2 className="text-xl font-semibold tracking-tight mb-2 leading-snug">
-                For teams with high PR velocity or org-wide deployments
-              </h2>
-              <p className="text-sm text-muted leading-relaxed mb-6">
-                Platform integrations, custom contracts, and dedicated support for
-                teams running Replay at scale.
-              </p>
-
-              <div className="font-semibold tracking-tight mb-1 leading-none text-[34px]">
-                Custom
-              </div>
-              <p className="text-xs text-muted mb-6">usage-based or seat-based · negotiated together</p>
-
-              <div className="h-px bg-border mb-5" />
-
-              <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-muted mb-3">
-                Includes
-              </p>
-              <ul className="flex flex-col gap-2.5 mb-8 flex-1">
-                {[
-                  "Unlimited recordings",
-                  "Usage-based or seat-based — we'll find the right model together",
-                  "Priority support and dedicated onboarding",
-                  "SLA guarantees",
-                  "SSO and advanced access controls",
-                  "Roadmap input and joint planning",
-                ].map((f) => (
-                  <li key={f} className="flex items-start gap-2.5 text-sm text-muted leading-snug">
-                    <Check />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href="mailto:sales@replay.io"
-                className="block w-full text-center py-3 rounded-xl text-sm font-medium transition border border-border text-muted hover:border-brand-pink hover:text-brand-pink hover:bg-brand-pink/[0.06]"
-              >
-                Talk to us
-              </a>
-            </div>
-
-          </div>
-        </section>
-      </div>
+      <PricingCards />
 
       {/* Design Partner callout */}
       <section className="px-6 py-10 max-w-4xl mx-auto">
