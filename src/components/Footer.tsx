@@ -12,6 +12,9 @@ export default function Footer() {
           <Link href="/about" className="hover:text-foreground transition">
             About
           </Link>
+          <Link href="/roi" className="hover:text-foreground transition">
+            ROI Calculator
+          </Link>
           <Link href="/security" className="hover:text-foreground transition">
             Security
           </Link>
