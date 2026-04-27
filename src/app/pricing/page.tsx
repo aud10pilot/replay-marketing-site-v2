@@ -6,12 +6,12 @@ import PricingCards from "@/components/PricingCards";
 export const metadata: Metadata = {
   title: "Pricing — Replay",
   description:
-    "Replay MCP gives your coding agent time-travel debugging. $299/month for self-healing CI/CD. Start with a 14-day free trial.",
+    "Replay gives your coding agent time-travel debugging. $299/month for self-healing CI/CD. Start with a 14-day free trial.",
   alternates: { canonical: "/pricing" },
   openGraph: {
     title: "Pricing — Replay",
     description:
-      "Replay MCP gives your coding agent time-travel debugging. $299/month for self-healing CI/CD. Start with a 14-day free trial.",
+      "Replay gives your coding agent time-travel debugging. $299/month for self-healing CI/CD. Start with a 14-day free trial.",
   },
 };
 
@@ -30,11 +30,11 @@ const faqs = [
   },
   {
     q: "Which coding agents does it work with?",
-    a: "Claude Code, Codex, Cursor, Copilot, and Windsurf — any agent that supports MCP. Add Replay MCP once and it works across your tools.",
+    a: "Claude Code, Codex, Cursor, Copilot, and Windsurf — any agent that supports MCP. Add Replay once and it works across your tools.",
   },
   {
     q: "How is this different from Datadog, Sentry, or LogRocket?",
-    a: "Those tools surface what went wrong. Replay shows your agent exactly why — every DOM mutation, network call, and JS execution frame, captured deterministically. Replay MCP analyzes the recording and generates a specific fix. No human needs to read a trace.",
+    a: "Those tools surface what went wrong. Replay shows your agent exactly why — every DOM mutation, network call, and JS execution frame, captured deterministically. Replay analyzes the recording and generates a specific fix. No human needs to read a trace.",
   },
   {
     q: "Does recording slow down my CI?",

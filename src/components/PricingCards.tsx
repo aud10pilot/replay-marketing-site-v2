@@ -64,7 +64,7 @@ export default function PricingCards() {
           {/* Replay MCP */}
           <div className="relative flex flex-col rounded-xl border border-brand-pink bg-brand-pink/[0.03] dark:bg-brand-pink/[0.04] p-8">
             <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-brand-pink mb-2">
-              Replay MCP
+              Replay
             </p>
             <h2 className="text-xl font-semibold tracking-tight mb-2 leading-snug">
               Self-healing CI/CD for React and Next.js teams
