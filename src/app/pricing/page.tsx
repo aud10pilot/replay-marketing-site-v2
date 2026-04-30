@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: "Which test frameworks and CI providers does it support?",
-    a: "Replay works with Playwright and Cypress. It integrates with GitHub Actions, CircleCI, Jenkins, and any CI that can run a shell command. No changes to your existing tests required.",
+    a: "Replay works with Playwright. It integrates with GitHub Actions, CircleCI, Jenkins, and any CI that can run a shell command. No changes to your existing tests required.",
   },
   {
     q: "Which coding agents does it work with?",

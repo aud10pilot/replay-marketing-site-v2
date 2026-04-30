@@ -125,12 +125,12 @@ export default function ForEngineersPage() {
             </h3>
             <p className="text-base text-muted leading-relaxed mb-4">
               Install the GitHub bot on your repo. For every PR, Replay records
-              all Playwright and Cypress test runs. When a test fails, it
+              all Playwright test runs. When a test fails, it
               analyzes the recording and posts root cause + suggested fix as a
               PR comment.
             </p>
             <ul className="space-y-2 text-sm text-muted mb-6">
-              <li>✓ Works with existing Playwright and Cypress test suites</li>
+              <li>✓ Works with existing Playwright test suites</li>
               <li>✓ No changes to your tests</li>
               <li>✓ Root cause + suggested fix posted on every failing PR</li>
             </ul>

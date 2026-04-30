@@ -16,7 +16,7 @@ export default function Home() {
         items={[
           {
             q: "What is the Replay CI Agent?",
-            a: "The Replay CI Agent is a GitHub bot that watches your PRs, records every Playwright and Cypress test run, and — when a test fails — analyzes the recording and posts the root cause plus a suggested fix as a PR comment. No manual debugging required.",
+            a: "The Replay CI Agent is a GitHub bot that watches your PRs, records every Playwright test run, and — when a test fails — analyzes the recording and posts the root cause plus a suggested fix as a PR comment. No manual debugging required.",
           },
           {
             q: "What is Replay MCP?",
@@ -24,7 +24,7 @@ export default function Home() {
           },
           {
             q: "Which test frameworks does it support?",
-            a: "Replay works with Playwright and Cypress today, with Selenium and WebdriverIO support in progress. Point it at your existing test suite \u2014 no changes to your tests required.",
+            a: "Replay works with Playwright. Point it at your existing test suite \u2014 no changes to your tests required.",
           },
           {
             q: "How is this different from Datadog, Sentry, or LogRocket?",
@@ -446,7 +446,6 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             {[
-              { name: "Cypress", logo: "/logos/cypress.svg" },
               { name: "Playwright", logo: "/logos/playwright.svg" },
               { name: "Selenium", logo: "/logos/selenium.svg" },
               { name: "GitHub Actions", logo: "/logos/github-actions.svg" },
@@ -481,7 +480,7 @@ export default function Home() {
             {[
               {
                 q: "What is the Replay CI Agent?",
-                a: "The Replay CI Agent is a GitHub bot that watches your PRs, records every Playwright and Cypress test run, and — when a test fails — analyzes the recording and posts the root cause plus a suggested fix as a PR comment. No manual debugging required.",
+                a: "The Replay CI Agent is a GitHub bot that watches your PRs, records every Playwright test run, and — when a test fails — analyzes the recording and posts the root cause plus a suggested fix as a PR comment. No manual debugging required.",
               },
               {
                 q: "What is Replay MCP?",
@@ -489,7 +488,7 @@ export default function Home() {
               },
               {
                 q: "Which test frameworks does it support?",
-                a: "Replay works with Playwright and Cypress today, with Selenium and WebdriverIO support in progress. Point it at your existing test suite \u2014 no changes to your tests required.",
+                a: "Replay works with Playwright. Point it at your existing test suite \u2014 no changes to your tests required.",
               },
               {
                 q: "How is this different from Datadog, Sentry, or LogRocket?",

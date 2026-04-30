@@ -6,7 +6,7 @@ import CILandingPage from "./CILandingPage";
 export const metadata: Metadata = {
   title: "Fix Flaky Tests Automatically | Replay",
   description:
-    "Replay records every CI failure, runs root cause analysis, and ships the fix to your agent automatically. Connect Playwright or Cypress in minutes.",
+    "Replay records every CI failure, runs root cause analysis, and posts the root cause and a suggested fix as a PR comment. Connect Playwright in minutes.",
   alternates: { canonical: "/fix-flaky-tests" },
   openGraph: {
     title: "Fix Flaky Tests Automatically | Replay",

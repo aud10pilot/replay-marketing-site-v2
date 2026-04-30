@@ -33,7 +33,7 @@ export default function TwoWaysToConnect() {
             </h3>
             <p className="text-sm text-muted leading-relaxed mb-6 flex-1">
               The Replay CI Agent installs as a GitHub bot. It records every
-              Playwright and Cypress run on every PR. When a test fails, Replay
+              Playwright runs on every PR. When a test fails, Replay
               analyzes the recording and posts root cause plus a suggested fix
               as a PR comment — automatically.
             </p>

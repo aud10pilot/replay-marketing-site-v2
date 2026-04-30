@@ -98,7 +98,7 @@ export default function PricingCards() {
                 "AI root cause analysis on test failures — automatically",
                 "Suggested fixes fed back to your coding agent",
                 "500 recordings per month included",
-                "Playwright and Cypress support",
+                "Playwright support",
               ].map((f) => (
                 <li key={f} className="flex items-start gap-2.5 text-sm text-muted leading-snug">
                   <Check />

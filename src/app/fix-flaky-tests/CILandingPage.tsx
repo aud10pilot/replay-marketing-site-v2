@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 
 // ─── Code snippets ────────────────────────────────────────────────────────────
@@ -22,23 +21,6 @@ export default defineConfig({
       use: { ...replayDevices['Replay Chromium'] },
     },
   ],
-});`;
-
-const CYPRESS_INSTALL = `npm install @replayio/cypress --save-dev`;
-
-const CYPRESS_CONFIG = `// cypress.config.ts
-import { defineConfig } from 'cypress';
-import { plugin as replayPlugin } from '@replayio/cypress';
-
-export default defineConfig({
-  e2e: {
-    setupNodeEvents(on, config) {
-      replayPlugin(on, config, {
-        apiKey: process.env.REPLAY_API_KEY,
-      });
-      return config;
-    },
-  },
 });`;
 
 const GITHUB_ACTION = `# .github/workflows/ci.yml
@@ -212,7 +194,6 @@ function CodeBlock({ code, label }: { code: string; label?: string }) {
 // ─── Main page ────────────────────────────────────────────────────────────────
 
 export default function CILandingPage() {
-  const [tab, setTab] = useState<"playwright" | "cypress">("playwright");
 
   return (
     <>
@@ -285,13 +266,6 @@ export default function CILandingPage() {
             >
               <PlaywrightIcon />
               Connect Playwright
-            </a>
-            <a
-              href="https://docs.replay.io/reference/test-runners/cypress/installation"
-              className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium border border-border hover:bg-surface transition"
-            >
-              <CypressIcon />
-              Connect Cypress
             </a>
           </div>
 
@@ -409,38 +383,11 @@ export default function CILandingPage() {
                 Install the Replay test runner
               </h3>
               <p className="text-sm text-muted mb-4 leading-relaxed">
-                Drop in our Playwright or Cypress plugin. Your tests run
+                Drop in our Playwright plugin. Your tests run
                 identically — Replay just records every execution in CI.
               </p>
 
-              {/* Tabs */}
-              <div className="flex gap-1 mb-3 bg-surface rounded-lg p-1 w-fit border border-border">
-                {(["playwright", "cypress"] as const).map((t) => (
-                  <button
-                    key={t}
-                    onClick={() => setTab(t)}
-                    className={`px-3 py-1.5 text-xs font-medium rounded-md transition capitalize flex items-center gap-1.5 cursor-pointer ${
-                      tab === t
-                        ? "bg-background text-foreground shadow-sm border border-border"
-                        : "text-muted hover:text-foreground"
-                    }`}
-                  >
-                    {t === "playwright" ? (
-                      <PlaywrightIcon size={12} />
-                    ) : (
-                      <CypressIcon size={12} />
-                    )}
-                    {t}
-                  </button>
-                ))}
-              </div>
-
-              <CodeBlock
-                code={
-                  tab === "playwright" ? PLAYWRIGHT_INSTALL : CYPRESS_INSTALL
-                }
-                label="terminal"
-              />
+              <CodeBlock code={PLAYWRIGHT_INSTALL} label="terminal" />
             </div>
           </div>
 
@@ -458,16 +405,7 @@ export default function CILandingPage() {
                 Replay to record and upload failures to your team&rsquo;s
                 workspace.
               </p>
-              <CodeBlock
-                code={
-                  tab === "playwright" ? PLAYWRIGHT_CONFIG : CYPRESS_CONFIG
-                }
-                label={
-                  tab === "playwright"
-                    ? "playwright.config.ts"
-                    : "cypress.config.ts"
-                }
-              />
+              <CodeBlock code={PLAYWRIGHT_CONFIG} label="playwright.config.ts" />
             </div>
           </div>
 
@@ -495,12 +433,6 @@ export default function CILandingPage() {
                   className="inline-block text-sm font-medium text-brand-purple hover:opacity-80 transition"
                 >
                   Playwright setup guide →
-                </a>
-                <a
-                  href="https://docs.replay.io/reference/test-runners/cypress/installation"
-                  className="inline-block text-sm font-medium text-muted hover:text-foreground transition"
-                >
-                  Cypress setup guide →
                 </a>
               </div>
             </div>
@@ -720,13 +652,6 @@ export default function CILandingPage() {
               <PlaywrightIcon />
               Connect Playwright
             </a>
-            <a
-              href="https://docs.replay.io/reference/test-runners/cypress/installation"
-              className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium border border-border hover:bg-surface transition"
-            >
-              <CypressIcon />
-              Connect Cypress
-            </a>
           </div>
           <a
             href="https://docs.replay.io"
@@ -758,25 +683,6 @@ function PlaywrightIcon({ size = 16 }: { size?: number }) {
   );
 }
 
-function CypressIcon({ size = 16 }: { size?: number }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
-      <path
-        d="M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-      />
-    </svg>
-  );
-}
 
 function GitHubIcon() {
   return (
