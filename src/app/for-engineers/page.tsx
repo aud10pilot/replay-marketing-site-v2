@@ -5,12 +5,12 @@ import Nav from "@/components/Nav";
 import WarpSpeedBg from "@/components/WarpSpeedBg";
 
 export const metadata: Metadata = {
-  title: "Replay for Engineers — Self-Healing CI/CD",
+  title: "Replay for Engineers — AI-Assisted CI/CD",
   description:
     "Replay records every test run in CI. When something breaks, your coding agent time-travels through the recording, identifies the root cause, and posts the analysis and a suggested fix as a PR comment. No manual debugging.",
   alternates: { canonical: "/for-engineers" },
   openGraph: {
-    title: "Replay for Engineers — Self-Healing CI/CD",
+    title: "Replay for Engineers — AI-Assisted CI/CD",
     description:
       "Test fails. Agent time-travels. Root cause and suggested fix posted to your PR.",
   },
@@ -121,7 +121,7 @@ export default function ForEngineersPage() {
               Replay CI Agent
             </p>
             <h3 className="text-xl font-semibold mb-3">
-              Self-healing CI/CD
+              AI-Assisted CI/CD
             </h3>
             <p className="text-base text-muted leading-relaxed mb-4">
               Install the GitHub bot on your repo. For every PR, Replay records

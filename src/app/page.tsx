@@ -66,7 +66,7 @@ export default function Home() {
         />
         <section className="hero-fade-in relative z-10 flex flex-col items-center text-center px-6 pt-24 pb-16 max-w-4xl mx-auto">
           <p className="text-sm font-medium uppercase tracking-widest text-brand-pink mb-6">
-            Self-Healing CI/CD
+            AI-Assisted CI/CD
           </p>
           <h1 className="text-5xl sm:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
             Your coding agent can&apos;t fix
@@ -372,7 +372,7 @@ export default function Home() {
       <div className="bg-surface-tinted">
         <section className="px-6 py-24 max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Self-healing CI vs. the old way
+            CI that explains itself vs. the old way
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="rounded-xl border border-border bg-surface p-8">

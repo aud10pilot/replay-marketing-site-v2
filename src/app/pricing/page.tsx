@@ -6,12 +6,12 @@ import PricingCards from "@/components/PricingCards";
 export const metadata: Metadata = {
   title: "Pricing — Replay",
   description:
-    "Replay gives your coding agent time-travel debugging. $299/month for self-healing CI/CD. Start with a 14-day free trial.",
+    "Replay gives your coding agent time-travel debugging. $299/month for AI-assisted CI/CD. Start with a 14-day free trial.",
   alternates: { canonical: "/pricing" },
   openGraph: {
     title: "Pricing — Replay",
     description:
-      "Replay gives your coding agent time-travel debugging. $299/month for self-healing CI/CD. Start with a 14-day free trial.",
+      "Replay gives your coding agent time-travel debugging. $299/month for AI-assisted CI/CD. Start with a 14-day free trial.",
   },
 };
 
@@ -64,7 +64,7 @@ export default function PricingPage() {
           </span>
 
           <h1 className="text-5xl sm:text-6xl font-bold leading-[1.08] tracking-tight mb-5">
-            Self-healing CI/CD
+            AI-Assisted CI/CD
             <br />
             <span className="text-brand-pink">for your coding agent.</span>
           </h1>

@@ -74,7 +74,7 @@ export default function PricingCards() {
               Replay Growth
             </p>
             <h2 className="text-xl font-semibold tracking-tight mb-2 leading-snug">
-              Self-healing CI/CD for React and Next.js teams
+              AI-assisted CI/CD for React and Next.js teams
             </h2>
             <p className="text-sm text-muted leading-relaxed mb-6">
               When a test fails, Replay records it, your agent time-travels through
