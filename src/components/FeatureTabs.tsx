@@ -26,15 +26,9 @@ const tabs: Tab[] = [
     image: dataImportGif,
   },
   {
-    title: "Root cause identified — specific fix generated",
+    title: "Root-cause & Fix posted as a comment",
     description:
-      "Your agent receives a precise, implementation-ready fix: which file, which function, what to change, and why. Not a guess — drawn directly from the recorded execution.",
-    video: "https://www.youtube.com/embed/d3yeUueEEJk",
-  },
-  {
-    title: "Fix posted to your PR — you review",
-    description:
-      "The CI Agent comments on your PR with the root cause analysis and suggested fix. You review the change instead of investigating the failure. Ship in minutes, not hours.",
+      "The CI Agent comments on your PR with the root cause and a suggested fix — which file, which function, what to change, and why. You review the change instead of investigating the failure. Ship in minutes, not hours.",
     video: "https://www.youtube.com/embed/d3yeUueEEJk",
   },
 ];
