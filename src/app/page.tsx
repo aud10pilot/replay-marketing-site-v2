@@ -76,7 +76,7 @@ export default function Home() {
           <p className="text-lg text-muted max-w-2xl mb-10 leading-relaxed">
             Replay records every test run. When something breaks, your coding
             agent time-travels through the recording, traces the root cause, and
-            posts the fix — directly on your PR.
+            posts the analysis and a suggested fix as a PR comment.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -392,7 +392,7 @@ export default function Home() {
                 With Replay
               </h3>
               <ul className="space-y-3 text-sm text-foreground/80">
-                <li>Test fails &rarr; agent time-travels &rarr; fix on your PR</li>
+                <li>Test fails &rarr; agent time-travels &rarr; root cause + suggested fix on your PR</li>
                 <li>Agents get runtime context and fix it on the first try</li>
                 <li>Flaky tests get recorded, diagnosed, and fixed</li>
                 <li>Low maintenance overhead means teams write more tests</li>

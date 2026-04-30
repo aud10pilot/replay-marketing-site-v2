@@ -71,7 +71,7 @@ export default function PricingPage() {
 
           <p className="text-lg text-muted max-w-lg mx-auto leading-relaxed">
             Replay records every test failure, your agent time-travels through
-            the recording, and the fix lands on your PR — automatically.
+            the recording, and posts the root cause and a suggested fix as a PR comment.
           </p>
         </div>
       </section>

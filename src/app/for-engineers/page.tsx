@@ -7,12 +7,12 @@ import WarpSpeedBg from "@/components/WarpSpeedBg";
 export const metadata: Metadata = {
   title: "Replay for Engineers — Self-Healing CI/CD",
   description:
-    "Replay records every test run in CI. When something breaks, your coding agent time-travels through the recording, identifies the root cause, and posts the fix on your PR. No manual debugging.",
+    "Replay records every test run in CI. When something breaks, your coding agent time-travels through the recording, identifies the root cause, and posts the analysis and a suggested fix as a PR comment. No manual debugging.",
   alternates: { canonical: "/for-engineers" },
   openGraph: {
     title: "Replay for Engineers — Self-Healing CI/CD",
     description:
-      "Test fails. Agent time-travels. Fix lands on your PR.",
+      "Test fails. Agent time-travels. Root cause and suggested fix posted to your PR.",
   },
 };
 
@@ -132,8 +132,7 @@ export default function ForEngineersPage() {
             <ul className="space-y-2 text-sm text-muted mb-6">
               <li>✓ Works with existing Playwright and Cypress test suites</li>
               <li>✓ No changes to your tests</li>
-              <li>✓ Root cause + fix on every failing PR</li>
-              <li>✓ v2: agent applies the fix automatically</li>
+              <li>✓ Root cause + suggested fix posted on every failing PR</li>
             </ul>
             <a
               href="https://docs.replay.io/basics/replay-ci-agent/overview"

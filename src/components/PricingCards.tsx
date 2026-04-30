@@ -78,7 +78,7 @@ export default function PricingCards() {
             </h2>
             <p className="text-sm text-muted leading-relaxed mb-6">
               When a test fails, Replay records it, your agent time-travels through
-              the recording, and the fix lands on your PR.
+              the recording, and posts the root cause and a suggested fix as a PR comment.
             </p>
 
             <div className="font-semibold tracking-tight mb-1 leading-none text-[42px] transition-all">
