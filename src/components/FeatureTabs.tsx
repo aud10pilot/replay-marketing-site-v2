@@ -16,7 +16,7 @@ const tabs: Tab[] = [
   {
     title: "Test fails — Replay records",
     description:
-      "Every Playwright and Cypress run in CI is recorded automatically. When a test fails, the full runtime is captured — DOM mutations, network calls, JS execution frames — ready for your agent to analyze.",
+      "Every Playwright run in CI is recorded automatically. When a test fails, the full runtime is captured — DOM mutations, network calls, JS execution frames — ready for your agent to analyze.",
     image: brokenButtonGif,
   },
   {
