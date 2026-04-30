@@ -7,7 +7,7 @@ import WarpSpeedBg from "@/components/WarpSpeedBg";
 export const metadata: Metadata = {
   title: "Replay for Engineers — AI-Assisted CI/CD",
   description:
-    "Replay records every test run in CI. When something breaks, your coding agent time-travels through the recording, identifies the root cause, and posts the analysis and a suggested fix as a PR comment. No manual debugging.",
+    "Replay records every test run in CI. When something breaks, Replay's time-travel agent analyzes the recording, identifies the root cause, and posts the analysis and a suggested fix as a PR comment. No manual debugging.",
   alternates: { canonical: "/for-engineers" },
   openGraph: {
     title: "Replay for Engineers — AI-Assisted CI/CD",
@@ -54,10 +54,10 @@ export default function ForEngineersPage() {
             </span>
           </h1>
           <p className="text-lg text-muted max-w-2xl mb-10 leading-relaxed">
-            Replay records every test run. When something breaks, your coding
-            agent time-travels through the recording — every DOM mutation, JS
+            Replay records every test run. When something breaks, Replay's
+            time-travel agent analyzes the recording — every DOM mutation, JS
             execution frame, and network call — traces the root cause, and
-            delivers the fix. No stack trace spelunking. No manual reproduction.
+            posts the analysis and a suggested fix. No stack trace spelunking. No manual reproduction.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a

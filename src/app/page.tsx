@@ -74,8 +74,8 @@ export default function Home() {
             <span className="text-brand-pink">what it can&apos;t see.</span>
           </h1>
           <p className="text-lg text-muted max-w-2xl mb-10 leading-relaxed">
-            Replay records every test run. When something breaks, your coding
-            agent time-travels through the recording, traces the root cause, and
+            Replay records every test run. When something breaks, Replay's
+            time-travel agent analyzes the recording, traces the root cause, and
             posts the analysis and a suggested fix as a PR comment.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -147,9 +147,9 @@ export default function Home() {
         <p className="text-lg text-muted max-w-2xl mx-auto leading-relaxed">
           Replay captures a deterministic recording of every test run — every DOM
           change, network request, JS execution frame, and state update. When a
-          test fails, your coding agent time-travels through the recording, traces
-          the exact causal chain from failure to root cause, and delivers a
-          specific fix. No guessing. No manual debugging. No human required.
+          test fails, Replay's time-travel agent analyzes the recording, traces
+          the exact causal chain from failure to root cause, and delivers the
+          root cause and a suggested fix. No guessing. No manual debugging. No human required.
         </p>
       </section>
 
@@ -392,7 +392,7 @@ export default function Home() {
                 With Replay
               </h3>
               <ul className="space-y-3 text-sm text-foreground/80">
-                <li>Test fails &rarr; agent time-travels &rarr; root cause + suggested fix on your PR</li>
+                <li>Test fails &rarr; Replay analyzes &rarr; root cause + suggested fix on your PR</li>
                 <li>Agents get runtime context and fix it on the first try</li>
                 <li>Flaky tests get recorded, diagnosed, and fixed</li>
                 <li>Low maintenance overhead means teams write more tests</li>

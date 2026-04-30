@@ -6,12 +6,12 @@ import PricingCards from "@/components/PricingCards";
 export const metadata: Metadata = {
   title: "Pricing — Replay",
   description:
-    "Replay gives your coding agent time-travel debugging. $299/month for AI-assisted CI/CD. Start with a 14-day free trial.",
+    "Replay's time-travel agent analyzes every CI failure and posts the root cause and a suggested fix to your PR. $299/month. Start with a 14-day free trial.",
   alternates: { canonical: "/pricing" },
   openGraph: {
     title: "Pricing — Replay",
     description:
-      "Replay gives your coding agent time-travel debugging. $299/month for AI-assisted CI/CD. Start with a 14-day free trial.",
+      "Replay's time-travel agent analyzes every CI failure and posts the root cause and a suggested fix to your PR. $299/month. Start with a 14-day free trial.",
   },
 };
 
@@ -70,8 +70,8 @@ export default function PricingPage() {
           </h1>
 
           <p className="text-lg text-muted max-w-lg mx-auto leading-relaxed">
-            Replay records every test failure, your agent time-travels through
-            the recording, and posts the root cause and a suggested fix as a PR comment.
+            Replay records every test failure, analyzes the recording, and
+            posts the root cause and a suggested fix as a PR comment.
           </p>
         </div>
       </section>
