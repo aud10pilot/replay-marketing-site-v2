@@ -20,9 +20,9 @@ const tabs: Tab[] = [
     image: brokenButtonGif,
   },
   {
-    title: "Agent time-travels through the recording",
+    title: "Replay time-travels through the recording",
     description:
-      "Replay MCP gives your coding agent access to the recording. It steps forward and backward through the execution, inspects state at any point in time, and traces the exact causal chain from failure to root cause.",
+      "Replay's time-travel agent steps forward and backward through the execution, inspects state at any point in time, and traces the exact causal chain from failure to root cause.",
     image: dataImportGif,
   },
   {
