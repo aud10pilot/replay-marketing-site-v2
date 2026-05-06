@@ -97,7 +97,7 @@ export default function PricingCards() {
                 "Integrates with your test suite and GitHub PRs",
                 "AI root cause analysis on test failures — automatically",
                 "Suggested fixes fed back to your coding agent",
-                "500 recordings per month included",
+                "500 AI analyses per month included",
                 "Playwright support",
               ].map((f) => (
                 <li key={f} className="flex items-start gap-2.5 text-sm text-muted leading-snug">
@@ -108,10 +108,10 @@ export default function PricingCards() {
             </ul>
 
             <a
-              href="https://docs.replay.io/basics/replay-ci-agent/overview"
+              href="https://app.replay.io/sign-up"
               className="block w-full text-center py-3 rounded-xl text-sm font-medium transition bg-brand-pink text-white hover:opacity-90"
             >
-              Start integrating
+              Start free trial
             </a>
             <p className="text-center text-xs text-muted mt-3">
               14-day free trial · No credit card required

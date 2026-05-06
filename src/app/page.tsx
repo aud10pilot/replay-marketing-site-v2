@@ -36,7 +36,7 @@ export default function Home() {
           },
           {
             q: "How much does this cost?",
-            a: "Replay is free to use for teams that work with us as a design partner. We\u2019re still working out the mechanics of our pricing model and will share it soon.",
+            a: "Replay Growth is $299/month (annual) or $349/month (monthly) and includes 500 AI analyses per month. There\u2019s a 14-day free trial \u2014 no credit card required. See replay.io/pricing for details.",
           },
         ]}
       />
@@ -507,11 +507,10 @@ export default function Home() {
             <div className="border-b border-border pb-6">
               <h3 className="text-base font-semibold mb-2">How much does this cost?</h3>
               <p className="text-sm text-muted leading-relaxed">
-                Replay is free to use for teams that work with us as a design partner (
-                <a href="/design-partner" className="text-brand-purple hover:opacity-80 transition">
-                  apply here
+                Replay Growth is $299/month (billed annually) or $349/month (billed monthly), and includes 500 AI analyses per month. There&apos;s a 14-day free trial — no credit card required.{" "}
+                <a href="/pricing" className="text-brand-purple hover:opacity-80 transition">
+                  See full pricing →
                 </a>
-                ). We&apos;re still working out the mechanics of our pricing model and will share it soon.
               </p>
             </div>
           </div>
