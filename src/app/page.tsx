@@ -151,7 +151,7 @@ export default function Home() {
           the exact causal chain from failure to root cause, and delivers the
           root cause and a suggested fix. No guessing. No manual debugging. No human required.
         </p>
-        <div className="max-w-3xl mx-auto aspect-video rounded-xl overflow-hidden border border-border shadow-lg">
+        <div className="max-w-[9.6rem] mx-auto aspect-video rounded-xl overflow-hidden border border-border shadow-lg">
           <iframe
             src="https://www.youtube.com/embed/Ew5Yc2Hni-8"
             title="That's why we built Replay"
