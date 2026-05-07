@@ -151,14 +151,19 @@ export default function Home() {
           the exact causal chain from failure to root cause, and delivers the
           root cause and a suggested fix. No guessing. No manual debugging. No human required.
         </p>
-        <div className="max-w-[9.6rem] mx-auto aspect-video rounded-xl overflow-hidden border border-border shadow-lg">
-          <iframe
-            src="https://www.youtube.com/embed/Ew5Yc2Hni-8"
-            title="That's why we built Replay"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            className="w-full h-full"
-          />
+        <div className="max-w-2xl mx-auto flex items-center gap-6 border border-border rounded-xl p-5">
+          <div className="w-64 flex-shrink-0 aspect-video rounded-lg overflow-hidden">
+            <iframe
+              src="https://www.youtube.com/embed/Ew5Yc2Hni-8"
+              title="That's why we built Replay"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="w-full h-full"
+            />
+          </div>
+          <p className="text-sm text-muted leading-relaxed">
+            You might be thinking &ldquo;<em className="italic underline decoration-brand-pink decoration-1">how is this different than the monitoring tools I&apos;m already using?</em>&rdquo; We made this video for you.
+          </p>
         </div>
       </section>
 
