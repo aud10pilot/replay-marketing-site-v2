@@ -1,6 +1,6 @@
 import Image from "next/image";
 import replayCIPipelineGif from "@/images/Replay-CI-pipeline.gif";
-import browserSidebarRevealGif from "@/images/BrowserSidebarReveal.gif";
+import replayExtensionGif from "@/images/Replay-extension.gif";
 import replayIDEGif from "@/images/Replay-IDE.gif";
 
 export default function TwoWaysToConnect() {
@@ -82,7 +82,7 @@ export default function TwoWaysToConnect() {
             </p>
             <div className="rounded-lg border border-border bg-surface-tinted overflow-hidden mb-6">
               <Image
-                src={browserSidebarRevealGif}
+                src={replayExtensionGif}
                 alt="Replay Chrome extension — record and debug in the browser"
                 className="w-full h-auto"
                 unoptimized
