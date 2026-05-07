@@ -1,7 +1,7 @@
 import Image from "next/image";
 import replayCIPipelineGif from "@/images/Replay-CI-pipeline.gif";
 import browserSidebarRevealGif from "@/images/BrowserSidebarReveal.gif";
-import brokenButtonGif from "@/images/mcp/brokenButton.gif";
+import replayIDEGif from "@/images/Replay-IDE.gif";
 
 export default function TwoWaysToConnect() {
   return (
@@ -52,7 +52,7 @@ export default function TwoWaysToConnect() {
             </p>
             <div className="rounded-lg border border-border bg-surface-tinted overflow-hidden mb-6">
               <Image
-                src={brokenButtonGif}
+                src={replayIDEGif}
                 alt="Replay MCP — time-travel debugging in your IDE"
                 className="w-full h-auto"
                 unoptimized
