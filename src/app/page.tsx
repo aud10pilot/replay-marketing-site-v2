@@ -144,13 +144,22 @@ export default function Home() {
           <br className="hidden sm:block" />
           the power of time-travel
         </h2>
-        <p className="text-lg text-muted max-w-2xl mx-auto leading-relaxed">
+        <p className="text-lg text-muted max-w-2xl mx-auto leading-relaxed mb-10">
           Replay captures a deterministic recording of every test run — every DOM
           change, network request, JS execution frame, and state update. When a
           test fails, Replay's time-travel agent analyzes the recording, traces
           the exact causal chain from failure to root cause, and delivers the
           root cause and a suggested fix. No guessing. No manual debugging. No human required.
         </p>
+        <div className="max-w-3xl mx-auto aspect-video rounded-xl overflow-hidden border border-border shadow-lg">
+          <iframe
+            src="https://www.youtube.com/embed/Ew5Yc2Hni-8"
+            title="That's why we built Replay"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            className="w-full h-full"
+          />
+        </div>
       </section>
 
       {/* How It Works — Interactive Tabs */}
