@@ -1,5 +1,5 @@
 import Image from "next/image";
-import cliAnimationGif from "@/images/CLIAnimation.gif";
+import replayCIPipelineGif from "@/images/Replay-CI-pipeline.gif";
 import browserSidebarRevealGif from "@/images/BrowserSidebarReveal.gif";
 import brokenButtonGif from "@/images/mcp/brokenButton.gif";
 
@@ -22,7 +22,7 @@ export default function TwoWaysToConnect() {
             </p>
             <div className="rounded-lg border border-border bg-surface-tinted overflow-hidden mb-6">
               <Image
-                src={cliAnimationGif}
+                src={replayCIPipelineGif}
                 alt="Replay CI Agent — test failure to PR fix"
                 className="w-full h-auto"
                 unoptimized
