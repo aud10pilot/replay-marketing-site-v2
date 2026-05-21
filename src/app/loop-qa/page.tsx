@@ -147,7 +147,7 @@ export default function LoopQAPage() {
               <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" />
               <circle cx="18" cy="5" r="3" />
             </svg>
-            <h3 className="text-base font-semibold mb-3">Journey Testing</h3>
+            <h3 className="text-base font-semibold mb-3">User Journey Testing</h3>
             <p className="text-sm text-muted leading-relaxed">
               Journeys replay automatically in a real browser and are captured as Replay sessions. Failures surface with links to the exact recording.
             </p>
@@ -158,9 +158,9 @@ export default function LoopQAPage() {
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-muted mb-5">
               <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
             </svg>
-            <h3 className="text-base font-semibold mb-3">Polish</h3>
+            <h3 className="text-base font-semibold mb-3">UX Audit</h3>
             <p className="text-sm text-muted leading-relaxed">
-              A polish pass reviews each recording for issues checks often miss—layout, UX friction, accessibility, and edge-case rendering—and files findings as bugs.
+              A structured review that catches issues automated tests routinely skip: layout problems, UX friction, accessibility gaps, and edge-case rendering.
             </p>
           </div>
 
