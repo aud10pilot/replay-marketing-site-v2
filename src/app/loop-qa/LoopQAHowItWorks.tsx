@@ -8,24 +8,28 @@ const steps = [
     title: "Give it a URL",
     description:
       "Point Loop QA at any web app — a marketing site, a SaaS product, an internal tool, or all of the above. No configuration, no test files, no setup beyond the URL.",
+    videoSrc: "/LoopQA_url.mp4",
   },
   {
     number: "02",
     title: "Discovers journeys and writes tests",
     description:
       "Loop QA explores your app the way a user would — navigating flows, filling forms, triggering interactions. It identifies meaningful user journeys and writes Playwright tests for each one. No human authoring required.",
+    videoSrc: "/LoopQA_journeys.mp4",
   },
   {
     number: "03",
     title: "Runs tests with Replay recording",
     description:
       "Playwright executes every test in a Replay-instrumented browser. Every session is recorded deterministically — every function call, DOM mutation, network request, and state change captured. When something fails, nothing is lost.",
+    videoSrc: null,
   },
   {
     number: "04",
     title: "Files detailed bug reports",
     description:
       "For every bug found, Loop QA files a report with everything needed to understand and fix it — without anyone having to reproduce it manually.",
+    videoSrc: null,
   },
 ];
 
@@ -82,25 +86,29 @@ export default function LoopQAHowItWorks() {
         {/* Right: video panel */}
         <div className="flex-1">
           <div className="rounded-2xl border border-border bg-surface overflow-hidden aspect-video flex items-center justify-center">
-            <div className="flex flex-col items-center gap-4 text-center px-8">
-              <div className="w-14 h-14 rounded-full bg-brand-pink/10 border border-brand-pink/30 flex items-center justify-center">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="text-brand-pink ml-1"
-                >
-                  <path d="M5 3l14 9-14 9V3z" fill="currentColor" />
-                </svg>
+            {steps[active].videoSrc ? (
+              <video
+                key={steps[active].videoSrc}
+                className="w-full h-full object-cover"
+                src={steps[active].videoSrc}
+                controls
+                playsInline
+                autoPlay
+                muted
+              />
+            ) : (
+              <div className="flex flex-col items-center gap-4 text-center px-8">
+                <div className="w-14 h-14 rounded-full bg-brand-pink/10 border border-brand-pink/30 flex items-center justify-center">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-brand-pink ml-1">
+                    <path d="M5 3l14 9-14 9V3z" fill="currentColor" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-foreground mb-1">{steps[active].title}</p>
+                  <p className="text-xs text-muted">Recording coming soon</p>
+                </div>
               </div>
-              <div>
-                <p className="text-sm font-medium text-foreground mb-1">
-                  {steps[active].title}
-                </p>
-                <p className="text-xs text-muted">Recording coming soon</p>
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
