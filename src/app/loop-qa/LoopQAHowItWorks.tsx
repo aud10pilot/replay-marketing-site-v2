@@ -22,14 +22,14 @@ const steps = [
     title: "Runs tests with Replay recording",
     description:
       "Playwright executes every test in a Replay-instrumented browser. Every session is recorded deterministically — every function call, DOM mutation, network request, and state change captured. When something fails, nothing is lost.",
-    videoSrc: null,
+    videoSrc: "/LoopQA_recordingtests.mp4",
   },
   {
     number: "04",
     title: "Files detailed bug reports",
     description:
       "For every bug found, Loop QA files a report with everything needed to understand and fix it — without anyone having to reproduce it manually.",
-    videoSrc: null,
+    videoSrc: "/LoopQA_bugreport.mp4",
   },
 ];
 
