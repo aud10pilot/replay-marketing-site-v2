@@ -171,6 +171,13 @@ export default function LoopQAPage() {
                 <p className="text-sm text-muted leading-relaxed">{uc.description}</p>
               </div>
             ))}
+            <div className="rounded-xl border border-dashed border-brand-pink/40 bg-brand-pink/[0.03] p-7 flex flex-col justify-center">
+              <h3 className="text-base font-semibold mb-2">Don&apos;t see your use case?</h3>
+              <p className="text-sm text-muted leading-relaxed">
+                We want to hear about how you&apos;d like to use Loop QA.{" "}
+                <a href="mailto:sales@replay.io" className="text-brand-pink hover:opacity-80 transition underline underline-offset-2">Let&apos;s talk.</a>
+              </p>
+            </div>
           </div>
         </section>
       </div>
