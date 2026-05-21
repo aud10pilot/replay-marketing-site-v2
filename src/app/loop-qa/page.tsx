@@ -143,6 +143,8 @@ export default function LoopQAPage() {
         </section>
       </div>
 
+      <LoopQAHowItWorks />
+
       {/* How Loop QA Works */}
       <section className="px-6 py-24 max-w-5xl mx-auto">
         <h2 className="text-3xl font-bold mb-3 leading-tight">How Loop QA Works</h2>
@@ -199,8 +201,6 @@ export default function LoopQAPage() {
           </div>
         </div>
       </section>
-
-      <LoopQAHowItWorks />
 
       {/* Bug Reports */}
       <div className="bg-surface-tinted">
