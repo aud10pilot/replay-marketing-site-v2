@@ -145,104 +145,6 @@ export default function LoopQAPage() {
 
       <LoopQAHowItWorks />
 
-      {/* How Loop QA Works */}
-      <section className="px-6 py-24 max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold mb-3 leading-tight">How Loop QA Works</h2>
-        <p className="text-muted max-w-2xl mb-12 leading-relaxed">
-          Loop QA autonomously tests your web app through four stages, each building on the last to deliver thorough coverage and actionable bug reports.
-        </p>
-        <div className="grid sm:grid-cols-2 gap-5">
-          {/* Exploration */}
-          <div className="rounded-xl border border-border bg-surface p-7">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-muted mb-5">
-              <circle cx="12" cy="12" r="10" />
-              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
-            </svg>
-            <h3 className="text-base font-semibold mb-3">Exploration</h3>
-            <p className="text-sm text-muted leading-relaxed">
-              Agents map your app by navigating pages, clicking, and filling forms. Each exploration yields <span className="font-semibold text-foreground">journeys</span> — structured flows that mirror how people actually use the product.
-            </p>
-          </div>
-
-          {/* Journey Testing */}
-          <div className="rounded-xl border border-border bg-surface p-7">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-muted mb-5">
-              <circle cx="6" cy="19" r="3" />
-              <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" />
-              <circle cx="18" cy="5" r="3" />
-            </svg>
-            <h3 className="text-base font-semibold mb-3">User Journey Testing</h3>
-            <p className="text-sm text-muted leading-relaxed">
-              Journeys replay automatically in a real browser and are captured as Replay sessions. Failures surface with links to the exact recording.
-            </p>
-          </div>
-
-          {/* Polish */}
-          <div className="rounded-xl border border-border bg-surface p-7">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-muted mb-5">
-              <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
-            </svg>
-            <h3 className="text-base font-semibold mb-3">UX Audit</h3>
-            <p className="text-sm text-muted leading-relaxed">
-              A structured review that catches issues automated tests routinely skip: layout problems, UX friction, accessibility gaps, and edge-case rendering.
-            </p>
-          </div>
-
-          {/* Bug Root Causes */}
-          <div className="rounded-xl border border-border bg-surface p-7">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-muted mb-5">
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.3-4.3" />
-            </svg>
-            <h3 className="text-base font-semibold mb-3">Root Cause Analysis & Fix</h3>
-            <p className="text-sm text-muted leading-relaxed">
-              Every bug includes analysis traced through the recording—from what you see back through network, state, and rendering—with evidence deep-linked into the session.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Bug Reports */}
-      <div className="bg-surface-tinted">
-        <section className="px-6 py-24 max-w-4xl mx-auto">
-          <p className="text-sm font-medium uppercase tracking-widest text-brand-pink mb-4 text-center">
-            Bug reports
-          </p>
-          <h2 className="text-3xl font-bold text-center mb-4 leading-tight">
-            Every bug comes with a full evidence trail
-          </h2>
-          <p className="text-muted text-center max-w-2xl mx-auto mb-14">
-            Not just &ldquo;assertion failed on line 42.&rdquo; Loop QA gives you everything you need to understand what went wrong and fix it.
-          </p>
-          <div className="grid sm:grid-cols-2 gap-5">
-            {bugReportItems.map((item) => (
-              <div key={item.label} className="rounded-xl border border-border bg-surface p-6">
-                <h3 className="text-sm font-semibold mb-2">{item.label}</h3>
-                <p className="text-sm text-muted leading-relaxed">{item.detail}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-      </div>
-
-      {/* Bug types */}
-      <section className="px-6 py-24 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-4 leading-tight">
-          Three categories of bugs, covered automatically
-        </h2>
-        <p className="text-muted text-center max-w-2xl mx-auto mb-14">
-          Loop QA doesn&apos;t just check that buttons render. It looks for the bugs that actually hurt users.
-        </p>
-        <div className="grid md:grid-cols-3 gap-6">
-          {bugTypes.map((type) => (
-            <div key={type.label} className="rounded-xl border border-border bg-surface p-7">
-              <h3 className="text-base font-semibold mb-3">{type.label}</h3>
-              <p className="text-sm text-muted leading-relaxed">{type.detail}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Use cases */}
       <div className="bg-surface-tinted">
         <section className="px-6 py-24 max-w-4xl mx-auto">
@@ -267,25 +169,6 @@ export default function LoopQAPage() {
           </div>
         </section>
       </div>
-
-      {/* Powered by */}
-      <section className="px-6 py-20 max-w-3xl mx-auto text-center">
-        <p className="text-sm font-medium uppercase tracking-widest text-muted mb-6">Powered by</p>
-        <div className="flex flex-col sm:flex-row gap-6 justify-center">
-          <div className="flex-1 rounded-xl border border-border bg-surface p-6">
-            <h3 className="text-sm font-semibold mb-2">Playwright</h3>
-            <p className="text-sm text-muted leading-relaxed">
-              Industry-standard browser automation. Loop QA writes and runs real Playwright tests against your app — the same tooling your engineering team already trusts.
-            </p>
-          </div>
-          <div className="flex-1 rounded-xl border border-brand-purple/30 bg-brand-purple/5 p-6">
-            <h3 className="text-sm font-semibold mb-2 text-brand-purple">Replay</h3>
-            <p className="text-sm text-muted leading-relaxed">
-              Time-travel debugging infrastructure. Every test run is recorded deterministically — so when a bug surfaces, the full execution is already captured and ready to analyze.
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* Bottom CTA */}
       <div className="bg-surface-tinted">
