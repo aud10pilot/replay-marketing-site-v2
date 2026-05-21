@@ -57,14 +57,24 @@ const useCases = [
       "Embed Loop QA as a quality gate in your AI-powered development platform. Every app generated gets automatically tested before it ships — no human QA required.",
   },
   {
-    title: "A startup's first QA team",
+    title: "Early-stage startups without dedicated QA",
     description:
-      "You're moving fast and QA isn't headcount you can afford yet. Loop QA finds the bugs that slip through before your users do — at a fraction of the cost.",
+      "You're moving fast and QA isn't headcount you can afford yet. Loop QA finds the bugs before your users do — at a fraction of the cost of a QA hire.",
   },
   {
-    title: "Defense for internally vibecoded apps",
+    title: "Companies that have vibecoded internal apps",
     description:
-      "Internal tools built with AI move fast and break things. Loop QA gives you a continuous layer of coverage so the breakages get caught before they become incidents.",
+      "Internal tools built with AI move fast and break things. Loop QA gives you a continuous layer of coverage so breakages get caught before they become incidents.",
+  },
+  {
+    title: "Individual vibecoders",
+    description:
+      "Building solo with AI? Loop QA acts as your QA layer — catching the bugs that slip through when you're moving fast and shipping constantly.",
+  },
+  {
+    title: "Agencies & Dev Shops",
+    description:
+      "Deliver higher-quality work to clients without adding QA overhead. Loop QA tests every project automatically before handoff.",
   },
 ];
 
@@ -152,18 +162,13 @@ export default function LoopQAPage() {
             Use cases
           </p>
           <h2 className="text-3xl font-bold text-center mb-14 leading-tight">
-            Who Loop QA is for
+            Who is Loop QA for?
           </h2>
-          <div className="flex flex-col gap-5">
-            {useCases.map((uc, i) => (
-              <div key={uc.title} className="rounded-xl border border-border bg-surface p-7 flex gap-5">
-                <div className="w-8 h-8 rounded-full bg-brand-pink/10 border border-brand-pink/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <span className="text-brand-pink font-bold text-xs">{i + 1}</span>
-                </div>
-                <div>
-                  <h3 className="text-base font-semibold mb-2">{uc.title}</h3>
-                  <p className="text-sm text-muted leading-relaxed">{uc.description}</p>
-                </div>
+          <div className="grid sm:grid-cols-2 gap-5">
+            {useCases.map((uc) => (
+              <div key={uc.title} className="rounded-xl border border-border bg-surface p-7">
+                <h3 className="text-base font-semibold mb-2">{uc.title}</h3>
+                <p className="text-sm text-muted leading-relaxed">{uc.description}</p>
               </div>
             ))}
           </div>
