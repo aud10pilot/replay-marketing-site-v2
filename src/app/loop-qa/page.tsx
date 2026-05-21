@@ -170,7 +170,7 @@ export default function LoopQAPage() {
               <circle cx="11" cy="11" r="8" />
               <path d="m21 21-4.3-4.3" />
             </svg>
-            <h3 className="text-base font-semibold mb-3">Bug Root Causes</h3>
+            <h3 className="text-base font-semibold mb-3">Root Cause Analysis & Fix</h3>
             <p className="text-sm text-muted leading-relaxed">
               Every bug includes analysis traced through the recording—from what you see back through network, state, and rendering—with evidence deep-linked into the session.
             </p>
