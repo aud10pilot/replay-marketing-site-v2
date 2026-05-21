@@ -121,6 +121,28 @@ export default function LoopQAPage() {
         </div>
       </div>
 
+      {/* Problem */}
+      <div className="bg-surface-tinted">
+        <section className="px-6 py-24 max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-6 leading-tight">
+            Apps ship faster than ever.
+            <br />
+            <span className="text-brand-pink">QA hasn&apos;t kept up.</span>
+          </h2>
+          <div className="space-y-6 text-muted text-lg leading-relaxed">
+            <p>
+              AI coding tools have compressed development cycles from weeks to hours. A solo founder or a small team can now ship a full web app in a day. But the way we test software hasn&apos;t changed — it still requires engineers to write test suites, QA teams to run them, and someone to triage what breaks.
+            </p>
+            <p>
+              The result: vibecoded apps ship without meaningful test coverage. Internal tools get deployed with no QA layer at all. And the bugs your users hit are the first signal that something is wrong.
+            </p>
+            <p>
+              <span className="text-foreground font-medium">Loop QA closes the gap. Give it a URL and it takes care of the rest.</span>
+            </p>
+          </div>
+        </section>
+      </div>
+
       {/* How Loop QA Works */}
       <section className="px-6 py-24 max-w-5xl mx-auto">
         <h2 className="text-3xl font-bold mb-3 leading-tight">How Loop QA Works</h2>
@@ -177,28 +199,6 @@ export default function LoopQAPage() {
           </div>
         </div>
       </section>
-
-      {/* Problem */}
-      <div className="bg-surface-tinted">
-        <section className="px-6 py-24 max-w-3xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-6 leading-tight">
-            Apps ship faster than ever.
-            <br />
-            <span className="text-brand-pink">QA hasn&apos;t kept up.</span>
-          </h2>
-          <div className="space-y-6 text-muted text-lg leading-relaxed">
-            <p>
-              AI coding tools have compressed development cycles from weeks to hours. A solo founder or a small team can now ship a full web app in a day. But the way we test software hasn&apos;t changed — it still requires engineers to write test suites, QA teams to run them, and someone to triage what breaks.
-            </p>
-            <p>
-              The result: vibecoded apps ship without meaningful test coverage. Internal tools get deployed with no QA layer at all. And the bugs your users hit are the first signal that something is wrong.
-            </p>
-            <p>
-              <span className="text-foreground font-medium">Loop QA closes the gap. Give it a URL and it takes care of the rest.</span>
-            </p>
-          </div>
-        </section>
-      </div>
 
       <LoopQAHowItWorks />
 
