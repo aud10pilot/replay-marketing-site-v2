@@ -56,14 +56,14 @@ export default function LoopQAHowItWorks() {
             >
               <div className="flex items-center gap-3 mb-2">
                 <span
-                  className={`text-xs font-bold tabular-nums ${
+                  className={`text-sm font-bold tabular-nums ${
                     active === i ? "text-brand-pink" : "text-muted"
                   }`}
                 >
                   {step.number}
                 </span>
                 <span
-                  className={`text-sm font-semibold leading-snug ${
+                  className={`text-base font-semibold leading-snug ${
                     active === i ? "text-foreground" : "text-muted"
                   }`}
                 >
@@ -71,7 +71,7 @@ export default function LoopQAHowItWorks() {
                 </span>
               </div>
               {active === i && (
-                <p className="text-xs text-muted leading-relaxed pl-7">
+                <p className="text-sm text-muted leading-relaxed pl-8">
                   {step.description}
                 </p>
               )}
