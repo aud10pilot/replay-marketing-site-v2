@@ -170,6 +170,55 @@ export default function LoopQAPage() {
         </section>
       </div>
 
+      {/* FAQ */}
+      <section className="px-6 py-20 max-w-3xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-10">Common questions</h2>
+        <div className="space-y-2">
+          {[
+            {
+              q: "What kinds of apps can Loop QA test?",
+              a: "Any web app accessible via a URL — marketing sites, SaaS products, internal tools, or all of the above. Loop QA explores whatever is at the URL you provide.",
+            },
+            {
+              q: "Do I need to write any tests or config?",
+              a: "No. Loop QA discovers user journeys and writes Playwright tests automatically. You provide a URL — it takes care of everything else.",
+            },
+            {
+              q: "What does a bug report include?",
+              a: "Every bug comes with a Replay recording of the session, a full runtime breakdown (function calls, DOM mutations, network requests, state changes), a root-cause analysis with confidence score, and a suggested fix.",
+            },
+            {
+              q: "Can I integrate Loop QA into my existing agentic system?",
+              a: "Absolutely. If you've built a software factory, a vibecoding platform, or want to include Loop QA in your software development life cycle, let's talk.",
+            },
+            {
+              q: "How is this different from a traditional test suite?",
+              a: "A traditional test suite only checks what engineers explicitly wrote tests for. Loop QA explores your app autonomously, discovers flows you didn't anticipate, and catches bugs that never would have had a test written against them.",
+            },
+            {
+              q: "How do I get started?",
+              a: "Head to loop-qa.replay.io, drop in a URL, and Loop QA gets to work. No setup, no credit card required to try it.",
+            },
+          ].map((faq, i) => (
+            <details
+              key={i}
+              className="group rounded-xl border border-border bg-surface overflow-hidden"
+              open={i === 3 || undefined}
+            >
+              <summary className="flex items-center justify-between gap-4 px-5 py-4 text-sm font-medium cursor-pointer list-none select-none hover:text-foreground transition [&::-webkit-details-marker]:hidden">
+                {faq.q}
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="stroke-muted flex-shrink-0 transition-transform group-open:rotate-45" strokeWidth="1.8" strokeLinecap="round">
+                  <path d="M8 3v10M3 8h10" />
+                </svg>
+              </summary>
+              <div className="px-5 pb-4 pt-3 text-sm text-muted leading-relaxed border-t border-border">
+                {faq.a}
+              </div>
+            </details>
+          ))}
+        </div>
+      </section>
+
       {/* Bottom CTA */}
       <div className="bg-surface-tinted">
         <section className="px-6 py-24 max-w-3xl mx-auto text-center">
