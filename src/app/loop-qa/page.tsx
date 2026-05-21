@@ -189,11 +189,15 @@ export default function LoopQAPage() {
             },
             {
               q: "Can I integrate Loop QA into my existing agentic system?",
-              a: "Absolutely. If you've built a software factory, a vibecoding platform, or want to include Loop QA in your software development life cycle, let's talk.",
+              a: <>Absolutely. If you&apos;ve built a software factory, a vibecoding platform, or want to include Loop QA in your software development life cycle, <a href="mailto:sales@replay.io" className="text-brand-pink hover:opacity-80 transition underline underline-offset-2">let&apos;s talk</a>.</>,
             },
             {
               q: "How is this different from a traditional test suite?",
               a: "A traditional test suite only checks what engineers explicitly wrote tests for. Loop QA explores your app autonomously, discovers flows you didn't anticipate, and catches bugs that never would have had a test written against them.",
+            },
+            {
+              q: "How much does Loop QA cost?",
+              a: <>For casual use, it is completely free. If you&apos;d like to use Loop QA at scale, <a href="mailto:sales@replay.io" className="text-brand-pink hover:opacity-80 transition underline underline-offset-2">let&apos;s talk</a>.</>,
             },
             {
               q: "How do I get started?",
