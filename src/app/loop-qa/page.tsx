@@ -175,7 +175,7 @@ export default function LoopQAPage() {
               <h3 className="text-base font-semibold mb-2">Don&apos;t see your use case?</h3>
               <p className="text-sm text-muted leading-relaxed">
                 We want to hear about how you&apos;d like to use Loop QA.{" "}
-                <a href="mailto:sales@replay.io" className="text-brand-pink hover:opacity-80 transition underline underline-offset-2">Let&apos;s talk.</a>
+                <a href="mailto:sales@replay.io" className="text-brand-pink hover:opacity-80 transition">Let&apos;s talk.</a>
               </p>
             </div>
           </div>
@@ -201,7 +201,7 @@ export default function LoopQAPage() {
             },
             {
               q: "Can I integrate Loop QA into my existing agentic system?",
-              a: <>Absolutely. If you&apos;ve built a software factory, a vibecoding platform, or want to include Loop QA in your software development life cycle, <a href="mailto:sales@replay.io" className="text-brand-pink hover:opacity-80 transition underline underline-offset-2">let&apos;s talk</a>.</>,
+              a: <>Absolutely. If you&apos;ve built a software factory, a vibecoding platform, or want to include Loop QA in your software development life cycle, <a href="mailto:sales@replay.io" className="text-brand-pink hover:opacity-80 transition">let&apos;s talk</a>.</>,
             },
             {
               q: "How is this different from a traditional test suite?",
@@ -209,7 +209,7 @@ export default function LoopQAPage() {
             },
             {
               q: "How much does Loop QA cost?",
-              a: <>For casual use, it is completely free. If you&apos;d like to use Loop QA at scale, <a href="mailto:sales@replay.io" className="text-brand-pink hover:opacity-80 transition underline underline-offset-2">let&apos;s talk</a>.</>,
+              a: <>For casual use, it is completely free. If you&apos;d like to use Loop QA at scale, <a href="mailto:sales@replay.io" className="text-brand-pink hover:opacity-80 transition">let&apos;s talk</a>.</>,
             },
             {
               q: "How do I get started?",
