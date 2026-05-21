@@ -212,6 +212,10 @@ export default function LoopQAPage() {
               a: <>For casual use, it is completely free. If you&apos;d like to use Loop QA at scale, <a href="mailto:sales@replay.io" className="text-brand-pink hover:opacity-80 transition">let&apos;s talk</a>.</>,
             },
             {
+              q: "Does Loop QA replace human QA teams?",
+              a: "For most of our users, there's no human QA team to replace — Loop QA is the only QA layer they have. For teams that do have QA, Loop QA handles the autonomous discovery work: exploring the app, finding the broken flows, and filing the bug reports. That frees human QA to focus on what actually needs human judgment: subjective UX calls, accessibility audits with real assistive tech, and sign-off on high-stakes releases.",
+            },
+            {
               q: "How do I get started?",
               a: "Head to loop-qa.replay.io, drop in a URL, and Loop QA gets to work. No setup, no credit card required to try it.",
             },
