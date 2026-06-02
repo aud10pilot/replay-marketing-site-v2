@@ -22,12 +22,12 @@ const Check = () => (
 export default function PricingCards() {
   const [annual, setAnnual] = useState(true);
 
-  const price = annual ? 299 : 349;
-  const billingNote = annual ? "per month · billed annually" : "per month · billed monthly";
+  const teamPrice = annual ? 299 : 349;
+  const teamBillingNote = annual ? "per month · billed annually" : "per month · billed monthly";
 
   return (
     <div className="bg-surface-tinted">
-      <section className="px-6 py-20 max-w-6xl mx-auto">
+      <section className="px-6 py-20 max-w-7xl mx-auto">
 
         {/* Toggle */}
         <div className="flex items-center justify-center gap-3 mb-10">
@@ -66,21 +66,21 @@ export default function PricingCards() {
           </a>
         </p>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
           {/* Free */}
-          <div className="relative flex flex-col rounded-xl border border-border bg-surface p-8">
+          <div className="relative flex flex-col rounded-xl border border-border bg-surface p-7">
             <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-muted mb-2">
               Free
             </p>
-            <h2 className="text-xl font-semibold tracking-tight mb-2 leading-snug">
+            <h2 className="text-lg font-semibold tracking-tight mb-2 leading-snug">
               Evaluate Replay with real recordings
             </h2>
             <p className="text-sm text-muted leading-relaxed mb-6">
-              Works with CI Agent and Replay MCP — no time limit, no credit card required.
+              Works with any Replay product — no time limit, no credit card required.
             </p>
 
-            <div className="font-semibold tracking-tight mb-1 leading-none text-[42px]">
+            <div className="font-semibold tracking-tight mb-1 leading-none text-[38px]">
               $0
             </div>
             <p className="text-xs text-muted mb-6">always free</p>
@@ -113,28 +113,23 @@ export default function PricingCards() {
             </a>
           </div>
 
-          {/* Growth — featured */}
-          <div className="relative flex flex-col rounded-xl border border-brand-pink bg-brand-pink/[0.03] dark:bg-brand-pink/[0.04] p-8">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-              <span className="bg-brand-pink text-white text-[10px] font-semibold uppercase tracking-widest px-3 py-1 rounded-full whitespace-nowrap">
-                Most popular
-              </span>
-            </div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-brand-pink mb-2">
-              Growth
+          {/* Individual */}
+          <div className="relative flex flex-col rounded-xl border border-border bg-surface p-7">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-muted mb-2">
+              Individual
             </p>
-            <h2 className="text-xl font-semibold tracking-tight mb-2 leading-snug">
-              Automated analysis on every CI failure
+            <h2 className="text-lg font-semibold tracking-tight mb-2 leading-snug">
+              For solo builders using AI tools regularly
             </h2>
             <p className="text-sm text-muted leading-relaxed mb-6">
-              Every failed test gets analyzed automatically. Root cause and fix posted to your PR — no manual debugging needed.
+              Enough analyses for a handful of apps or a moderate CI workload — without committing to a team plan.
             </p>
 
-            <div className="font-semibold tracking-tight mb-1 leading-none text-[42px] transition-all">
-              <sup className="text-xl font-medium align-top mr-0.5">$</sup>
-              {price}
+            <div className="font-semibold tracking-tight mb-1 leading-none text-[38px]">
+              <sup className="text-lg font-medium align-top mr-0.5">$</sup>
+              49
             </div>
-            <p className="text-xs text-muted mb-6">{billingNote}</p>
+            <p className="text-xs text-muted mb-6">per month</p>
 
             <div className="h-px bg-border mb-5" />
 
@@ -143,11 +138,61 @@ export default function PricingCards() {
             </p>
             <ul className="flex flex-col gap-2.5 mb-8 flex-1">
               {[
-                "500 AI analyses per month",
+                "150 AI analyses per month",
                 "Unlimited recordings",
+                "All CI integrations",
+                "All coding agent integrations",
+                "Email support",
+              ].map((f) => (
+                <li key={f} className="flex items-start gap-2.5 text-sm text-muted leading-snug">
+                  <Check />
+                  {f}
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href="https://app.replay.io/sign-up"
+              className="block w-full text-center py-3 rounded-xl text-sm font-medium transition border border-border text-muted hover:border-foreground/30 hover:text-foreground"
+            >
+              Get started
+            </a>
+          </div>
+
+          {/* Team — featured */}
+          <div className="relative flex flex-col rounded-xl border border-brand-pink bg-brand-pink/[0.03] dark:bg-brand-pink/[0.04] p-7">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+              <span className="bg-brand-pink text-white text-[10px] font-semibold uppercase tracking-widest px-3 py-1 rounded-full whitespace-nowrap">
+                Most popular
+              </span>
+            </div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-brand-pink mb-2">
+              Team
+            </p>
+            <h2 className="text-lg font-semibold tracking-tight mb-2 leading-snug">
+              Automated analysis on every CI failure
+            </h2>
+            <p className="text-sm text-muted leading-relaxed mb-6">
+              Every failed test gets analyzed automatically. Root cause and fix posted to your PR — no manual debugging needed.
+            </p>
+
+            <div className="font-semibold tracking-tight mb-1 leading-none text-[38px] transition-all">
+              <sup className="text-lg font-medium align-top mr-0.5">$</sup>
+              {teamPrice}
+            </div>
+            <p className="text-xs text-muted mb-6">{teamBillingNote}</p>
+
+            <div className="h-px bg-border mb-5" />
+
+            <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-muted mb-3">
+              Everything in Individual, plus
+            </p>
+            <ul className="flex flex-col gap-2.5 mb-8 flex-1">
+              {[
+                "500 AI analyses per month",
                 "All CI integrations (GitHub Actions, CircleCI, Jenkins, BuildKite)",
                 "All coding agent integrations (Claude Code, Codex, Cursor, Copilot, Windsurf)",
-                "Email support",
+                "Priority email support",
               ].map((f) => (
                 <li key={f} className="flex items-start gap-2.5 text-sm text-muted leading-snug">
                   <Check />
@@ -165,18 +210,18 @@ export default function PricingCards() {
           </div>
 
           {/* Enterprise */}
-          <div className="relative flex flex-col rounded-xl border border-border bg-surface p-8">
+          <div className="relative flex flex-col rounded-xl border border-border bg-surface p-7">
             <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-muted mb-2">
               Enterprise
             </p>
-            <h2 className="text-xl font-semibold tracking-tight mb-2 leading-snug">
+            <h2 className="text-lg font-semibold tracking-tight mb-2 leading-snug">
               For teams running Replay at scale
             </h2>
             <p className="text-sm text-muted leading-relaxed mb-6">
               Custom contracts, platform integrations, and dedicated support for high-velocity teams.
             </p>
 
-            <div className="font-semibold tracking-tight mb-1 leading-none text-[34px]">
+            <div className="font-semibold tracking-tight mb-1 leading-none text-[30px]">
               Custom
             </div>
             <p className="text-xs text-muted mb-6">usage-based or seat-based · negotiated together</p>
@@ -184,7 +229,7 @@ export default function PricingCards() {
             <div className="h-px bg-border mb-5" />
 
             <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-muted mb-3">
-              Everything in Growth, plus
+              Everything in Team, plus
             </p>
             <ul className="flex flex-col gap-2.5 mb-8 flex-1">
               {[
