@@ -26,20 +26,20 @@ const faqs = [
     a: "Yes. Start on Free and upgrade whenever you're ready — no commitment required. You can downgrade to a lower plan at the end of your billing period.",
   },
   {
-    q: "Which test frameworks and CI providers does it support?",
-    a: "Replay works with Playwright and Cypress. It integrates with GitHub Actions, CircleCI, Jenkins, BuildKite, and any CI that can run a shell command. No changes to your existing tests required.",
+    q: "What counts as an analysis?",
+    a: "An analysis is any time Replay examines a recording to produce an insight — a root cause, a bug report, a suggested fix. Each recording analyzed counts as one analysis, regardless of which Replay product triggered it.",
   },
   {
-    q: "Which coding agents does it work with?",
-    a: "Claude Code, Codex, Cursor, Copilot, and Windsurf — any agent that supports MCP. Add Replay once and it works across your tools.",
+    q: "What happens if I hit my analysis limit?",
+    a: "You'll be notified when you're approaching your limit. You can upgrade to a higher plan at any time — your existing recordings stay intact.",
   },
   {
     q: "How is this different from Datadog, Sentry, or LogRocket?",
-    a: "Those tools surface what went wrong. Replay shows your agent exactly why — every DOM mutation, network call, and JS execution frame, captured deterministically. Replay analyzes the recording and generates a specific fix. No human needs to read a trace.",
+    a: "Those tools surface what went wrong. Replay captures the full runtime — every DOM mutation, network call, and JS execution frame — and analyzes it to tell you exactly why, with a specific fix. No human needs to read a trace.",
   },
   {
-    q: "Does recording slow down my CI?",
-    a: "Minimal overhead — comparable to screen recording. Most teams run Replay in CI without noticing a difference in build times.",
+    q: "Does Replay work with my existing tools?",
+    a: "Yes. Replay integrates with Playwright and Cypress for test recording, GitHub Actions, CircleCI, Jenkins, and BuildKite for CI, and Claude Code, Codex, Cursor, Copilot, and Windsurf for coding agents. Use whichever combination fits your workflow.",
   },
 ];
 
