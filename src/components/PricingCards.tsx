@@ -74,10 +74,10 @@ export default function PricingCards() {
               Free
             </p>
             <h2 className="text-lg font-semibold tracking-tight mb-2 leading-snug">
-              Evaluate Replay with real recordings
+              Try Replay with no commitment
             </h2>
             <p className="text-sm text-muted leading-relaxed mb-6">
-              Works with any Replay product — no time limit, no credit card required.
+              25 analyses a month, no time limit, no credit card required.
             </p>
 
             <div className="font-semibold tracking-tight mb-1 leading-none text-[38px]">
@@ -119,10 +119,10 @@ export default function PricingCards() {
               Individual
             </p>
             <h2 className="text-lg font-semibold tracking-tight mb-2 leading-snug">
-              For solo builders using AI tools regularly
+              For individuals using Replay beyond the basics
             </h2>
             <p className="text-sm text-muted leading-relaxed mb-6">
-              Enough analyses for a handful of apps or a moderate CI workload — without committing to a team plan.
+              150 analyses a month — the right volume for solo builders running a handful of apps or workflows.
             </p>
 
             <div className="font-semibold tracking-tight mb-1 leading-none text-[38px]">
@@ -170,10 +170,10 @@ export default function PricingCards() {
               Team
             </p>
             <h2 className="text-lg font-semibold tracking-tight mb-2 leading-snug">
-              Automated analysis on every CI failure
+              For startups and small teams moving fast
             </h2>
             <p className="text-sm text-muted leading-relaxed mb-6">
-              Every failed test gets analyzed automatically. Root cause and fix posted to your PR — no manual debugging needed.
+              500 analyses a month for teams that ship often and need consistent coverage — however they use Replay.
             </p>
 
             <div className="font-semibold tracking-tight mb-1 leading-none text-[38px] transition-all">
@@ -215,10 +215,10 @@ export default function PricingCards() {
               Enterprise
             </p>
             <h2 className="text-lg font-semibold tracking-tight mb-2 leading-snug">
-              For teams running Replay at scale
+              For organizations using Replay at scale
             </h2>
             <p className="text-sm text-muted leading-relaxed mb-6">
-              Custom contracts, platform integrations, and dedicated support for high-velocity teams.
+              Custom analysis volume, contracts, and support — for however your organization uses Replay.
             </p>
 
             <div className="font-semibold tracking-tight mb-1 leading-none text-[30px]">
