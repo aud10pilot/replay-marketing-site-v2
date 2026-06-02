@@ -7,23 +7,23 @@ import PricingCards from "@/components/PricingCards";
 export const metadata: Metadata = {
   title: "Pricing — Replay",
   description:
-    "Start free with 25 AI analyses per month. Upgrade to Growth at $299/mo for 500 analyses and automated root cause on every CI failure.",
+    "Simple, usage-based pricing. Start free with 25 AI analyses per month. Upgrade as you grow.",
   alternates: { canonical: "/pricing" },
   openGraph: {
     title: "Pricing — Replay",
     description:
-      "Start free with 25 AI analyses per month. Upgrade to Growth at $299/mo for 500 analyses and automated root cause on every CI failure.",
+      "Simple, usage-based pricing. Start free with 25 AI analyses per month. Upgrade as you grow.",
   },
 };
 
 const faqs = [
   {
-    q: "What's the difference between Free and Growth?",
-    a: "Free gives you 25 AI analyses per month — enough to evaluate Replay on real failures with no time limit. Growth unlocks 500 analyses per month, unlimited recordings, and all CI and coding agent integrations. Both plans work with CI Agent and Replay MCP.",
+    q: "What's the difference between the plans?",
+    a: "The plans differ by analysis volume. Free gives you 25 AI analyses per month — enough to evaluate Replay with no time limit. Individual (150/mo) and Team (500/mo) unlock more volume, unlimited recordings, and all integrations. Enterprise is custom-scoped for high-volume usage.",
   },
   {
     q: "Can I upgrade or downgrade at any time?",
-    a: "Yes. Start on Free and upgrade to Growth whenever you're ready — no commitment required. If you're on Growth and want to step back, you can downgrade to Free at the end of your billing period.",
+    a: "Yes. Start on Free and upgrade whenever you're ready — no commitment required. You can downgrade to a lower plan at the end of your billing period.",
   },
   {
     q: "Which test frameworks and CI providers does it support?",
@@ -65,13 +65,13 @@ export default function PricingPage() {
           </span>
 
           <h1 className="text-5xl sm:text-6xl font-bold leading-[1.08] tracking-tight mb-5">
-            Stop debugging blind.
+            Simple pricing.
             <br />
-            <span className="text-brand-pink">Start for free.</span>
+            <span className="text-brand-pink">Based on usage.</span>
           </h1>
 
           <p className="text-lg text-muted max-w-lg mx-auto leading-relaxed">
-            Replay CI Agent records every test run, analyzes failures using time-travel data, and posts a root cause and fix to your PR — automatically. Free for low usage. $299/mo for teams.
+            Pay for the analyses you run — however you use Replay. Start free with 25 analyses a month. Upgrade when you need more.
           </p>
         </div>
       </section>
