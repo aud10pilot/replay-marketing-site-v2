@@ -63,11 +63,11 @@
   --color-surface-tinted-hover: var(--surface-tinted-hover);
   --color-brand-pink: var(--brand-pink);
   --color-brand-purple: var(--brand-purple);
-  --font-sans: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
 }
