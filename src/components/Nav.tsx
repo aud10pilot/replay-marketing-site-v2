@@ -58,13 +58,6 @@ export default function Nav() {
           >
             Sign In
           </a>
-          <a
-            href="https://app.replay.io/sign-up"
-            className="rounded-full px-4 py-2 text-sm font-medium text-white transition"
-            style={{ background: "var(--brand-gradient)" }}
-          >
-            Try Replay for Free
-          </a>
         </div>
 
         {/* Mobile: toggle + theme */}
@@ -146,14 +139,6 @@ export default function Nav() {
             className="rounded-full px-4 py-2.5 text-sm font-medium text-muted border border-border text-center transition"
           >
             Sign In
-          </a>
-          <a
-            href="https://app.replay.io/sign-up"
-            onClick={() => setOpen(false)}
-            className="rounded-full px-4 py-2.5 text-sm font-medium text-white text-center transition"
-            style={{ background: "var(--brand-gradient)" }}
-          >
-            Try Replay for Free
           </a>
         </div>
       )}
