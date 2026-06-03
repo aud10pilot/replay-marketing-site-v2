@@ -78,13 +78,11 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 mb-4">
             <a
-              href="https://loop-qa.replay.io"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/loop-qa"
               className="inline-block rounded-full px-8 py-3.5 text-base font-medium text-white hover:opacity-90 transition"
               style={{ background: "var(--brand-gradient)" }}
             >
-              Try Loop QA &rarr;
+              Replay Loop QA &rarr;
             </a>
             <a
               href="https://app.replay.io/sign-up"
