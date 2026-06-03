@@ -52,6 +52,11 @@ const bugTypes = [
 
 const useCases = [
   {
+    title: "Teams with existing CI test suites",
+    description:
+      "Already running Playwright or Cypress in CI? Loop QA records every test run and analyzes every failure — posting root cause and a suggested fix to your PR automatically.",
+  },
+  {
     title: "Software factories & vibecoding platforms",
     description:
       "Embed Loop QA as a quality gate in your AI-powered development platform. Every app generated gets automatically tested before it ships — no human QA required.",
