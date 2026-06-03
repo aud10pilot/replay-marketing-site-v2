@@ -85,7 +85,7 @@ export default function Home() {
               Replay Loop QA &rarr;
             </a>
             <a
-              href="https://app.replay.io/sign-up"
+              href="/ci-agent"
               className="inline-block rounded-full px-8 py-3.5 text-base font-medium border border-border hover:border-foreground/30 transition"
             >
               Set up CI Agent &rarr;
@@ -143,8 +143,8 @@ export default function Home() {
               <p className="text-sm text-muted leading-relaxed mb-6">
                 Works with Playwright and Cypress. Integrates with GitHub Actions, CircleCI, Jenkins, and BuildKite.
               </p>
-              <a href="https://app.replay.io/sign-up" className="text-sm font-medium text-brand-purple hover:opacity-80 transition">
-                Set up CI Agent &rarr;
+              <a href="/ci-agent" className="text-sm font-medium text-brand-purple hover:opacity-80 transition">
+                Learn more about CI Agent &rarr;
               </a>
             </div>
 
