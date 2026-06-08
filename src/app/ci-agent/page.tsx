@@ -6,14 +6,14 @@ import WarpSpeedBg from "@/components/WarpSpeedBg";
 import CIAgentHowItWorks from "./CIAgentHowItWorks";
 
 export const metadata: Metadata = {
-  title: "Loop QA for CI — Automated Analysis on Every Test Failure",
+  title: "Replay QA for CI — Automated Analysis on Every Test Failure",
   description:
-    "Loop QA records every test run, analyzes failures using time-travel data, and posts a root cause and suggested fix as a comment on your PR — automatically.",
+    "Replay QA records every test run, analyzes failures using time-travel data, and posts a root cause and suggested fix as a comment on your PR — automatically.",
   alternates: { canonical: "/ci-agent" },
   openGraph: {
-    title: "Loop QA for CI — Automated Analysis on Every Test Failure",
+    title: "Replay QA for CI — Automated Analysis on Every Test Failure",
     description:
-      "Loop QA records every test run, analyzes failures using time-travel data, and posts a root cause and suggested fix as a comment on your PR — automatically.",
+      "Replay QA records every test run, analyzes failures using time-travel data, and posts a root cause and suggested fix as a comment on your PR — automatically.",
   },
 };
 
@@ -21,12 +21,12 @@ const useCases = [
   {
     title: "Engineering teams at startups",
     description:
-      "Moving fast, PRs merging constantly. There's no time to manually debug every CI failure — Loop QA investigates automatically so your team stays focused on shipping.",
+      "Moving fast, PRs merging constantly. There's no time to manually debug every CI failure — Replay QA investigates automatically so your team stays focused on shipping.",
   },
   {
     title: "Teams using AI coding agents",
     description:
-      "Agents can't fix what they can't see. Loop QA gives them the full runtime picture — every function call, DOM mutation, and network request — so they fix it right the first time.",
+      "Agents can't fix what they can't see. Replay QA gives them the full runtime picture — every function call, DOM mutation, and network request — so they fix it right the first time.",
   },
   {
     title: "Teams with flaky test suites",
@@ -36,12 +36,12 @@ const useCases = [
   {
     title: "Orgs running CI at scale",
     description:
-      "Dozens of deploys per day means dozens of potential failures. Human review at that cadence is a bottleneck. Loop QA makes failure analysis automatic infrastructure.",
+      "Dozens of deploys per day means dozens of potential failures. Human review at that cadence is a bottleneck. Replay QA makes failure analysis automatic infrastructure.",
   },
   {
     title: "Teams adopting Playwright or Cypress",
     description:
-      "You invested in a test suite. Loop QA makes that investment pay off — every failure is a learning, not a blocker.",
+      "You invested in a test suite. Replay QA makes that investment pay off — every failure is a learning, not a blocker.",
   },
 ];
 
@@ -75,15 +75,15 @@ export default function CIAgentPage() {
         <section className="hero-fade-in relative z-10 flex flex-col items-center text-center px-6 pt-24 pb-20 max-w-4xl mx-auto">
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-surface text-sm text-muted mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-brand-purple animate-pulse" />
-            Loop QA for CI
+            Replay QA for CI
           </span>
           <h1 className="text-5xl sm:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
             Your tests fail.
             <br />
-            <span className="text-brand-purple">Loop QA tells you why — and how to fix it.</span>
+            <span className="text-brand-purple">Replay QA tells you why — and how to fix it.</span>
           </h1>
           <p className="text-lg text-muted max-w-2xl mb-10 leading-relaxed">
-            Loop QA records every test run, analyzes failures using time-travel data, and posts a root cause and suggested fix as a comment on your PR — automatically.
+            Replay QA records every test run, analyzes failures using time-travel data, and posts a root cause and suggested fix as a comment on your PR — automatically.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 mb-4">
             <a
@@ -140,13 +140,13 @@ export default function CIAgentPage() {
       <div className="bg-surface-tinted">
         <section className="px-6 py-24 max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            With Loop QA vs. without
+            With Replay QA vs. without
           </h2>
           <div className="rounded-xl border border-border overflow-hidden">
             <div className="grid grid-cols-3 bg-surface-tinted border-b border-border">
               <div className="px-6 py-3" />
               <div className="px-6 py-3 text-xs font-semibold uppercase tracking-widest text-muted border-l border-border">Without Replay</div>
-              <div className="px-6 py-3 text-xs font-semibold uppercase tracking-widest text-brand-purple border-l border-border">With Loop QA</div>
+              <div className="px-6 py-3 text-xs font-semibold uppercase tracking-widest text-brand-purple border-l border-border">With Replay QA</div>
             </div>
             {[
               {
@@ -199,7 +199,7 @@ export default function CIAgentPage() {
           Use cases
         </p>
         <h2 className="text-3xl font-bold text-center mb-14 leading-tight">
-          Who is Loop QA for?
+          Who is Replay QA for?
         </h2>
         <div className="grid sm:grid-cols-2 gap-5">
           {useCases.map((uc) => (
@@ -211,7 +211,7 @@ export default function CIAgentPage() {
           <div className="rounded-xl border border-dashed border-brand-purple/40 bg-brand-purple/[0.03] p-7 flex flex-col justify-center">
             <h3 className="text-base font-semibold mb-2">Don&apos;t see your use case?</h3>
             <p className="text-sm text-muted leading-relaxed">
-              We want to hear about how you&apos;d like to use Loop QA.{" "}
+              We want to hear about how you&apos;d like to use Replay QA.{" "}
               <a href="mailto:sales@replay.io" className="text-brand-purple hover:opacity-80 transition">Let&apos;s talk.</a>
             </p>
           </div>
@@ -297,7 +297,7 @@ export default function CIAgentPage() {
             },
             {
               q: "What does the analysis include?",
-              a: "For each failing test, Loop QA posts a PR comment with: a root cause statement, a confidence score, the exact line of code that caused the failure, and an evidence trail showing the sequence of events leading up to it. If the failure has a clear fix, it includes a suggested code change.",
+              a: "For each failing test, Replay QA posts a PR comment with: a root cause statement, a confidence score, the exact line of code that caused the failure, and an evidence trail showing the sequence of events leading up to it. If the failure has a clear fix, it includes a suggested code change.",
             },
             {
               q: "Does Replay only work with React?",
@@ -305,11 +305,11 @@ export default function CIAgentPage() {
             },
             {
               q: "How long does analysis take?",
-              a: "Usually a few minutes after the test run completes. Loop QA posts its analysis as a PR comment, so your developer sees the root cause and suggested fix before they even open the CI logs.",
+              a: "Usually a few minutes after the test run completes. Replay QA posts its analysis as a PR comment, so your developer sees the root cause and suggested fix before they even open the CI logs.",
             },
             {
               q: "What if the analysis is wrong?",
-              a: "Loop QA includes a confidence score with every analysis, so you can tell at a glance how certain it is. Every analysis also links to the full recording — you can open it in Replay DevTools and inspect every frame yourself.",
+              a: "Replay QA includes a confidence score with every analysis, so you can tell at a glance how certain it is. Every analysis also links to the full recording — you can open it in Replay DevTools and inspect every frame yourself.",
             },
             {
               q: "Does recording slow down my CI?",
@@ -341,7 +341,7 @@ export default function CIAgentPage() {
             Stop debugging test failures manually.
           </h2>
           <p className="text-muted max-w-xl mx-auto mb-8 text-lg">
-            Loop QA investigates every failure automatically — root cause and fix posted to your PR before you open the logs.
+            Replay QA investigates every failure automatically — root cause and fix posted to your PR before you open the logs.
           </p>
           <a
             href="https://app.replay.io/sign-up"

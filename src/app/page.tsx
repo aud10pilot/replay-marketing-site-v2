@@ -14,27 +14,27 @@ export default function Home() {
       <FAQSchema
         items={[
           {
-            q: "What is Loop QA?",
-            a: "Loop QA is Replay's autonomous QA product. It captures what happens when code runs in the browser — every function call, DOM mutation, and network request — then analyzes that data to produce detailed, actionable bug reports with root cause, suggested fix, and a full Replay recording.",
+            q: "What is Replay QA?",
+            a: "Replay QA is Replay's autonomous QA product. It captures what happens when code runs in the browser — every function call, DOM mutation, and network request — then analyzes that data to produce detailed, actionable bug reports with root cause, suggested fix, and a full Replay recording.",
           },
           {
-            q: "Does Loop QA work with existing CI test suites?",
-            a: "Yes. If you already have Playwright or Cypress tests running in CI, Loop QA records every test run and analyzes every failure — posting root cause and a suggested fix to your PR automatically. No changes to your test code required.",
+            q: "Does Replay QA work with existing CI test suites?",
+            a: "Yes. If you already have Playwright or Cypress tests running in CI, Replay QA records every test run and analyzes every failure — posting root cause and a suggested fix to your PR automatically. No changes to your test code required.",
           },
           {
-            q: "Does Loop QA work with any web app?",
-            a: "Yes. Loop QA works with any JavaScript or TypeScript web application. React apps get deeper analysis because Replay can inspect component state and re-renders, but Loop QA captures full execution data for any JS stack.",
+            q: "Does Replay QA work with any web app?",
+            a: "Yes. Replay QA works with any JavaScript or TypeScript web application. React apps get deeper analysis because Replay can inspect component state and re-renders, but Replay QA captures full execution data for any JS stack.",
           },
           {
             q: "What does a bug report include?",
             a: "Every bug report includes a root cause statement, a confidence score, the exact sequence of events that caused the failure, a suggested fix based on actual runtime evidence, and a full Replay recording so you can inspect every frame yourself.",
           },
           {
-            q: "Can I embed Loop QA in my own system?",
-            a: "Yes. Loop QA is available as an API for teams building software factories, AI coding platforms, or autonomous development pipelines. Every app your system generates can be automatically tested before it ships.",
+            q: "Can I embed Replay QA in my own system?",
+            a: "Yes. Replay QA is available as an API for teams building software factories, AI coding platforms, or autonomous development pipelines. Every app your system generates can be automatically tested before it ships.",
           },
           {
-            q: "How much does Loop QA cost?",
+            q: "How much does Replay QA cost?",
             a: "Replay is free to start — 25 analyses per month, no time limit, no credit card required. Paid plans start at $49/month for individuals and $299/month (annual) for teams.",
           },
         ]}
@@ -66,24 +66,24 @@ export default function Home() {
         <section className="hero-fade-in relative z-10 flex flex-col items-center text-center px-6 pt-24 pb-16 max-w-4xl mx-auto">
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-surface text-sm text-muted mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-brand-pink animate-pulse" />
-            Loop QA
+            Replay QA
           </span>
           <h1 className="text-5xl sm:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
             AI writes the code.
             <br />
-            <span className="text-brand-pink">Loop QA makes sure it works.</span>
+            <span className="text-brand-pink">Replay QA makes sure it works.</span>
           </h1>
           <p className="text-lg text-muted max-w-2xl mb-10 leading-relaxed">
-            Loop QA finds the bugs in your web app and tells your agent exactly how to fix them — with a detailed, actionable bug report every time.
+            Replay QA finds the bugs in your web app and tells your agent exactly how to fix them — with a detailed, actionable bug report every time.
           </p>
           <a
-            href="https://loop-qa.replay.io"
+            href="https://qa.replay.io"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block rounded-full px-8 py-3.5 text-base font-medium text-white hover:opacity-90 transition"
             style={{ background: "var(--brand-gradient)" }}
           >
-            Try Loop QA &rarr;
+            Try Replay QA &rarr;
           </a>
           <p className="text-xs text-muted text-center mt-3">
             Start free &middot; No credit card required
@@ -95,14 +95,14 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Three ways to use Loop QA */}
+      {/* Three ways to use Replay QA */}
       <div className="bg-surface-tinted">
         <section className="px-6 py-24 max-w-5xl mx-auto">
           <p className="text-sm font-medium uppercase tracking-widest text-brand-pink mb-4 text-center">
             One product. Three ways to use it.
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 leading-tight">
-            However you build, Loop QA has you covered
+            However you build, Replay QA has you covered
           </h2>
           <div className="grid md:grid-cols-3 gap-5 mb-10">
 
@@ -111,9 +111,9 @@ export default function Home() {
               <span className="text-xs font-semibold uppercase tracking-widest text-brand-pink mb-4">For vibe coders</span>
               <h3 className="text-lg font-bold mb-3 leading-snug">Drop in a URL. Get a bug report.</h3>
               <p className="text-sm text-muted leading-relaxed flex-1">
-                Loop QA explores your app, writes tests, records every session, and files detailed bug reports — with root cause, suggested fix, and a full Replay recording. No test suite, no QA team required.
+                Replay QA explores your app, writes tests, records every session, and files detailed bug reports — with root cause, suggested fix, and a full Replay recording. No test suite, no QA team required.
               </p>
-              <a href="/loop-qa" className="mt-5 text-sm font-medium text-brand-pink hover:opacity-80 transition">
+              <a href="/qa" className="mt-5 text-sm font-medium text-brand-pink hover:opacity-80 transition">
                 Learn more &rarr;
               </a>
             </div>
@@ -121,9 +121,9 @@ export default function Home() {
             {/* For software factories */}
             <div className="rounded-xl border border-border bg-surface p-7 flex flex-col">
               <span className="text-xs font-semibold uppercase tracking-widest text-brand-pink mb-4">For software factories</span>
-              <h3 className="text-lg font-bold mb-3 leading-snug">Embed Loop QA in your pipeline.</h3>
+              <h3 className="text-lg font-bold mb-3 leading-snug">Embed Replay QA in your pipeline.</h3>
               <p className="text-sm text-muted leading-relaxed flex-1">
-                Building an AI coding platform or autonomous dev system? Embed Loop QA as a quality gate via API. Every app your system generates gets automatically tested before it ships.
+                Building an AI coding platform or autonomous dev system? Embed Replay QA as a quality gate via API. Every app your system generates gets automatically tested before it ships.
               </p>
               <a href="mailto:sales@replay.io" className="mt-5 text-sm font-medium text-brand-pink hover:opacity-80 transition">
                 Talk to us &rarr;
@@ -135,7 +135,7 @@ export default function Home() {
               <span className="text-xs font-semibold uppercase tracking-widest text-brand-pink mb-4">In CI</span>
               <h3 className="text-lg font-bold mb-3 leading-snug">Analyze every test failure automatically.</h3>
               <p className="text-sm text-muted leading-relaxed flex-1">
-                Already have tests in CI? Loop QA records every run, analyzes every failure, and posts root cause and fix to your PR automatically. No manual debugging.
+                Already have tests in CI? Replay QA records every run, analyzes every failure, and posts root cause and fix to your PR automatically. No manual debugging.
               </p>
               <a href="/ci-agent" className="mt-5 text-sm font-medium text-brand-pink hover:opacity-80 transition">
                 Learn more &rarr;
@@ -162,7 +162,7 @@ export default function Home() {
           Underneath it all — it&apos;s just Replay
         </h2>
         <p className="text-muted text-center max-w-2xl mx-auto mb-16">
-          Whether you&apos;re running Loop QA on a web app or analyzing a CI failure, the same recording engine is at work. Replay captures the full browser runtime deterministically — making AI analysis possible where it wasn&apos;t before.
+          Whether you&apos;re running Replay QA on a web app or analyzing a CI failure, the same recording engine is at work. Replay captures the full browser runtime deterministically — making AI analysis possible where it wasn&apos;t before.
         </p>
         <div className="max-w-3xl mx-auto rounded-xl border border-border overflow-hidden">
           {[
@@ -322,7 +322,7 @@ export default function Home() {
               <p className="text-xs font-semibold uppercase tracking-widest text-brand-pink mb-2">Featured proof point</p>
               <h3 className="text-xl font-bold mb-3">Replay solved a bug that stumped Dan Abramov</h3>
               <p className="text-sm text-muted leading-relaxed mb-4">
-                Dan had been manually debugging a React 19 race condition. Replay&apos;s agent traced it to root cause in 7 minutes — using the same time-travel recording data that powers Loop QA&apos;s analysis. The analysis identified the exact fix without any human intervention.
+                Dan had been manually debugging a React 19 race condition. Replay&apos;s agent traced it to root cause in 7 minutes — using the same time-travel recording data that powers Replay QA&apos;s analysis. The analysis identified the exact fix without any human intervention.
               </p>
               <a
                 href="https://www.replay.io/blog/replay-time-travelogue-how-replay-mcp-helped-find-a-react-bug-faster-than-dan-abramov-did"
@@ -413,20 +413,20 @@ export default function Home() {
           <div className="space-y-8">
             {[
               {
-                q: "What is Loop QA?",
-                a: "Loop QA is Replay's autonomous QA product. It captures what happens when code runs in the browser — every function call, DOM mutation, and network request — then analyzes that data to produce detailed, actionable bug reports with root cause, suggested fix, and a full Replay recording.",
+                q: "What is Replay QA?",
+                a: "Replay QA is Replay's autonomous QA product. It captures what happens when code runs in the browser — every function call, DOM mutation, and network request — then analyzes that data to produce detailed, actionable bug reports with root cause, suggested fix, and a full Replay recording.",
               },
               {
-                q: "Does Loop QA work with existing CI test suites?",
-                a: "Yes. If you already have Playwright or Cypress tests running in CI, Loop QA records every test run and analyzes every failure — posting root cause and a suggested fix to your PR automatically. No changes to your test code required.",
+                q: "Does Replay QA work with existing CI test suites?",
+                a: "Yes. If you already have Playwright or Cypress tests running in CI, Replay QA records every test run and analyzes every failure — posting root cause and a suggested fix to your PR automatically. No changes to your test code required.",
               },
               {
-                q: "Does Loop QA work with any web app?",
-                a: "Yes. Loop QA works with any JavaScript or TypeScript web application. React apps get deeper analysis because Replay can inspect component state and re-renders, but Loop QA captures full execution data for any JS stack.",
+                q: "Does Replay QA work with any web app?",
+                a: "Yes. Replay QA works with any JavaScript or TypeScript web application. React apps get deeper analysis because Replay can inspect component state and re-renders, but Replay QA captures full execution data for any JS stack.",
               },
               {
-                q: "Can I embed Loop QA in my own autonomous system?",
-                a: "Yes. Loop QA is available as an API for teams building software factories, AI coding platforms, or autonomous development pipelines. Every app your system generates can be automatically tested before it ships.",
+                q: "Can I embed Replay QA in my own autonomous system?",
+                a: "Yes. Replay QA is available as an API for teams building software factories, AI coding platforms, or autonomous development pipelines. Every app your system generates can be automatically tested before it ships.",
               },
               {
                 q: "What does a bug report include?",
@@ -454,19 +454,19 @@ export default function Home() {
       {/* Final CTA */}
       <section id="cta" className="px-6 py-24 max-w-3xl mx-auto text-center">
         <h2 className="text-3xl sm:text-4xl font-bold mb-4 leading-tight">
-          Ready to let Loop QA find your bugs?
+          Ready to let Replay QA find your bugs?
         </h2>
         <p className="text-muted max-w-xl mx-auto mb-8 text-lg">
-          Drop in a URL and Loop QA takes it from there — no test suite, no QA team required.
+          Drop in a URL and Replay QA takes it from there — no test suite, no QA team required.
         </p>
         <a
-          href="https://loop-qa.replay.io"
+          href="https://qa.replay.io"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block rounded-full px-8 py-3.5 text-base font-medium text-white hover:opacity-90 transition"
           style={{ background: "var(--brand-gradient)" }}
         >
-          Try Loop QA &rarr;
+          Try Replay QA &rarr;
         </a>
         <p className="text-xs text-muted mt-3">Start free &middot; No credit card required</p>
       </section>
