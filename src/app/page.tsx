@@ -159,7 +159,7 @@ export default function Home() {
           The technology
         </p>
         <h2 className="text-3xl font-bold text-center mb-4">
-          Underneath it all — it&apos;s just Replay
+          Underneath it all: our time-travel debugger.
         </h2>
         <p className="text-muted text-center max-w-2xl mx-auto mb-16">
           Whether you&apos;re running Replay QA on a web app or analyzing a CI failure, the same recording engine is at work. Replay captures the full browser runtime deterministically — making AI analysis possible where it wasn&apos;t before.
