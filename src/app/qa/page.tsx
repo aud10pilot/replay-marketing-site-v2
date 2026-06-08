@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import Orb from "@/components/Orb";
 import LoopQAHowItWorks from "./LoopQAHowItWorks";
+import CopyPromptBlock from "./CopyPromptBlock";
 
 export const metadata: Metadata = {
   title: "Replay QA — Autonomous QA for the Vibecoding Era",
@@ -158,6 +159,23 @@ export default function LoopQAPage() {
       </div>
 
       <LoopQAHowItWorks />
+
+      {/* Ask Your Agent */}
+      <section className="px-6 py-24 max-w-3xl mx-auto">
+        <p className="text-sm font-medium uppercase tracking-widest text-brand-pink mb-4 text-center">
+          Ask Your Agent
+        </p>
+        <h2 className="text-3xl font-bold text-center mb-4 leading-tight">
+          One prompt. Your agent does the rest.
+        </h2>
+        <p className="text-muted text-center max-w-xl mx-auto mb-10">
+          With a simple prompt, your coding agent will know exactly what to do.
+        </p>
+        <CopyPromptBlock prompt="Test this app using Replay QA https://qa.replay.io" />
+        <p className="text-xs text-muted text-center mt-5">
+          Works with Codex, Claude Code, Cursor, and any agent you&apos;re using.
+        </p>
+      </section>
 
       {/* Use cases */}
       <div className="bg-surface-tinted">
