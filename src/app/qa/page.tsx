@@ -130,7 +130,6 @@ export default function LoopQAPage() {
               src="/ReplayQA-Edit.mp4"
               controls
               playsInline
-              poster="/loopQa_screenshot.png"
             />
           </div>
         </div>
