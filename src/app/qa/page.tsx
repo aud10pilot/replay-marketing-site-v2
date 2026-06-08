@@ -127,7 +127,7 @@ export default function LoopQAPage() {
           <div className="rounded-2xl border border-border overflow-hidden aspect-video shadow-2xl">
             <video
               className="w-full h-full object-cover"
-              src="/LoopQA_PlaceholderProductOverview.mp4"
+              src="/ReplayQA-Edit.mp4"
               controls
               playsInline
               poster="/loopQa_screenshot.png"
