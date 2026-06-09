@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { FAQSchema, OrganizationSchema } from "@/components/JsonLd";
 import LogoMarquee from "@/components/LogoMarquee";
 import Nav from "@/components/Nav";
-import WarpSpeedBg from "@/components/WarpSpeedBg";
+import Orb from "@/components/Orb";
 import LoopQAHowItWorks from "./qa/LoopQAHowItWorks";
 import CopyPromptBlock from "./qa/CopyPromptBlock";
 
@@ -76,26 +76,11 @@ export default function Home() {
 
       {/* Hero */}
       <div className="relative overflow-hidden">
-        <WarpSpeedBg
-          className="absolute inset-0 opacity-30 dark:opacity-40"
-          config={{
-            speed: 10,
-            targetSpeed: 10,
-            speedAdjFactor: 0.8,
-            density: 0.7,
-            starSize: 2,
-            warpEffect: true,
-            warpEffectLength: 5,
-            depthFade: true,
-            shape: "square",
-            backgroundColor: "#FFFFFF",
-            starColor: "hsl(263,45%,7%)",
-          }}
-          darkConfig={{
-            backgroundColor: "hsl(263,45%,7%)",
-            starColor: "#FFFFFF",
-          }}
-        />
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="w-[640px] h-[640px] sm:w-[1232px] sm:h-[1232px]" style={{ position: "absolute", top: "41%", left: "50vw", transform: "translate(-50%, -50%)" }}>
+            <Orb hue={264} hoverIntensity={0.3} rotateOnHover forceHoverState={false} />
+          </div>
+        </div>
         <section className="hero-fade-in relative z-10 flex flex-col items-center text-center px-6 pt-24 pb-16 max-w-4xl mx-auto">
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-surface text-sm text-muted mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-brand-pink animate-pulse" />
