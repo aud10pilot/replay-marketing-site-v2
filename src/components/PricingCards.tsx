@@ -73,17 +73,16 @@ export default function PricingCards() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-muted mb-2">
               Free
             </p>
+            <div className="font-semibold tracking-tight mb-1 leading-none text-[38px]">
+              $0
+            </div>
+            <p className="text-xs text-muted mb-6">always free</p>
             <h2 className="text-lg font-semibold tracking-tight mb-2 leading-snug">
               Try Replay with no commitment
             </h2>
             <p className="text-sm text-muted leading-relaxed mb-6">
               25 analyses a month, no time limit, no credit card required.
             </p>
-
-            <div className="font-semibold tracking-tight mb-1 leading-none text-[38px]">
-              $0
-            </div>
-            <p className="text-xs text-muted mb-6">always free</p>
 
             <div className="h-px bg-border mb-5" />
 
@@ -118,18 +117,17 @@ export default function PricingCards() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-muted mb-2">
               Individual
             </p>
+            <div className="font-semibold tracking-tight mb-1 leading-none text-[38px]">
+              <sup className="text-lg font-medium align-top mr-0.5">$</sup>
+              49
+            </div>
+            <p className="text-xs text-muted mb-6">per month</p>
             <h2 className="text-lg font-semibold tracking-tight mb-2 leading-snug">
               For individuals using Replay beyond the basics
             </h2>
             <p className="text-sm text-muted leading-relaxed mb-6">
               150 analyses a month — the right volume for solo builders running a handful of apps or workflows.
             </p>
-
-            <div className="font-semibold tracking-tight mb-1 leading-none text-[38px]">
-              <sup className="text-lg font-medium align-top mr-0.5">$</sup>
-              49
-            </div>
-            <p className="text-xs text-muted mb-6">per month</p>
 
             <div className="h-px bg-border mb-5" />
 
@@ -169,18 +167,17 @@ export default function PricingCards() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-brand-pink mb-2">
               Team
             </p>
+            <div className="font-semibold tracking-tight mb-1 leading-none text-[38px] transition-all">
+              <sup className="text-lg font-medium align-top mr-0.5">$</sup>
+              {teamPrice}
+            </div>
+            <p className="text-xs text-muted mb-6">{teamBillingNote}</p>
             <h2 className="text-lg font-semibold tracking-tight mb-2 leading-snug">
               For startups and small teams moving fast
             </h2>
             <p className="text-sm text-muted leading-relaxed mb-6">
               500 analyses a month for teams that ship often and need consistent coverage — however they use Replay.
             </p>
-
-            <div className="font-semibold tracking-tight mb-1 leading-none text-[38px] transition-all">
-              <sup className="text-lg font-medium align-top mr-0.5">$</sup>
-              {teamPrice}
-            </div>
-            <p className="text-xs text-muted mb-6">{teamBillingNote}</p>
 
             <div className="h-px bg-border mb-5" />
 
@@ -214,17 +211,16 @@ export default function PricingCards() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-muted mb-2">
               Enterprise
             </p>
+            <div className="font-semibold tracking-tight mb-1 leading-none text-[30px]">
+              Custom
+            </div>
+            <p className="text-xs text-muted mb-6">usage-based or seat-based · negotiated together</p>
             <h2 className="text-lg font-semibold tracking-tight mb-2 leading-snug">
               For organizations using Replay at scale
             </h2>
             <p className="text-sm text-muted leading-relaxed mb-6">
               Custom analysis volume, contracts, and support — for however your organization uses Replay.
             </p>
-
-            <div className="font-semibold tracking-tight mb-1 leading-none text-[30px]">
-              Custom
-            </div>
-            <p className="text-xs text-muted mb-6">usage-based or seat-based · negotiated together</p>
 
             <div className="h-px bg-border mb-5" />
 

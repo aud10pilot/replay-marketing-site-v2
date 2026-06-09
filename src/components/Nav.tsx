@@ -9,7 +9,6 @@ import ThemeToggle from "@/components/ThemeToggle";
 const links = [
   { href: "/", label: "Home" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/roi-calculator", label: "ROI Calculator" },
   { href: "/about", label: "About" },
   { href: "https://docs.replay.io/basics/replay-mcp/overview", label: "Docs" },
 ];
