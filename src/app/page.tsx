@@ -4,6 +4,7 @@ import { FAQSchema, OrganizationSchema } from "@/components/JsonLd";
 import LogoMarquee from "@/components/LogoMarquee";
 import Nav from "@/components/Nav";
 import Orb from "@/components/Orb";
+import AutoplayVideo from "@/components/AutoplayVideo";
 import LoopQAHowItWorks from "./qa/LoopQAHowItWorks";
 import CopyPromptBlock from "./qa/CopyPromptBlock";
 
@@ -75,8 +76,8 @@ export default function Home() {
       <Nav />
 
       {/* Hero */}
-      <div className="relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      <div className="relative overflow-visible">
+        <div className="absolute inset-0 pointer-events-none">
           <div className="w-[640px] h-[640px] sm:w-[1232px] sm:h-[1232px]" style={{ position: "absolute", top: "41%", left: "50vw", transform: "translate(-50%, -50%)" }}>
             <Orb hue={264} hoverIntensity={0.3} rotateOnHover forceHoverState={false} />
           </div>
@@ -116,11 +117,9 @@ export default function Home() {
       {/* Product video */}
       <div className="px-6 py-12 max-w-4xl mx-auto">
         <div className="rounded-2xl border border-border overflow-hidden aspect-video shadow-2xl">
-          <video
-            className="w-full h-full object-cover"
+          <AutoplayVideo
             src="/ReplayQA-Edit.mp4"
-            controls
-            playsInline
+            className="w-full h-full object-cover"
           />
         </div>
       </div>

@@ -18,7 +18,7 @@ export default function Nav() {
   const pathname = usePathname();
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-background/70 backdrop-blur-md border-b border-border/40">
+    <nav className="sticky top-0 z-50 w-full bg-white/70 dark:bg-[#0a0a0a]/70 backdrop-blur-md border-b border-border/40">
       <div className="px-6 py-5 max-w-6xl mx-auto">
       <div className="relative flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2.5">
