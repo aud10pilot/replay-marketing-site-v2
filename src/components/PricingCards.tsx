@@ -2,22 +2,6 @@
 
 import { useState } from "react";
 
-const Check = () => (
-  <span className="mt-0.5 flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full bg-emerald-500/10 border border-emerald-500/30">
-    <svg
-      width="9"
-      height="9"
-      viewBox="0 0 9 9"
-      fill="none"
-      className="stroke-emerald-500"
-      strokeWidth="2.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <polyline points="1.5,4.5 3.5,7 7.5,2" />
-    </svg>
-  </span>
-);
 
 export default function PricingCards() {
   const [annual, setAnnual] = useState(true);
@@ -83,26 +67,9 @@ export default function PricingCards() {
             <h2 className="text-lg font-semibold tracking-tight mb-2 leading-snug">
               Try Replay with no commitment
             </h2>
-            <p className="text-sm text-muted leading-relaxed mb-6">
+            <p className="text-sm text-muted leading-relaxed mb-6 flex-1">
               20 analyses a month, no time limit, no credit card required.
             </p>
-
-            <div className="h-px bg-border mb-5" />
-
-            <ul className="flex flex-col gap-2.5 mb-8 flex-1">
-              {[
-                "20 AI analyses per month",
-                "CI Agent integration",
-                "Replay MCP for IDE debugging",
-                "Replay DevTools access",
-                "Community support",
-              ].map((f) => (
-                <li key={f} className="flex items-start gap-2.5 text-sm text-muted leading-snug">
-                  <Check />
-                  {f}
-                </li>
-              ))}
-            </ul>
 
             <a
               href="https://app.replay.io/sign-up"
@@ -125,26 +92,9 @@ export default function PricingCards() {
             <h2 className="text-lg font-semibold tracking-tight mb-2 leading-snug">
               For individuals using Replay beyond the basics
             </h2>
-            <p className="text-sm text-muted leading-relaxed mb-6">
+            <p className="text-sm text-muted leading-relaxed mb-6 flex-1">
               50 analyses a month — the right volume for solo builders running a handful of apps or workflows.
             </p>
-
-            <div className="h-px bg-border mb-5" />
-
-            <ul className="flex flex-col gap-2.5 mb-8 flex-1">
-              {[
-                "50 AI analyses per month",
-                "Unlimited recordings",
-                "All CI integrations",
-                "All coding agent integrations",
-                "Email support",
-              ].map((f) => (
-                <li key={f} className="flex items-start gap-2.5 text-sm text-muted leading-snug">
-                  <Check />
-                  {f}
-                </li>
-              ))}
-            </ul>
 
             <a
               href="https://app.replay.io/sign-up"
@@ -172,25 +122,9 @@ export default function PricingCards() {
             <h2 className="text-lg font-semibold tracking-tight mb-2 leading-snug">
               For startups and small teams moving fast
             </h2>
-            <p className="text-sm text-muted leading-relaxed mb-6">
+            <p className="text-sm text-muted leading-relaxed mb-6 flex-1">
               300 analyses a month for teams that ship often and need consistent coverage — however they use Replay.
             </p>
-
-            <div className="h-px bg-border mb-5" />
-
-            <ul className="flex flex-col gap-2.5 mb-8 flex-1">
-              {[
-                "300 AI analyses per month",
-                "All CI integrations (GitHub Actions, CircleCI, Jenkins, BuildKite)",
-                "All coding agent integrations (Claude Code, Codex, Cursor, Copilot, Windsurf)",
-                "Priority email support",
-              ].map((f) => (
-                <li key={f} className="flex items-start gap-2.5 text-sm text-muted leading-snug">
-                  <Check />
-                  {f}
-                </li>
-              ))}
-            </ul>
 
             <a
               href="https://app.replay.io/sign-up"
@@ -212,26 +146,9 @@ export default function PricingCards() {
             <h2 className="text-lg font-semibold tracking-tight mb-2 leading-snug">
               For organizations using Replay at scale
             </h2>
-            <p className="text-sm text-muted leading-relaxed mb-6">
+            <p className="text-sm text-muted leading-relaxed mb-6 flex-1">
               Custom analysis volume, contracts, and support — for however your organization uses Replay.
             </p>
-
-            <div className="h-px bg-border mb-5" />
-
-            <ul className="flex flex-col gap-2.5 mb-8 flex-1">
-              {[
-                "Unlimited AI analyses",
-                "Priority support and dedicated onboarding",
-                "SLA guarantees",
-                "SSO and advanced access controls",
-                "Roadmap input and joint planning",
-              ].map((f) => (
-                <li key={f} className="flex items-start gap-2.5 text-sm text-muted leading-snug">
-                  <Check />
-                  {f}
-                </li>
-              ))}
-            </ul>
 
             <a
               href="mailto:sales@replay.io"
