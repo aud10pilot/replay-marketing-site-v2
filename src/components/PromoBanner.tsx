@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 export default function PromoBanner() {
   const pathname = usePathname();
-  if (pathname === "/qa") return null;
+  if (pathname === "/" || pathname === "/qa") return null;
 
   return (
     <div

@@ -8,7 +8,6 @@ import ThemeToggle from "@/components/ThemeToggle";
 
 const links = [
   { href: "/", label: "Home" },
-  { href: "/qa", label: "Replay QA" },
   { href: "/pricing", label: "Pricing" },
   { href: "/roi-calculator", label: "ROI Calculator" },
   { href: "/about", label: "About" },
