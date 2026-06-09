@@ -173,33 +173,34 @@ export default function AboutPage() {
         </p>
         <div className="space-y-6 text-muted text-lg leading-relaxed">
           <p>
-            Today, AI agents write code faster than any human. But when a test
-            fails in CI, they&apos;re stuck &mdash; guessing at fixes with no
-            way to see what went wrong at runtime. They loop, retry, and burn
-            through tokens on the same mistake.
+            Today, AI agents write code faster than any human. Solo builders
+            ship full web apps in a day. Platforms generate entire products on
+            demand. But the way we test software hasn&apos;t caught up &mdash;
+            it still assumes a human QA team, a manual test suite, and someone
+            with time to triage what breaks.
           </p>
           <p>
-            So we gave the time machine to the agent.{" "}
+            So we built Replay QA.{" "}
             <span className="text-foreground font-medium">
-              Replay now enables your coding agent to time-travel through
-              recordings and fix failing tests without human intervention.
+              Drop in a URL and it explores your app, finds the bugs, and tells
+              you exactly how to fix them &mdash; with a detailed, actionable
+              bug report every time.
             </span>{" "}
-            It turns out they&apos;re way better at it anyway &mdash; no
-            fatigue, no missed details, no wrong turns.
+            No test suite to write. No QA team required.
           </p>
           <p>
-            The Replay CI Agent watches every PR. When a test fails, it records
-            the full runtime, analyzes the execution, and posts the root cause
-            plus a specific fix as a PR comment. Replay MCP brings the same
-            time-travel capability directly into your IDE, where your coding
-            agent already works.
+            The same recording engine that gave developers time-travel debugging
+            now powers autonomous QA. Replay captures the full browser runtime
+            deterministically &mdash; every function call, DOM mutation, and
+            network request &mdash; and analyzes it the way a great engineer
+            would, without the fatigue.
           </p>
           <p>
-            We&apos;re building toward a world where every test failure comes
-            with a root cause, every broken PR gets a fix, and no one &mdash;
-            human or AI &mdash;{" "}
+            We&apos;re building toward a world where every app ships with a QA
+            layer &mdash; whether it&apos;s built by a solo vibecoder, a
+            software factory, or a team running tests in CI. The goal is simple:{" "}
             <span className="text-foreground font-medium">
-              has to debug blind.
+              no one ships blind.
             </span>
           </p>
         </div>
@@ -313,24 +314,17 @@ export default function AboutPage() {
             See what your software is doing.
           </h2>
           <p className="text-muted max-w-xl mx-auto mb-8 text-lg">
-            Install the CI Agent on your repo, or add Replay MCP to your coding
-            agent. Free to get started.
+            Drop in a URL and Replay QA takes it from there. Free to get started.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://docs.replay.io/basics/replay-ci-agent/overview"
-              className="rounded-full px-8 py-3.5 text-base font-medium text-white hover:opacity-90 transition"
-              style={{ background: "var(--brand-gradient)" }}
-            >
-              Install the CI Agent
-            </a>
-            <a
-              href="https://docs.replay.io/basics/replay-mcp/overview"
-              className="rounded-full border border-border px-8 py-3.5 text-base font-medium text-muted hover:border-foreground/20 hover:text-foreground transition"
-            >
-              Add Replay MCP
-            </a>
-          </div>
+          <a
+            href="https://qa.replay.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block rounded-full px-8 py-3.5 text-base font-medium text-white hover:opacity-90 transition"
+            style={{ background: "var(--brand-gradient)" }}
+          >
+            Try Replay QA &rarr;
+          </a>
         </section>
       </div>
 

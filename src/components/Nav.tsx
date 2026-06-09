@@ -10,7 +10,6 @@ const links = [
   { href: "/", label: "Home" },
   { href: "/pricing", label: "Pricing" },
   { href: "/about", label: "About" },
-  { href: "https://docs.replay.io/basics/replay-mcp/overview", label: "Docs" },
 ];
 
 export default function Nav() {
