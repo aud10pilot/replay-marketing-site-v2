@@ -18,7 +18,8 @@ export default function Nav() {
   const pathname = usePathname();
 
   return (
-    <nav className="relative z-50 px-6 py-5 max-w-6xl mx-auto">
+    <nav className="sticky top-0 z-50 w-full bg-background/70 backdrop-blur-md border-b border-border/40">
+      <div className="px-6 py-5 max-w-6xl mx-auto">
       <div className="relative flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2.5">
           <Image src="/logo.svg" alt="Replay" width={24} height={28} />
@@ -140,6 +141,7 @@ export default function Nav() {
           </a>
         </div>
       )}
+      </div>
     </nav>
   );
 }
