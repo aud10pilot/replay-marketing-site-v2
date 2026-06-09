@@ -214,7 +214,15 @@ export default function Home() {
         <p className="text-muted text-center max-w-xl mx-auto mb-10">
           With a simple prompt, your coding agent will know exactly what to do.
         </p>
-        <CopyPromptBlock prompt="Test this app using Replay QA https://qa.replay.io" />
+        <CopyPromptBlock prompt={`Set up a continuous QA loop for the app we're building using Replay QA (https://loop-qa.replay.io).
+
+Drive everything through the REST API at https://loop-qa.replay.io/api/v1 — read the OpenAPI spec at /api/v1/openapi.json first; it documents the full workflow. Authenticate with my API token ("Authorization: Bearer lqa_..."), asking me for it if needed.
+
+Your job:
+1. Create a QA project for the running app — give it the target_url and a short note on the key flows. If the app is only reachable from this machine (e.g. http://localhost:3000), enable the reverse proxy and follow the spec's setup steps.
+2. Let QA run — poll the project status and don't kick off explorations or test runs yourself; QA drives those.
+3. For each open bug, read its full root-caused report and apply the fix directly in the codebase, then mark it fixed via the API.
+4. Keep looping until no open bugs remain.`} />
         <p className="text-xs text-muted text-center mt-5">
           Works with Codex, Claude Code, Cursor, and any agent you&apos;re using.
         </p>
