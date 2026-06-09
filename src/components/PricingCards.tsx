@@ -22,6 +22,9 @@ const Check = () => (
 export default function PricingCards() {
   const [annual, setAnnual] = useState(true);
 
+  const individualPrice = annual ? 42 : 49;
+  const individualBillingNote = annual ? "per month · billed annually" : "per month · billed monthly";
+
   const teamPrice = annual ? 299 : 349;
   const teamBillingNote = annual ? "per month · billed annually" : "per month · billed monthly";
 
@@ -117,11 +120,11 @@ export default function PricingCards() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-muted mb-2">
               Individual
             </p>
-            <div className="font-semibold tracking-tight mb-1 leading-none text-[38px]">
+            <div className="font-semibold tracking-tight mb-1 leading-none text-[38px] transition-all">
               <sup className="text-lg font-medium align-top mr-0.5">$</sup>
-              49
+              {individualPrice}
             </div>
-            <p className="text-xs text-muted mb-6">per month</p>
+            <p className="text-xs text-muted mb-6">{individualBillingNote}</p>
             <h2 className="text-lg font-semibold tracking-tight mb-2 leading-snug">
               For individuals using Replay beyond the basics
             </h2>
