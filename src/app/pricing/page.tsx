@@ -7,19 +7,19 @@ import PricingCards from "@/components/PricingCards";
 export const metadata: Metadata = {
   title: "Pricing — Replay",
   description:
-    "Simple, usage-based pricing. Start free with 25 AI analyses per month. Upgrade as you grow.",
+    "Simple, usage-based pricing. Start free with 20 AI analyses per month. Upgrade as you grow.",
   alternates: { canonical: "/pricing" },
   openGraph: {
     title: "Pricing — Replay",
     description:
-      "Simple, usage-based pricing. Start free with 25 AI analyses per month. Upgrade as you grow.",
+      "Simple, usage-based pricing. Start free with 20 AI analyses per month. Upgrade as you grow.",
   },
 };
 
 const faqs = [
   {
     q: "What's the difference between the plans?",
-    a: "The plans differ by analysis volume. Free gives you 25 AI analyses per month — enough to evaluate Replay with no time limit. Individual (150/mo) and Team (500/mo) unlock more volume, unlimited recordings, and all integrations. Enterprise is custom-scoped for high-volume usage.",
+    a: "The plans differ by analysis volume. Free gives you 20 AI analyses per month — enough to evaluate Replay with no time limit. Individual (50/mo) and Team (300/mo) unlock more volume and all integrations. Enterprise is custom-scoped for high-volume usage.",
   },
   {
     q: "Can I upgrade or downgrade at any time?",
@@ -71,7 +71,7 @@ export default function PricingPage() {
           </h1>
 
           <p className="text-lg text-muted max-w-lg mx-auto leading-relaxed">
-            Pay for the analyses you run — however you use Replay. Start free with 25 analyses a month. Upgrade when you need more.
+            Pay for the analyses you run — however you use Replay. Start free with 20 analyses a month. Upgrade when you need more.
           </p>
         </div>
       </section>
@@ -106,35 +106,6 @@ export default function PricingPage() {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Design Partner callout */}
-      <section className="px-6 py-10 max-w-4xl mx-auto">
-        <div className="rounded-xl border border-border bg-surface p-7 flex flex-col sm:flex-row sm:items-center gap-6 justify-between">
-          <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-brand-purple mb-1.5">
-              Design partners
-            </p>
-            <h3 className="text-base font-semibold mb-1">Become a Design Partner to help shape the future of Replay</h3>
-            <p className="text-sm text-muted leading-relaxed max-w-lg">
-              We&apos;re working with a small group of engineering teams who take CI/CD automation seriously to build and refine Replay. Design partners get full, free access in exchange for real usage and regular feedback.
-            </p>
-          </div>
-          <a
-            href="mailto:partners@replay.io"
-            className="flex-shrink-0 rounded-full border border-border px-6 py-2.5 text-sm font-medium text-muted hover:border-brand-purple hover:text-brand-purple hover:bg-brand-purple/[0.06] transition whitespace-nowrap"
-          >
-            Apply to partner
-          </a>
-        </div>
-      </section>
-
-      {/* Trial callout */}
-      <section className="px-6 py-16 max-w-3xl mx-auto text-center">
-        <h2 className="text-2xl font-bold mb-3">Start integrating in 5 minutes.</h2>
-        <p className="text-muted leading-relaxed max-w-xl mx-auto">
-          Start on the Free plan — no time limit, no credit card required. Upgrade to Growth when you need more. If you don&apos;t have a value moment within the first week, we want to hear why.
-        </p>
       </section>
 
       {/* FAQ */}
