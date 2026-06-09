@@ -212,7 +212,7 @@ export default function Home() {
           One prompt. Your agent does the rest.
         </h2>
         <p className="text-muted text-center max-w-xl mx-auto mb-10">
-          With a simple prompt, your coding agent will know exactly what to do.
+          Try feeding this prompt to your coding agent to see the magic unfold.
         </p>
         <CopyPromptBlock prompt={`Set up a continuous QA loop for the app we're building using Replay QA (https://loop-qa.replay.io).
 
