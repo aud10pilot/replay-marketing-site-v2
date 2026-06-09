@@ -84,17 +84,14 @@ export default function PricingCards() {
               Try Replay with no commitment
             </h2>
             <p className="text-sm text-muted leading-relaxed mb-6">
-              25 analyses a month, no time limit, no credit card required.
+              20 analyses a month, no time limit, no credit card required.
             </p>
 
             <div className="h-px bg-border mb-5" />
 
-            <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-muted mb-3">
-              Includes
-            </p>
             <ul className="flex flex-col gap-2.5 mb-8 flex-1">
               {[
-                "25 AI analyses per month",
+                "20 AI analyses per month",
                 "CI Agent integration",
                 "Replay MCP for IDE debugging",
                 "Replay DevTools access",
@@ -129,17 +126,14 @@ export default function PricingCards() {
               For individuals using Replay beyond the basics
             </h2>
             <p className="text-sm text-muted leading-relaxed mb-6">
-              150 analyses a month — the right volume for solo builders running a handful of apps or workflows.
+              50 analyses a month — the right volume for solo builders running a handful of apps or workflows.
             </p>
 
             <div className="h-px bg-border mb-5" />
 
-            <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-muted mb-3">
-              Everything in Free, plus
-            </p>
             <ul className="flex flex-col gap-2.5 mb-8 flex-1">
               {[
-                "150 AI analyses per month",
+                "50 AI analyses per month",
                 "Unlimited recordings",
                 "All CI integrations",
                 "All coding agent integrations",
@@ -179,17 +173,14 @@ export default function PricingCards() {
               For startups and small teams moving fast
             </h2>
             <p className="text-sm text-muted leading-relaxed mb-6">
-              500 analyses a month for teams that ship often and need consistent coverage — however they use Replay.
+              300 analyses a month for teams that ship often and need consistent coverage — however they use Replay.
             </p>
 
             <div className="h-px bg-border mb-5" />
 
-            <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-muted mb-3">
-              Everything in Individual, plus
-            </p>
             <ul className="flex flex-col gap-2.5 mb-8 flex-1">
               {[
-                "500 AI analyses per month",
+                "300 AI analyses per month",
                 "All CI integrations (GitHub Actions, CircleCI, Jenkins, BuildKite)",
                 "All coding agent integrations (Claude Code, Codex, Cursor, Copilot, Windsurf)",
                 "Priority email support",
@@ -227,9 +218,6 @@ export default function PricingCards() {
 
             <div className="h-px bg-border mb-5" />
 
-            <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-muted mb-3">
-              Everything in Team, plus
-            </p>
             <ul className="flex flex-col gap-2.5 mb-8 flex-1">
               {[
                 "Unlimited AI analyses",
