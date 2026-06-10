@@ -8,38 +8,17 @@ import AutoplayVideo from "@/components/AutoplayVideo";
 import LoopQAHowItWorks from "./qa/LoopQAHowItWorks";
 import CopyPromptBlock from "./qa/CopyPromptBlock";
 
-const useCases = [
-  {
-    title: "Teams with existing CI test suites",
-    description:
-      "Already running Playwright or Cypress in CI? Replay QA records every test run and analyzes every failure — posting root cause and a suggested fix to your PR automatically.",
-  },
-  {
-    title: "Software factories & vibecoding platforms",
-    description:
-      "Embed Replay QA as a quality gate in your AI-powered development platform. Every app generated gets automatically tested before it ships — no human QA required.",
-  },
-  {
-    title: "Early-stage startups without dedicated QA",
-    description:
-      "You're moving fast and QA isn't headcount you can afford yet. Replay QA finds the bugs before your users do — at a fraction of the cost of a QA hire.",
-  },
-  {
-    title: "Companies that have vibecoded internal apps",
-    description:
-      "Internal tools built with AI move fast and break things. Replay QA gives you a continuous layer of coverage so breakages get caught before they become incidents.",
-  },
-  {
-    title: "Individual vibecoders",
-    description:
-      "Building solo with AI? Replay QA acts as your QA layer — catching the bugs that slip through when you're moving fast and shipping constantly.",
-  },
-  {
-    title: "Agencies & Dev Shops",
-    description:
-      "Deliver higher-quality work to clients without adding QA overhead. Replay QA tests every project automatically before handoff.",
-  },
-];
+const SHORT_PROMPT = `Use Replay QA to test this app. Create a QA project for my running app, wait for the results, fix any open bugs, and keep looping until the app passes.`;
+
+const FULL_PROMPT = `Set up a continuous QA loop for the app we're building using Replay QA (https://loop-qa.replay.io).
+
+Drive everything through the REST API at https://loop-qa.replay.io/api/v1 — read the OpenAPI spec at /api/v1/openapi.json first; it documents the full workflow. Authenticate with my API token ("Authorization: Bearer lqa_..."), asking me for it if needed.
+
+Your job:
+1. Create a QA project for the running app — give it the target_url and a short note on the key flows. If the app is only reachable from this machine (e.g. http://localhost:3000), enable the reverse proxy and follow the spec's setup steps.
+2. Let QA run — poll the project status and don't kick off explorations or test runs yourself; QA drives those.
+3. For each open bug, read its full root-caused report and apply the fix directly in the codebase, then mark it fixed via the API.
+4. Keep looping until no open bugs remain.`;
 
 export default function Home() {
   return (
@@ -52,24 +31,28 @@ export default function Home() {
             a: "Replay QA is Replay's autonomous QA product. Drop in a URL and it explores your app, writes Playwright tests, captures Replay recordings, and files detailed bug reports — automatically.",
           },
           {
-            q: "Do I need to write any tests or config?",
-            a: "No. Replay QA discovers user journeys and writes Playwright tests automatically. You provide a URL — it takes care of everything else.",
+            q: "Can Replay QA test apps that require login?",
+            a: "Yes. Replay QA supports authenticated flows. You can provide login credentials and it will test behind your auth wall.",
+          },
+          {
+            q: "Can I test localhost or private apps?",
+            a: "Yes. Replay QA includes a reverse proxy option so it can reach apps running on your local machine or a private network.",
           },
           {
             q: "What does a bug report include?",
             a: "Every bug comes with a Replay recording of the session, a full runtime breakdown (function calls, DOM mutations, network requests, state changes), a root-cause analysis with confidence score, and a suggested fix.",
           },
           {
-            q: "Does Replay QA work with existing CI test suites?",
-            a: "Yes. If you already have Playwright or Cypress tests running in CI, Replay QA records every test run and analyzes every failure — posting root cause and a suggested fix to your PR automatically.",
+            q: "How is this different from Playwright or Cypress test generation tools?",
+            a: "Test generation tools help you write tests faster — you still have to write them, run them, and debug when they fail. Replay QA explores your app autonomously, writes and runs the tests itself, and diagnoses failures. You just provide a URL.",
           },
           {
-            q: "Does Replay QA replace human QA teams?",
-            a: "For most users, there's no human QA team to replace — Replay QA is the only QA layer they have. For teams that do have QA, Replay QA handles the autonomous discovery work so human QA can focus on what needs human judgment.",
+            q: "How is this different from QA Wolf or BrowserStack?",
+            a: "QA Wolf requires human QA engineers to build and maintain test suites. BrowserStack is a platform for running tests you've already written. Replay QA is fully autonomous — no tests to write, no humans to triage. It finds the flows, finds the bugs, and explains root cause.",
           },
           {
             q: "How much does Replay QA cost?",
-            a: "Replay is free to start — 25 analyses per month, no time limit, no credit card required. Paid plans start at $49/month for individuals and $299/month (annual) for teams.",
+            a: "Replay is free to start — 20 analyses per month, no time limit, no credit card required. Paid plans start at $49/month for individuals and $299/month (annual) for teams.",
           },
         ]}
       />
@@ -78,7 +61,15 @@ export default function Home() {
       {/* Hero */}
       <div className="relative overflow-visible">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="w-[640px] h-[640px] sm:w-[1232px] sm:h-[1232px]" style={{ position: "absolute", top: "41%", left: "50vw", transform: "translate(-50%, -50%)" }}>
+          <div
+            className="w-[640px] h-[640px] sm:w-[1232px] sm:h-[1232px]"
+            style={{
+              position: "absolute",
+              top: "41%",
+              left: "50vw",
+              transform: "translate(-50%, -50%)",
+            }}
+          >
             <Orb hue={264} hoverIntensity={0.3} rotateOnHover forceHoverState={false} />
           </div>
         </div>
@@ -88,12 +79,12 @@ export default function Home() {
             Replay QA
           </span>
           <h1 className="text-5xl sm:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
-            AI writes the code.
+            AI wrote the app.
             <br />
-            <span className="text-brand-pink">Replay QA makes sure it works.</span>
+            <span className="text-brand-pink">Replay QA finds what broke.</span>
           </h1>
           <p className="text-lg text-muted max-w-2xl mb-10 leading-relaxed">
-            Replay QA finds the bugs in your web app and tells your agent exactly how to fix them — with a detailed, actionable bug report every time.
+            Give Replay QA a URL. It explores your web app, records every session, finds real bugs, and gives your coding agent the root cause and fix.
           </p>
           <a
             href="https://qa.replay.io"
@@ -102,10 +93,10 @@ export default function Home() {
             className="inline-block rounded-full px-8 py-3.5 text-base font-medium text-white hover:opacity-90 transition"
             style={{ background: "var(--brand-gradient)" }}
           >
-            Try Replay QA &rarr;
+            Test my app for free &rarr;
           </a>
           <p className="text-xs text-muted text-center mt-3">
-            Start free &middot; No credit card required
+            No test suite &middot; No credit card &middot; Just a URL
           </p>
         </section>
 
@@ -117,90 +108,92 @@ export default function Home() {
       {/* Product video */}
       <div className="px-6 py-12 max-w-4xl mx-auto">
         <div className="rounded-2xl border border-border overflow-hidden aspect-video shadow-2xl">
-          <AutoplayVideo
-            src="/ReplayQA-Edit.mp4"
-            className="w-full h-full object-cover"
-          />
+          <AutoplayVideo src="/ReplayQA-Edit.mp4" className="w-full h-full object-cover" />
         </div>
       </div>
 
-      {/* Problem */}
+      {/* Sample bug report */}
       <div className="bg-surface-tinted">
         <section className="px-6 py-24 max-w-3xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-6 leading-tight">
-            Apps ship faster than ever.
-            <br />
-            <span className="text-brand-pink">QA hasn&apos;t kept up.</span>
+          <p className="text-sm font-medium uppercase tracking-widest text-brand-pink mb-4 text-center">
+            What you get
+          </p>
+          <h2 className="text-3xl font-bold text-center mb-4 leading-tight">
+            Root cause. Suggested fix. Full recording.
           </h2>
-          <div className="space-y-6 text-muted text-lg leading-relaxed">
-            <p>
-              AI coding tools have compressed development cycles from weeks to hours. A solo founder or a small team can now ship a full web app in a day. But the way we test software hasn&apos;t changed — it still requires engineers to write test suites, QA teams to run them, and someone to triage what breaks.
-            </p>
-            <p>
-              The result: vibecoded apps ship without meaningful test coverage. Internal tools get deployed with no QA layer at all. And the bugs your users hit are the first signal that something is wrong.
-            </p>
-            <p>
-              <span className="text-foreground font-medium">Replay QA closes the gap. Give it a URL and it takes care of the rest.</span>
-            </p>
+          <p className="text-muted text-center max-w-2xl mx-auto mb-12">
+            Every bug Replay QA finds comes with everything your agent needs to fix it &mdash; not just &ldquo;something broke.&rdquo;
+          </p>
+          <div className="rounded-xl border border-border bg-surface overflow-hidden text-sm">
+            <div className="px-5 py-3 border-b border-border bg-surface-tinted flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-red-400" />
+                <span className="text-xs font-semibold uppercase tracking-widest text-muted">Bug found</span>
+              </div>
+              <span className="text-xs text-muted">confidence: high</span>
+            </div>
+            <div className="px-6 py-5 border-b border-border">
+              <p className="font-semibold text-base">Checkout button does nothing on mobile Safari</p>
+            </div>
+            <div className="px-6 py-5 border-b border-border">
+              <p className="text-xs font-semibold uppercase tracking-widest text-muted mb-2">Root cause</p>
+              <p className="text-sm text-foreground leading-relaxed">
+                <code className="bg-surface-tinted px-1.5 py-0.5 rounded font-mono text-xs">handleSubmit</code> is never called because the button is rendered outside the{" "}
+                <code className="bg-surface-tinted px-1.5 py-0.5 rounded font-mono text-xs">{"<form>"}</code>{" "}
+                element after the responsive layout change on screens under 768px.
+              </p>
+            </div>
+            <div className="px-6 py-5 border-b border-border">
+              <p className="text-xs font-semibold uppercase tracking-widest text-muted mb-2">Suggested fix</p>
+              <p className="text-sm leading-relaxed">
+                Move the button inside the form, or add{" "}
+                <code className="bg-surface-tinted px-1.5 py-0.5 rounded font-mono text-xs">{'form="checkout-form"'}</code>{" "}
+                to the button element.
+              </p>
+            </div>
+            <div className="px-6 py-4">
+              <p className="text-xs font-semibold uppercase tracking-widest text-muted mb-3">Evidence</p>
+              <div className="flex flex-wrap gap-2">
+                {["Replay recording", "DOM mutations", "Network trace", "React state"].map((item) => (
+                  <span
+                    key={item}
+                    className="inline-flex items-center px-2.5 py-1 rounded-full border border-border text-xs text-muted bg-surface-tinted"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
+          <p className="text-xs text-muted text-center mt-5 italic">
+            Example output &mdash; actual reports are generated from your app&apos;s real runtime data.
+          </p>
         </section>
       </div>
 
-      <LoopQAHowItWorks />
-
-      {/* Three ways to use Replay QA */}
-      <div className="bg-surface-tinted">
-        <section className="px-6 py-24 max-w-5xl mx-auto">
-          <p className="text-sm font-medium uppercase tracking-widest text-brand-pink mb-4 text-center">
-            One product. Three ways to use it.
+      {/* Problem */}
+      <section className="px-6 py-24 max-w-3xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-6 leading-tight">
+          Apps ship faster than ever.
+          <br />
+          <span className="text-brand-pink">QA hasn&apos;t kept up.</span>
+        </h2>
+        <div className="space-y-6 text-muted text-lg leading-relaxed">
+          <p>
+            AI coding tools have compressed development cycles from weeks to hours. A solo founder or a small team can now ship a full web app in a day. But the way we test software hasn&apos;t changed &mdash; it still requires engineers to write test suites, QA teams to run them, and someone to triage what breaks.
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 leading-tight">
-            However you build, Replay QA has you covered
-          </h2>
-          <div className="grid md:grid-cols-3 gap-5 mb-10">
+          <p>
+            The result: AI-built apps ship without meaningful test coverage. Internal tools get deployed with no QA layer at all. And the bugs your users hit are the first signal that something is wrong.
+          </p>
+          <p>
+            <span className="text-foreground font-medium">Replay QA gives AI-built apps the QA loop they&apos;re missing.</span>
+          </p>
+        </div>
+      </section>
 
-            {/* For vibe coders */}
-            <div className="rounded-xl border border-border bg-surface p-7 flex flex-col">
-              <span className="text-xs font-semibold uppercase tracking-widest text-brand-pink mb-4">For vibe coders</span>
-              <h3 className="text-lg font-bold mb-3 leading-snug">Drop in a URL. Get a bug report.</h3>
-              <p className="text-sm text-muted leading-relaxed flex-1">
-                Replay QA explores your app, writes tests, records every session, and files detailed bug reports — with root cause, suggested fix, and a full Replay recording. No test suite, no QA team required.
-              </p>
-            </div>
-
-            {/* For software factories */}
-            <div className="rounded-xl border border-border bg-surface p-7 flex flex-col">
-              <span className="text-xs font-semibold uppercase tracking-widest text-brand-pink mb-4">For software factories</span>
-              <h3 className="text-lg font-bold mb-3 leading-snug">Embed Replay QA in your pipeline.</h3>
-              <p className="text-sm text-muted leading-relaxed flex-1">
-                Building an AI coding platform or autonomous dev system? Embed Replay QA as a quality gate via API. Every app your system generates gets automatically tested before it ships.
-              </p>
-              <a href="mailto:sales@replay.io" className="mt-5 text-sm font-medium text-brand-pink hover:opacity-80 transition">
-                Talk to us &rarr;
-              </a>
-            </div>
-
-            {/* In CI */}
-            <div className="rounded-xl border border-border bg-surface p-7 flex flex-col">
-              <span className="text-xs font-semibold uppercase tracking-widest text-brand-pink mb-4">In CI</span>
-              <h3 className="text-lg font-bold mb-3 leading-snug">Analyze every test failure automatically.</h3>
-              <p className="text-sm text-muted leading-relaxed flex-1">
-                Already have tests in CI? Replay QA records every run, analyzes every failure, and posts root cause and fix to your PR automatically. No manual debugging.
-              </p>
-              <a href="/ci-agent" className="mt-5 text-sm font-medium text-brand-pink hover:opacity-80 transition">
-                Learn more &rarr;
-              </a>
-            </div>
-
-          </div>
-
-          {/* Common thread callout */}
-          <div className="rounded-xl border border-brand-pink/20 bg-brand-pink/[0.03] px-8 py-6 text-center max-w-3xl mx-auto">
-            <p className="text-sm text-muted leading-relaxed">
-              In every case, you get the same thing: a <span className="text-foreground font-medium">detailed, actionable bug report</span> with root cause, suggested fix, and a full Replay recording — so your agent knows exactly what to fix and how.
-            </p>
-          </div>
-        </section>
+      {/* How it works */}
+      <div className="bg-surface-tinted">
+        <LoopQAHowItWorks />
       </div>
 
       {/* Ask Your Agent */}
@@ -214,15 +207,27 @@ export default function Home() {
         <p className="text-muted text-center max-w-xl mx-auto mb-10">
           Try feeding this prompt to your coding agent to see the magic unfold.
         </p>
-        <CopyPromptBlock prompt={`Set up a continuous QA loop for the app we're building using Replay QA (https://loop-qa.replay.io).
-
-Drive everything through the REST API at https://loop-qa.replay.io/api/v1 — read the OpenAPI spec at /api/v1/openapi.json first; it documents the full workflow. Authenticate with my API token ("Authorization: Bearer lqa_..."), asking me for it if needed.
-
-Your job:
-1. Create a QA project for the running app — give it the target_url and a short note on the key flows. If the app is only reachable from this machine (e.g. http://localhost:3000), enable the reverse proxy and follow the spec's setup steps.
-2. Let QA run — poll the project status and don't kick off explorations or test runs yourself; QA drives those.
-3. For each open bug, read its full root-caused report and apply the fix directly in the codebase, then mark it fixed via the API.
-4. Keep looping until no open bugs remain.`} />
+        <CopyPromptBlock prompt={SHORT_PROMPT} />
+        <details className="mt-4 group">
+          <summary className="flex items-center gap-1.5 text-sm text-muted cursor-pointer select-none list-none [&::-webkit-details-marker]:hidden hover:text-foreground transition w-fit mx-auto">
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 16 16"
+              fill="none"
+              className="stroke-current transition-transform group-open:rotate-90"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M6 3l5 5-5 5" />
+            </svg>
+            View full agent prompt
+          </summary>
+          <div className="mt-3">
+            <CopyPromptBlock prompt={FULL_PROMPT} />
+          </div>
+        </details>
         <p className="text-xs text-muted text-center mt-5">
           Works with Codex, Claude Code, Cursor, and any agent you&apos;re using.
         </p>
@@ -238,7 +243,7 @@ Your job:
             Underneath it all: our time-travel debugger.
           </h2>
           <p className="text-muted text-center max-w-2xl mx-auto mb-16">
-            Whether you&apos;re running Replay QA on a web app or analyzing a CI failure, the same recording engine is at work. Replay captures the full browser runtime deterministically — making AI analysis possible where it wasn&apos;t before.
+            Whether you&apos;re running Replay QA on a web app or analyzing a CI failure, the same recording engine is at work. Replay captures the full browser runtime deterministically &mdash; making AI analysis possible where it wasn&apos;t before.
           </p>
           <div className="max-w-3xl mx-auto rounded-xl border border-border overflow-hidden">
             {[
@@ -263,27 +268,32 @@ Your job:
         </section>
       </div>
 
-      {/* Use cases */}
-      <section className="px-6 py-24 max-w-4xl mx-auto">
-        <p className="text-sm font-medium uppercase tracking-widest text-brand-pink mb-4 text-center">
-          Use cases
+      {/* Secondary use cases */}
+      <section className="px-6 py-16 max-w-4xl mx-auto">
+        <p className="text-sm font-medium uppercase tracking-widest text-muted mb-4 text-center">
+          Also available
         </p>
-        <h2 className="text-3xl font-bold text-center mb-14 leading-tight">
-          Who is Replay QA for?
+        <h2 className="text-xl font-semibold text-center mb-8">
+          Use Replay QA wherever AI is shipping code
         </h2>
-        <div className="grid sm:grid-cols-2 gap-5">
-          {useCases.map((uc) => (
-            <div key={uc.title} className="rounded-xl border border-border bg-surface p-7">
-              <h3 className="text-base font-semibold mb-2">{uc.title}</h3>
-              <p className="text-sm text-muted leading-relaxed">{uc.description}</p>
-            </div>
-          ))}
-          <div className="rounded-xl border border-dashed border-brand-pink/40 bg-brand-pink/[0.03] p-7 flex flex-col justify-center">
-            <h3 className="text-base font-semibold mb-2">Don&apos;t see your use case?</h3>
-            <p className="text-sm text-muted leading-relaxed">
-              We want to hear about how you&apos;d like to use Replay QA.{" "}
-              <a href="mailto:sales@replay.io" className="text-brand-pink hover:opacity-80 transition">Let&apos;s talk.</a>
+        <div className="grid md:grid-cols-2 gap-5">
+          <div className="rounded-xl border border-border bg-surface p-6 flex flex-col">
+            <h3 className="text-base font-semibold mb-2">Replay for CI</h3>
+            <p className="text-sm text-muted leading-relaxed flex-1">
+              Already running Playwright or Cypress? Replay QA records every test run, analyzes every failure, and posts root cause and fix to your PR automatically.
             </p>
+            <a href="/ci-agent" className="mt-4 text-sm font-medium text-brand-pink hover:opacity-80 transition">
+              Learn more &rarr;
+            </a>
+          </div>
+          <div className="rounded-xl border border-border bg-surface p-6 flex flex-col">
+            <h3 className="text-base font-semibold mb-2">Replay QA API</h3>
+            <p className="text-sm text-muted leading-relaxed flex-1">
+              Building a software factory or AI coding platform? Embed Replay QA as a quality gate via API. Every app your system generates gets tested before it ships.
+            </p>
+            <a href="mailto:sales@replay.io" className="mt-4 text-sm font-medium text-brand-pink hover:opacity-80 transition">
+              Talk to us &rarr;
+            </a>
           </div>
         </div>
       </section>
@@ -292,11 +302,10 @@ Your job:
       <div className="bg-surface-tinted">
         <section className="px-6 py-24 max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-4">
-            What developers are saying
+            Built on technology teams already trust
           </h2>
           <p className="text-muted text-center max-w-2xl mx-auto mb-16">
-            Teams at Vercel, Glide, Tablecheck, Pantheon, and more use Replay
-            every day.
+            Replay QA runs on the same recording engine used every day by teams at Vercel, Glide, Pantheon, and more.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6 mb-12">
@@ -414,6 +423,14 @@ Your job:
               a: "Any web app accessible via a URL — marketing sites, SaaS products, internal tools, or all of the above. Replay QA explores whatever is at the URL you provide.",
             },
             {
+              q: "Can Replay QA test apps that require login?",
+              a: "Yes. Replay QA supports authenticated flows. You can provide login credentials and it will test behind your auth wall.",
+            },
+            {
+              q: "Can I test localhost or private apps?",
+              a: "Yes. Replay QA includes a reverse proxy option so it can reach apps running on your local machine or a private network.",
+            },
+            {
               q: "Do I need to write any tests or config?",
               a: "No. Replay QA discovers user journeys and writes Playwright tests automatically. You provide a URL — it takes care of everything else.",
             },
@@ -422,20 +439,27 @@ Your job:
               a: "Every bug comes with a Replay recording of the session, a full runtime breakdown (function calls, DOM mutations, network requests, state changes), a root-cause analysis with confidence score, and a suggested fix.",
             },
             {
-              q: "Can I integrate Replay QA into my existing agentic system?",
-              a: <>Absolutely. If you&apos;ve built a software factory, a vibecoding platform, or want to include Replay QA in your software development life cycle, <a href="mailto:sales@replay.io" className="text-brand-pink hover:opacity-80 transition">let&apos;s talk</a>.</>,
+              q: "How is this different from Playwright or Cypress test generation tools?",
+              a: "Test generation tools help you write tests faster — you still have to write them, run them, and debug when they fail. Replay QA explores your app autonomously, writes and runs the tests itself, and diagnoses failures. You just provide a URL.",
             },
             {
-              q: "How is this different from a traditional test suite?",
-              a: "A traditional test suite only checks what engineers explicitly wrote tests for. Replay QA explores your app autonomously, discovers flows you didn't anticipate, and catches bugs that never would have had a test written against them.",
+              q: "How is this different from QA Wolf or BrowserStack?",
+              a: "QA Wolf requires human QA engineers to build and maintain test suites. BrowserStack is a platform for running tests you've already written. Replay QA is fully autonomous — no tests to write, no humans to triage. It finds the flows, finds the bugs, and explains root cause.",
             },
             {
               q: "Does Replay QA replace human QA teams?",
-              a: "For most of our users, there's no human QA team to replace — Replay QA is the only QA layer they have. For teams that do have QA, Replay QA handles the autonomous discovery work: exploring the app, finding the broken flows, and filing the bug reports. That frees human QA to focus on what actually needs human judgment: subjective UX calls, accessibility audits with real assistive tech, and sign-off on high-stakes releases.",
+              a: "For most of our users, there's no human QA team to replace — Replay QA is the only QA layer they have. For teams that do have QA, Replay QA handles the autonomous discovery work so human QA can focus on what actually needs human judgment.",
             },
             {
               q: "How much does this cost?",
-              a: <>Free plan includes 25 analyses per month — no time limit, no credit card required. Paid plans start at $49/month for individuals and $299/month (annual) for teams.{" "}<a href="/pricing" className="text-brand-pink hover:opacity-80 transition">See full pricing &rarr;</a></>,
+              a: (
+                <>
+                  Free plan includes 20 analyses per month &mdash; no time limit, no credit card required. Paid plans start at $49/month for individuals and $299/month (annual) for teams.{" "}
+                  <a href="/pricing" className="text-brand-pink hover:opacity-80 transition">
+                    See full pricing &rarr;
+                  </a>
+                </>
+              ),
             },
           ].map((faq, i) => (
             <details
@@ -444,7 +468,15 @@ Your job:
             >
               <summary className="flex items-center justify-between gap-4 px-5 py-4 text-sm font-medium cursor-pointer list-none select-none hover:text-foreground transition [&::-webkit-details-marker]:hidden">
                 {faq.q}
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="stroke-muted flex-shrink-0 transition-transform group-open:rotate-45" strokeWidth="1.8" strokeLinecap="round">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  className="stroke-muted flex-shrink-0 transition-transform group-open:rotate-45"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                >
                   <path d="M8 3v10M3 8h10" />
                 </svg>
               </summary>
@@ -460,10 +492,10 @@ Your job:
       <div className="bg-surface-tinted">
         <section id="cta" className="px-6 py-24 max-w-3xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 leading-tight">
-            Ready to let Replay QA find your bugs?
+            Test your app for free.
           </h2>
           <p className="text-muted max-w-xl mx-auto mb-8 text-lg">
-            Drop in a URL and Replay QA takes it from there — no test suite, no QA team required.
+            Give Replay QA a URL. No test suite, no QA team, no credit card required.
           </p>
           <a
             href="https://qa.replay.io"
@@ -472,9 +504,9 @@ Your job:
             className="inline-block rounded-full px-8 py-3.5 text-base font-medium text-white hover:opacity-90 transition"
             style={{ background: "var(--brand-gradient)" }}
           >
-            Try Replay QA &rarr;
+            Test my app for free &rarr;
           </a>
-          <p className="text-xs text-muted mt-3">Start free &middot; No credit card required</p>
+          <p className="text-xs text-muted mt-3">No credit card required &middot; 20 analyses free</p>
         </section>
       </div>
 
