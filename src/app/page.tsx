@@ -67,7 +67,7 @@ export default function Home() {
       <div className="relative overflow-visible">
         <div className="absolute inset-0 pointer-events-none">
           <div
-            className="w-[640px] h-[640px] sm:w-[1232px] sm:h-[1232px] opacity-75"
+            className="w-[640px] h-[640px] sm:w-[1232px] sm:h-[1232px] opacity-40"
             style={{
               position: "absolute",
               top: "41%",
