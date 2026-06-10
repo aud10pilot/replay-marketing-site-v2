@@ -51,6 +51,10 @@ export default function Home() {
             a: "QA Wolf requires human QA engineers to build and maintain test suites. BrowserStack is a platform for running tests you've already written. Replay QA is fully autonomous — no tests to write, no humans to triage. It finds the flows, finds the bugs, and explains root cause.",
           },
           {
+            q: "Can I connect Replay QA to my issue tracker?",
+            a: "Yes. Replay QA supports a Bug Report Webhook — point it at your issue tracker's API and every bug Replay QA finds can be filed automatically. Works with Linear, GitHub Issues, Jira, and any tracker that accepts an HTTP endpoint.",
+          },
+          {
             q: "How much does Replay QA cost?",
             a: "Replay is free to start — 20 analyses per month, no time limit, no credit card required. Paid plans start at $49/month for individuals and $299/month (annual) for teams.",
           },
@@ -449,6 +453,10 @@ export default function Home() {
             {
               q: "Does Replay QA replace human QA teams?",
               a: "For most of our users, there's no human QA team to replace — Replay QA is the only QA layer they have. For teams that do have QA, Replay QA handles the autonomous discovery work so human QA can focus on what actually needs human judgment.",
+            },
+            {
+              q: "Can I connect Replay QA to my issue tracker?",
+              a: "Yes. Replay QA supports a Bug Report Webhook — point it at your issue tracker's API (or a lightweight middleware) and every bug Replay QA finds can be filed automatically. The webhook sends a JSON POST with the bug description, a referrer identifying Replay QA as the source, and a callback URL. The callback URL is the key part: once your team fixes the bug, POST to that URL to mark it as resolved in Replay QA — which re-enables the associated journey for future test runs. You can control when bugs are submitted: manually, only when Replay QA has confirmed them as open, or for all reports including unconfirmed. Works with Linear, GitHub Issues, Jira, and any tracker that accepts an HTTP endpoint.",
             },
             {
               q: "How much does this cost?",
