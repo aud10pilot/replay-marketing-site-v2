@@ -8,8 +8,10 @@ export default function HeroUrlInput() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const base = "https://qa.replay.io";
-    const destination = url.trim()
-      ? `${base}?url=${encodeURIComponent(url.trim())}`
+    const raw = url.trim();
+    const normalized = raw && !/^https?:\/\//i.test(raw) ? `https://${raw}` : raw;
+    const destination = normalized
+      ? `${base}?url=${encodeURIComponent(normalized)}`
       : base;
     window.open(destination, "_blank", "noopener,noreferrer");
   };
@@ -22,7 +24,7 @@ export default function HeroUrlInput() {
           inputMode="url"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
-          placeholder="https://your-app.com"
+          placeholder="your-app.com"
           className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted/60 outline-none pl-4 min-w-0"
         />
         <button
