@@ -40,7 +40,7 @@ export default function LogoMarquee() {
                 alt={logo.name}
                 width={logo.width}
                 height={logo.height}
-                className="h-6 w-auto object-contain opacity-40 dark:invert dark:opacity-50"
+                className="h-6 w-auto object-contain opacity-70 dark:invert dark:opacity-80"
               />
             </div>
           ))}
