@@ -7,6 +7,7 @@ import Orb from "@/components/Orb";
 import AutoplayVideo from "@/components/AutoplayVideo";
 import LoopQAHowItWorks from "./qa/LoopQAHowItWorks";
 import CopyPromptBlock from "./qa/CopyPromptBlock";
+import HeroUrlInput from "@/components/HeroUrlInput";
 
 const SHORT_PROMPT = `Use Replay QA to test this app. Create a QA project for my running app, wait for the results, fix any open bugs, and keep looping until the app passes.`;
 
@@ -90,18 +91,7 @@ export default function Home() {
           <p className="text-lg text-muted max-w-2xl mb-10 leading-relaxed">
             Give Replay QA a URL. It explores your web app, records every session, finds real bugs, and gives your coding agent the root cause and fix.
           </p>
-          <a
-            href="https://qa.replay.io"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block rounded-full px-8 py-3.5 text-base font-medium text-white hover:opacity-90 transition"
-            style={{ background: "var(--brand-gradient)" }}
-          >
-            Test my app for free &rarr;
-          </a>
-          <p className="text-xs text-muted text-center mt-3">
-            No test suite &middot; No credit card &middot; Just a URL
-          </p>
+          <HeroUrlInput />
         </section>
 
         <div className="relative z-10">
