@@ -18,7 +18,7 @@ export default function HeroUrlInput() {
 
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-lg">
-      <div className="flex items-center rounded-full border border-border bg-surface shadow-lg px-2 py-2 gap-2">
+      <div className="flex items-center rounded-full border border-border bg-surface shadow-lg px-2 py-2 gap-2 transition-all focus-within:border-[#F02D5E]/40 focus-within:shadow-[0_0_0_3px_rgba(240,45,94,0.15)]">
         <input
           type="text"
           inputMode="url"
