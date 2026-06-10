@@ -7,7 +7,7 @@ export default function HeroUrlInput() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const base = "https://qa.replay.io";
+    const base = "https://qa.replay.io/new";
     const raw = url.trim();
     const normalized = raw && !/^https?:\/\//i.test(raw) ? `https://${raw}` : raw;
     const destination = normalized
