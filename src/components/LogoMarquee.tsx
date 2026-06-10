@@ -18,7 +18,7 @@ export default function LogoMarquee() {
   return (
     <section className="py-12 overflow-hidden">
       <p className="text-sm text-muted/60 text-center mb-8 uppercase tracking-widest">
-        Trusted by top engineering teams
+        Replay is Trusted by Top Eng Teams
       </p>
       <div className="relative">
         {/* Fade edges */}
