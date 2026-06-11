@@ -1,24 +1,32 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
-import TwoWaysToConnect from "@/components/TwoWaysToConnect";
-import WarpSpeedBg from "@/components/WarpSpeedBg";
-
-import brokenButtonGif from "@/images/mcp/brokenButton.gif";
-import dataImportGif from "@/images/mcp/dataImport.gif";
+import LoopQAHowItWorks from "@/app/qa/LoopQAHowItWorks";
+import CopyPromptBlock from "@/app/qa/CopyPromptBlock";
 
 export const metadata: Metadata = {
-  title: "How Replay Works",
+  title: "How Replay QA Works",
   description:
-    "Your coding agent writes code fast. But when it breaks, it's debugging blind. Replay gives your agent the runtime context it needs to find bugs — not guess at them.",
+    "From URL to bug report — automatically. See how Replay QA explores your app, records every session, and delivers root cause and fix for every bug it finds.",
   alternates: { canonical: "/how-it-works" },
   openGraph: {
-    title: "How Replay Works",
+    title: "How Replay QA Works",
     description:
-      "Replay gives your agent the runtime context it needs to find bugs — not guess at them.",
+      "From URL to bug report — automatically. See how Replay QA explores your app, records every session, and delivers root cause and fix for every bug it finds.",
   },
 };
+
+const SHORT_PROMPT = `Use Replay QA to test this app. Create a QA project for my running app, wait for the results, fix any open bugs, and keep looping until the app passes.`;
+
+const FULL_PROMPT = `Set up a continuous QA loop for the app we're building using Replay QA (https://loop-qa.replay.io).
+
+Drive everything through the REST API at https://loop-qa.replay.io/api/v1 — read the OpenAPI spec at /api/v1/openapi.json first; it documents the full workflow. Authenticate with my API token ("Authorization: Bearer lqa_..."), asking me for it if needed.
+
+Your job:
+1. Create a QA project for the running app — give it the target_url and a short note on the key flows. If the app is only reachable from this machine (e.g. http://localhost:3000), enable the reverse proxy and follow the spec's setup steps.
+2. Let QA run — poll the project status and don't kick off explorations or test runs yourself; QA drives those.
+3. For each open bug, read its full root-caused report and apply the fix directly in the codebase, then mark it fixed via the API.
+4. Keep looping until no open bugs remain.`;
 
 export default function HowItWorksPage() {
   return (
@@ -26,279 +34,174 @@ export default function HowItWorksPage() {
       <Nav />
 
       {/* Hero */}
-      <div className="relative overflow-hidden">
-        <WarpSpeedBg
-          className="absolute inset-0 opacity-30 dark:opacity-40"
-          config={{
-            speed: 10,
-            targetSpeed: 10,
-            speedAdjFactor: 0.8,
-            density: 0.7,
-            starSize: 2,
-            warpEffect: true,
-            warpEffectLength: 5,
-            depthFade: true,
-            shape: "square",
-            backgroundColor: "#FFFFFF",
-            starColor: "hsl(263,45%,7%)",
-          }}
-          darkConfig={{
-            backgroundColor: "hsl(263,45%,7%)",
-            starColor: "#FFFFFF",
-          }}
-        />
-        <section className="hero-fade-in relative z-10 flex flex-col items-center text-center px-6 pt-24 pb-16 max-w-4xl mx-auto">
-          <h1 className="text-5xl sm:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
-            Your coding agent writes code fast.
-            <br />
-            <span className="text-brand-pink">
-              But when it breaks, it&apos;s debugging blind.
-            </span>
-          </h1>
-          <p className="text-lg text-muted max-w-2xl mb-10 leading-relaxed">
-            Replay gives your agent the runtime context it needs to find bugs
-            &mdash; not guess at them.
-          </p>
-          <a
-            href="https://docs.replay.io/basics/replay-mcp/quickstart"
-            className="rounded-full px-7 py-3.5 text-base font-medium text-white hover:opacity-90 transition"
-            style={{ background: "var(--brand-gradient)" }}
-          >
-            Add Replay to your agent
-          </a>
-        </section>
-      </div>
-
-      {/* Core Insight */}
-      <div className="bg-surface-tinted">
-        <section className="px-6 py-24 max-w-3xl mx-auto">
-          <p className="text-sm font-medium uppercase tracking-widest text-brand-pink mb-4">
-            The core insight
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 leading-tight">
-            Replay captures what actually happened.
-          </h2>
-          <p className="text-lg text-muted leading-relaxed mb-12">
-            Not logs. Not stack traces. A deterministic recording of every DOM
-            change, network request, and state update &mdash; the full runtime
-            picture your agent has never had access to before.
-          </p>
-
-          {/* 4-step diagram */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {[
-              { step: "1", label: "Browser session", desc: "A bug occurs in the browser" },
-              { step: "2", label: "Replay Recording", desc: "Every detail is captured" },
-              { step: "3", label: "Agent gets context", desc: "Root cause is identified" },
-              { step: "4", label: "Fix shipped", desc: "Your agent applies the fix" },
-            ].map((s, i) => (
-              <div key={s.step} className="relative">
-                <div className="rounded-xl border border-border bg-surface p-5 text-center h-full">
-                  <div className="w-8 h-8 rounded-full bg-brand-pink/10 border border-brand-pink/30 text-brand-pink text-sm font-semibold flex items-center justify-center mx-auto mb-3">
-                    {s.step}
-                  </div>
-                  <p className="text-sm font-semibold mb-1">{s.label}</p>
-                  <p className="text-xs text-muted">{s.desc}</p>
-                </div>
-                {i < 3 && (
-                  <div className="hidden md:block absolute top-1/2 -right-2.5 -translate-y-1/2 text-muted z-10">
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M2 6h8M7 3l3 3-3 3" />
-                    </svg>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
-      </div>
-
-      {/* Workflow Demo */}
-      <section className="px-6 py-24 max-w-4xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 leading-tight">
-          From bug to fix &mdash; in under a minute.
-        </h2>
-        <p className="text-muted text-center max-w-2xl mx-auto mb-16">
-          See how Replay turns a failing test into a shipped fix, end to end.
+      <section className="hero-fade-in flex flex-col items-center text-center px-6 pt-24 pb-16 max-w-3xl mx-auto">
+        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-surface text-sm text-muted mb-6">
+          <span className="w-1.5 h-1.5 rounded-full bg-brand-pink" />
+          How it works
+        </span>
+        <h1 className="text-5xl sm:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
+          From URL to bug report.
+          <br />
+          <span className="text-brand-pink">Automatically.</span>
+        </h1>
+        <p className="text-lg text-muted max-w-2xl leading-relaxed">
+          Give Replay QA a URL. It explores your app, records every session with our time-travel debugger, and delivers a root cause and suggested fix for every bug it finds.
         </p>
+      </section>
 
-        <div className="space-y-16">
-          {/* Step 1 */}
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <p className="text-sm font-medium uppercase tracking-widest text-brand-pink mb-3">
-                Step 1
-              </p>
-              <h3 className="text-xl font-semibold mb-3">
-                A test fails. The agent loops.
-              </h3>
-              <p className="text-sm text-muted leading-relaxed">
-                Your coding agent hits a runtime error and has no way to see
-                what&apos;s actually happening in the browser. It patches. It
-                retries. Same failure.
-              </p>
+      {/* How it works stepper */}
+      <div className="bg-surface-tinted">
+        <LoopQAHowItWorks />
+      </div>
+
+      {/* What you get — bug report example */}
+      <section className="px-6 py-24 max-w-3xl mx-auto">
+        <p className="text-sm font-medium uppercase tracking-widest text-brand-pink mb-4 text-center">
+          What you get
+        </p>
+        <h2 className="text-3xl font-bold text-center mb-4 leading-tight">
+          Root cause. Suggested fix. Full recording.
+        </h2>
+        <p className="text-muted text-center max-w-2xl mx-auto mb-12">
+          Every bug Replay QA finds comes with everything your agent needs to fix it &mdash; not just &ldquo;something broke.&rdquo;
+        </p>
+        <div className="rounded-xl border border-border bg-surface overflow-hidden text-sm">
+          <div className="px-5 py-3 border-b border-border bg-surface-tinted flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-red-400" />
+              <span className="text-xs font-semibold uppercase tracking-widest text-muted">Bug found</span>
             </div>
-            <div className="rounded-xl border border-border bg-surface overflow-hidden">
-              <Image
-                src={brokenButtonGif}
-                alt="Agent stuck on a broken button"
-                className="w-full h-auto"
-              />
-            </div>
+            <span className="text-xs text-muted">confidence: high</span>
           </div>
-
-          {/* Step 2 */}
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="md:order-2">
-              <p className="text-sm font-medium uppercase tracking-widest text-brand-pink mb-3">
-                Step 2
-              </p>
-              <h3 className="text-xl font-semibold mb-3">
-                Replay records and finds the root cause.
-              </h3>
-              <p className="text-sm text-muted leading-relaxed">
-                Replay records a deterministic capture of the browser session
-                &mdash; every DOM change, network request, component state. Then
-                it analyzes the recording automatically.
-              </p>
-            </div>
-            <div className="rounded-xl border border-border bg-surface overflow-hidden md:order-1">
-              <Image
-                src={dataImportGif}
-                alt="Replay analyzing a recording"
-                className="w-full h-auto"
-              />
-            </div>
+          <div className="px-6 py-5 border-b border-border">
+            <p className="font-semibold text-base">Checkout button does nothing on mobile Safari</p>
           </div>
-
-          {/* Step 3 */}
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <p className="text-sm font-medium uppercase tracking-widest text-brand-pink mb-3">
-                Step 3
-              </p>
-              <h3 className="text-xl font-semibold mb-3">
-                Your agent receives a specific, implementation-ready fix.
-              </h3>
-              <p className="text-sm text-muted leading-relaxed">
-                Not &ldquo;check your async logic.&rdquo; The exact file,
-                function, and change &mdash; with full context. Your agent
-                implements it. You review the PR.
-              </p>
-            </div>
-            <div className="rounded-xl border border-border bg-surface overflow-hidden aspect-video">
-              <iframe
-                src="https://www.youtube.com/embed/d3yeUueEEJk"
-                title="Replay fix delivery demo"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-              />
+          <div className="px-6 py-5 border-b border-border">
+            <p className="text-xs font-semibold uppercase tracking-widest text-muted mb-2">Root cause</p>
+            <p className="text-sm text-foreground leading-relaxed">
+              <code className="bg-surface-tinted px-1.5 py-0.5 rounded font-mono text-xs">handleSubmit</code> is never called because the button is rendered outside the{" "}
+              <code className="bg-surface-tinted px-1.5 py-0.5 rounded font-mono text-xs">{"<form>"}</code>{" "}
+              element after the responsive layout change on screens under 768px.
+            </p>
+          </div>
+          <div className="px-6 py-5 border-b border-border">
+            <p className="text-xs font-semibold uppercase tracking-widest text-muted mb-2">Suggested fix</p>
+            <p className="text-sm leading-relaxed">
+              Move the button inside the form, or add{" "}
+              <code className="bg-surface-tinted px-1.5 py-0.5 rounded font-mono text-xs">{'form="checkout-form"'}</code>{" "}
+              to the button element.
+            </p>
+          </div>
+          <div className="px-6 py-4">
+            <p className="text-xs font-semibold uppercase tracking-widest text-muted mb-3">Evidence</p>
+            <div className="flex flex-wrap gap-2">
+              {["Replay recording", "DOM mutations", "Network trace", "React state"].map((item) => (
+                <span
+                  key={item}
+                  className="inline-flex items-center px-2.5 py-1 rounded-full border border-border text-xs text-muted bg-surface-tinted"
+                >
+                  {item}
+                </span>
+              ))}
             </div>
           </div>
         </div>
+        <p className="text-xs text-muted text-center mt-5 italic">
+          Example output &mdash; actual reports are generated from your app&apos;s real runtime data.
+        </p>
       </section>
 
-      {/* Two Ways to Connect */}
-      <TwoWaysToConnect />
+      {/* Ask Your Agent */}
+      <div className="bg-surface-tinted">
+        <section className="px-6 py-24 max-w-3xl mx-auto">
+          <p className="text-sm font-medium uppercase tracking-widest text-brand-pink mb-4 text-center">
+            Ask Your Agent
+          </p>
+          <h2 className="text-3xl font-bold text-center mb-4 leading-tight">
+            One prompt. Your agent does the rest.
+          </h2>
+          <p className="text-muted text-center max-w-xl mx-auto mb-10">
+            Try feeding this prompt to your coding agent to see the magic unfold.
+          </p>
+          <CopyPromptBlock prompt={SHORT_PROMPT} />
+          <details className="mt-4 group">
+            <summary className="flex items-center gap-1.5 text-sm text-muted cursor-pointer select-none list-none [&::-webkit-details-marker]:hidden hover:text-foreground transition w-fit mx-auto">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 16 16"
+                fill="none"
+                className="stroke-current transition-transform group-open:rotate-90"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M6 3l5 5-5 5" />
+              </svg>
+              View full agent prompt
+            </summary>
+            <div className="mt-3">
+              <CopyPromptBlock prompt={FULL_PROMPT} />
+            </div>
+          </details>
+          <p className="text-xs text-muted text-center mt-5">
+            Works with Codex, Claude Code, Cursor, and any agent you&apos;re using.
+          </p>
+        </section>
+      </div>
 
-      {/* Social Proof */}
+      {/* Technology */}
       <section className="px-6 py-24 max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">
-          What developers are saying
+        <p className="text-sm font-medium uppercase tracking-widest text-brand-pink mb-4 text-center">
+          The technology
+        </p>
+        <h2 className="text-3xl font-bold text-center mb-4">
+          Underneath it all: our time-travel debugger.
         </h2>
-        <div className="grid md:grid-cols-3 gap-6">
+        <p className="text-muted text-center max-w-2xl mx-auto mb-16">
+          Whether you&apos;re running Replay QA on a web app or analyzing a CI failure, the same recording engine is at work. Replay captures the full browser runtime deterministically &mdash; making AI analysis possible where it wasn&apos;t before.
+        </p>
+        <div className="max-w-3xl mx-auto rounded-xl border border-border overflow-hidden">
           {[
-            {
-              quote:
-                "Before Replay we spent somewhere between 1\u20132 hours per day per dev in this reproducibility purgatory.",
-              name: "Mark Probst",
-              role: "VP Engineering",
-              company: "Glide",
-              avatar: "/avatars/mark-probst.svg",
-              logo: "/logos/glide.svg",
-            },
-            {
-              quote:
-                "Replay.io is galaxy brain tooling. Real gamechanger.",
-              name: "Dan Abramov",
-              role: "React Maintainer",
-              avatar: null,
-              logo: null,
-              company: null,
-            },
-            {
-              quote:
-                "I think Replay has a very good chance of creating a new category around collaborative debugging.",
-              name: "Guillermo Rauch",
-              role: "Founder of Vercel",
-              avatar: null,
-              logo: "/logos/vercel.svg",
-              company: "Vercel",
-            },
-          ].map((t) => (
+            { label: "Render chains", detail: "Which component re-rendered, what triggered it, what changed" },
+            { label: "State flow", detail: "Redux actions, React state updates, context changes across the component tree" },
+            { label: "Network timing", detail: "Every request and response, with exact payload and timing data" },
+            { label: "JS execution", detail: "Every function call on every frame, with arguments and return values" },
+            { label: "DOM mutations", detail: "What changed in the DOM, when, and what code caused it" },
+          ].map((row, i, arr) => (
             <div
-              key={t.name}
-              className="rounded-xl border border-border bg-surface p-6 flex flex-col"
+              key={row.label}
+              className={`flex items-baseline gap-6 px-6 py-4 ${i < arr.length - 1 ? "border-b border-border" : ""} ${i % 2 === 0 ? "bg-surface" : "bg-surface-tinted"}`}
             >
-              <blockquote className="text-sm leading-relaxed mb-4 flex-1">
-                &ldquo;{t.quote}&rdquo;
-              </blockquote>
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  {t.avatar && (
-                    <div className="w-10 h-10 rounded-full bg-surface-hover overflow-hidden flex-shrink-0">
-                      <Image
-                        src={t.avatar}
-                        alt={t.name}
-                        width={40}
-                        height={40}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  )}
-                  <div className="text-sm">
-                    <span className="font-semibold">{t.name}</span>
-                    <br />
-                    <span className="text-muted text-xs">
-                      {t.role}
-                      {t.company && `, ${t.company}`}
-                    </span>
-                  </div>
-                </div>
-                {t.logo && (
-                  <Image
-                    src={t.logo}
-                    alt={t.company || ""}
-                    width={80}
-                    height={24}
-                    className="h-5 w-auto object-contain opacity-50 dark:invert dark:opacity-40 flex-shrink-0"
-                  />
-                )}
-              </div>
+              <span className="w-36 flex-shrink-0 text-sm font-semibold text-foreground">{row.label}</span>
+              <span className="text-sm text-muted leading-relaxed">{row.detail}</span>
             </div>
           ))}
         </div>
+        <p className="text-center text-sm text-muted italic mt-8">
+          This isn&apos;t guessing from error messages. It&apos;s reading the actual execution.
+        </p>
       </section>
 
       {/* Final CTA */}
       <div className="bg-surface-tinted">
         <section className="px-6 py-24 max-w-3xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 leading-tight">
-            Stop debugging for your agent.
-            <br />
-            Let Replay do it.
+            Test your app for free.
           </h2>
           <p className="text-muted max-w-xl mx-auto mb-8 text-lg">
-            Free to get started. No credit card required.
+            Give Replay QA a URL. No test suite, no QA team, no credit card required.
           </p>
           <a
-            href="https://docs.replay.io/basics/replay-mcp/quickstart"
+            href="https://qa.replay.io/new"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block rounded-full px-8 py-3.5 text-base font-medium text-white hover:opacity-90 transition"
             style={{ background: "var(--brand-gradient)" }}
           >
-            Add Replay to your agent
+            Test my app for free &rarr;
           </a>
+          <p className="text-xs text-muted mt-3">No credit card required &middot; 20 analyses free</p>
         </section>
       </div>
 

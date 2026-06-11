@@ -6,20 +6,7 @@ import Nav from "@/components/Nav";
 import Orb from "@/components/Orb";
 import AutoplayVideo from "@/components/AutoplayVideo";
 import LoopQAHowItWorks from "./qa/LoopQAHowItWorks";
-import CopyPromptBlock from "./qa/CopyPromptBlock";
 import HeroUrlInput from "@/components/HeroUrlInput";
-
-const SHORT_PROMPT = `Use Replay QA to test this app. Create a QA project for my running app, wait for the results, fix any open bugs, and keep looping until the app passes.`;
-
-const FULL_PROMPT = `Set up a continuous QA loop for the app we're building using Replay QA (https://loop-qa.replay.io).
-
-Drive everything through the REST API at https://loop-qa.replay.io/api/v1 — read the OpenAPI spec at /api/v1/openapi.json first; it documents the full workflow. Authenticate with my API token ("Authorization: Bearer lqa_..."), asking me for it if needed.
-
-Your job:
-1. Create a QA project for the running app — give it the target_url and a short note on the key flows. If the app is only reachable from this machine (e.g. http://localhost:3000), enable the reverse proxy and follow the spec's setup steps.
-2. Let QA run — poll the project status and don't kick off explorations or test runs yourself; QA drives those.
-3. For each open bug, read its full root-caused report and apply the fix directly in the codebase, then mark it fixed via the API.
-4. Keep looping until no open bugs remain.`;
 
 export default function Home() {
   return (
@@ -188,78 +175,17 @@ export default function Home() {
       {/* How it works */}
       <div className="bg-surface-tinted">
         <LoopQAHowItWorks />
-      </div>
-
-      {/* Ask Your Agent */}
-      <section className="px-6 py-24 max-w-3xl mx-auto">
-        <p className="text-sm font-medium uppercase tracking-widest text-brand-pink mb-4 text-center">
-          Ask Your Agent
-        </p>
-        <h2 className="text-3xl font-bold text-center mb-4 leading-tight">
-          One prompt. Your agent does the rest.
-        </h2>
-        <p className="text-muted text-center max-w-xl mx-auto mb-10">
-          Try feeding this prompt to your coding agent to see the magic unfold.
-        </p>
-        <CopyPromptBlock prompt={SHORT_PROMPT} />
-        <details className="mt-4 group">
-          <summary className="flex items-center gap-1.5 text-sm text-muted cursor-pointer select-none list-none [&::-webkit-details-marker]:hidden hover:text-foreground transition w-fit mx-auto">
-            <svg
-              width="12"
-              height="12"
-              viewBox="0 0 16 16"
-              fill="none"
-              className="stroke-current transition-transform group-open:rotate-90"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M6 3l5 5-5 5" />
+        <div className="pb-16 text-center">
+          <a
+            href="/how-it-works"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-pink hover:opacity-80 transition"
+          >
+            Learn more about how Replay QA works
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M3 8h10M9 4l4 4-4 4" />
             </svg>
-            View full agent prompt
-          </summary>
-          <div className="mt-3">
-            <CopyPromptBlock prompt={FULL_PROMPT} />
-          </div>
-        </details>
-        <p className="text-xs text-muted text-center mt-5">
-          Works with Codex, Claude Code, Cursor, and any agent you&apos;re using.
-        </p>
-      </section>
-
-      {/* Technology */}
-      <div className="bg-surface-tinted">
-        <section className="px-6 py-24 max-w-5xl mx-auto">
-          <p className="text-sm font-medium uppercase tracking-widest text-brand-pink mb-4 text-center">
-            The technology
-          </p>
-          <h2 className="text-3xl font-bold text-center mb-4">
-            Underneath it all: our time-travel debugger.
-          </h2>
-          <p className="text-muted text-center max-w-2xl mx-auto mb-16">
-            Whether you&apos;re running Replay QA on a web app or analyzing a CI failure, the same recording engine is at work. Replay captures the full browser runtime deterministically &mdash; making AI analysis possible where it wasn&apos;t before.
-          </p>
-          <div className="max-w-3xl mx-auto rounded-xl border border-border overflow-hidden">
-            {[
-              { label: "Render chains", detail: "Which component re-rendered, what triggered it, what changed" },
-              { label: "State flow", detail: "Redux actions, React state updates, context changes across the component tree" },
-              { label: "Network timing", detail: "Every request and response, with exact payload and timing data" },
-              { label: "JS execution", detail: "Every function call on every frame, with arguments and return values" },
-              { label: "DOM mutations", detail: "What changed in the DOM, when, and what code caused it" },
-            ].map((row, i, arr) => (
-              <div
-                key={row.label}
-                className={`flex items-baseline gap-6 px-6 py-4 ${i < arr.length - 1 ? "border-b border-border" : ""} ${i % 2 === 0 ? "bg-surface" : "bg-surface-tinted"}`}
-              >
-                <span className="w-36 flex-shrink-0 text-sm font-semibold text-foreground">{row.label}</span>
-                <span className="text-sm text-muted leading-relaxed">{row.detail}</span>
-              </div>
-            ))}
-          </div>
-          <p className="text-center text-sm text-muted italic mt-8">
-            This isn&apos;t guessing from error messages. It&apos;s reading the actual execution.
-          </p>
-        </section>
+          </a>
+        </div>
       </div>
 
       {/* Secondary use cases */}
