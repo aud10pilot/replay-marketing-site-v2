@@ -54,7 +54,7 @@ export default function LoopQAHowItWorks() {
               onClick={() => setActive(i)}
               className={`text-left rounded-xl px-5 py-5 transition-all border ${
                 active === i
-                  ? "border-brand-pink bg-brand-pink/[0.04] dark:bg-brand-pink/[0.06]"
+                  ? "border-brand-pink bg-[rgba(240,45,94,0.04)] dark:bg-[rgba(240,45,94,0.06)]"
                   : "border-transparent hover:border-border hover:bg-surface"
               }`}
             >
