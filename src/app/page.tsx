@@ -178,7 +178,7 @@ export default function Home() {
         <div className="pb-16 text-center">
           <a
             href="/how-it-works"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-pink hover:opacity-80 transition"
+            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-sm font-medium text-white hover:bg-white/15 hover:border-white/30 transition"
           >
             Learn more about how Replay QA works
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
