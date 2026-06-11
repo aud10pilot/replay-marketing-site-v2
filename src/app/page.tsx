@@ -421,16 +421,7 @@ export default function Home() {
           <p className="text-muted max-w-xl mx-auto mb-8 text-lg">
             Give Replay QA a URL. No test suite, no QA team, no credit card required.
           </p>
-          <a
-            href="https://qa.replay.io"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block rounded-full px-8 py-3.5 text-base font-medium text-white hover:opacity-90 transition"
-            style={{ background: "var(--brand-gradient)" }}
-          >
-            Test my app for free &rarr;
-          </a>
-          <p className="text-xs text-muted mt-3">No credit card required &middot; 20 analyses free</p>
+          <HeroUrlInput />
         </section>
       </div>
 
