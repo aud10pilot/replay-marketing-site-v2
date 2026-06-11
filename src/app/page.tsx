@@ -106,8 +106,8 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Sample bug report */}
-      <div className="bg-surface-tinted">
+      {/* Sample bug report — hidden for now, candidate for lower on page or subpage */}
+      {false && <div className="bg-surface-tinted">
         <section className="px-6 py-24 max-w-3xl mx-auto">
           <p className="text-sm font-medium uppercase tracking-widest text-brand-pink mb-4 text-center">
             What you get
@@ -163,7 +163,7 @@ export default function Home() {
             Example output &mdash; actual reports are generated from your app&apos;s real runtime data.
           </p>
         </section>
-      </div>
+      </div>}
 
       {/* Problem */}
       <section className="px-6 py-24 max-w-3xl mx-auto">
