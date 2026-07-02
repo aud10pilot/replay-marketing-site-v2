@@ -38,7 +38,7 @@ export default function HeroUrlInput() {
       <p className="text-xs text-muted text-center mt-3">
         No test suite &middot; No credit card &middot; Just a URL
       </p>
-      <p className="flex flex-wrap items-center justify-center gap-x-1.5 text-xs text-muted mt-3">
+      <p className="flex flex-wrap items-center justify-center gap-x-1.5 text-xs text-muted mt-6">
         <span>Using GitHub?</span>
         <a
           href="https://qa.replay.io/new"
