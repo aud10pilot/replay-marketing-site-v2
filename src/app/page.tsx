@@ -16,7 +16,11 @@ export default function Home() {
         items={[
           {
             q: "What is Replay QA?",
-            a: "Replay QA is Replay's autonomous QA product. Drop in a URL and it explores your app, writes Playwright tests, captures Replay recordings, and files detailed bug reports — automatically.",
+            a: "Replay QA is Replay's autonomous QA product. Add your GitHub repo or drop in a URL, and it explores your app, writes Playwright tests, captures Replay recordings, and files detailed bug reports — automatically.",
+          },
+          {
+            q: "How does the GitHub repo integration work?",
+            a: "Add your GitHub repo URL, authenticate with GitHub, and the Replay QA GitHub app installs — no test suite, no config. Then choose when it runs: on every update to your main branch, on every pull request, or both. Replay QA tests against your preview or staging environment and, for PR runs, posts the root cause and a suggested fix right on the pull request. It's a continuously-running quality gate, not a one-off.",
           },
           {
             q: "Can Replay QA test apps that require login?",
@@ -76,7 +80,7 @@ export default function Home() {
             <span className="text-brand-pink">Replay QA finds what broke.</span>
           </h1>
           <p className="text-lg text-muted max-w-2xl mb-10 leading-relaxed">
-            Give Replay QA a URL. It explores your web app, records every session, finds real bugs, and gives your coding agent the root cause and fix.
+            Add your GitHub repo for continuous testing, or drop in a URL for a one-time check. Replay QA explores your app, records every session, finds real bugs, and gives your coding agent the root cause and fix.
           </p>
           <HeroUrlInput />
         </section>
@@ -171,6 +175,80 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      {/* Two ways to run Replay QA */}
+      <div>
+        <section className="px-6 py-24 max-w-5xl mx-auto">
+          <p className="text-sm font-medium uppercase tracking-widest text-brand-pink mb-4 text-center">
+            Two ways to run it
+          </p>
+          <h2 className="text-3xl font-bold text-center mb-4 leading-tight">
+            Add your GitHub repo, or drop in a URL
+          </h2>
+          <p className="text-muted text-center max-w-2xl mx-auto mb-14">
+            Same autonomous QA, two ways to start &mdash; a continuous quality gate for teams, or a one-time check for whatever you just shipped.
+          </p>
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* GitHub repo — continuous */}
+            <div className="rounded-2xl border border-brand-pink/30 bg-surface p-8 flex flex-col">
+              <div className="flex items-center gap-2 mb-4">
+                <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" className="text-foreground">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                </svg>
+                <span className="text-xs font-medium uppercase tracking-widest text-brand-pink">Continuously-running</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Connect your GitHub repo</h3>
+              <p className="text-sm text-muted leading-relaxed mb-5">
+                A quality gate that stays on as your team ships. Add your repo, authenticate with GitHub, and the Replay QA app installs &mdash; no test suite, no config. Then choose when it runs.
+              </p>
+              <ul className="space-y-2 text-sm text-muted mb-6">
+                <li>&#10003; Runs on every main-branch update, every PR, or both</li>
+                <li>&#10003; Root cause + suggested fix posted right on the PR</li>
+                <li>&#10003; No test suite to write, no pipeline to configure</li>
+              </ul>
+              <p className="text-xs text-muted mb-6">Best for engineers and engineering teams.</p>
+              <a
+                href="https://qa.replay.io/new"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-auto inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium text-white hover:opacity-90 transition"
+                style={{ background: "var(--brand-gradient)" }}
+              >
+                Connect a repo
+              </a>
+            </div>
+
+            {/* URL drop — run once */}
+            <div className="rounded-2xl border border-border bg-surface p-8 flex flex-col">
+              <div className="flex items-center gap-2 mb-4">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="text-foreground">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                </svg>
+                <span className="text-xs font-medium uppercase tracking-widest text-muted">Run-it-once</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Drop in a URL</h3>
+              <p className="text-sm text-muted leading-relaxed mb-5">
+                Paste a link to any running web app and get a bug report in minutes. Replay QA explores your app, writes its own Playwright tests, and files structured bug reports &mdash; zero setup.
+              </p>
+              <ul className="space-y-2 text-sm text-muted mb-6">
+                <li>&#10003; Nothing to install, no test knowledge required</li>
+                <li>&#10003; Every bug comes with a recording + root cause + fix</li>
+                <li>&#10003; Works on localhost via the reverse proxy option</li>
+              </ul>
+              <p className="text-xs text-muted mb-6">Best for vibecoders, internal builders, and agencies.</p>
+              <a
+                href="https://qa.replay.io/new"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-auto inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium border border-border hover:bg-surface-tinted transition"
+              >
+                Test a URL
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
 
       {/* How it works */}
       <div className="bg-surface-tinted">
@@ -341,6 +419,14 @@ export default function Home() {
             {
               q: "What kinds of apps can Replay QA test?",
               a: "Any web app accessible via a URL — marketing sites, SaaS products, internal tools, or all of the above. Replay QA explores whatever is at the URL you provide.",
+            },
+            {
+              q: "How does the GitHub repo integration work?",
+              a: "Add your GitHub repo URL, authenticate with GitHub, and the Replay QA GitHub app installs — no test suite, no config. Then choose when it runs: on every update to your main branch, on every pull request, or both. Replay QA tests against your preview or staging environment and, for PR runs, posts the root cause and a suggested fix right on the pull request. It's a continuously-running quality gate, not a one-off.",
+            },
+            {
+              q: "GitHub repo or URL — which should I use?",
+              a: "Drop in a URL when you want a one-time bug report on whatever you just shipped — zero setup, ideal for solo builders, internal tools, and agency deliverables. Connect a GitHub repo when you want continuous coverage as your team keeps shipping — ideal for engineers and engineering teams who want a quality gate on every branch update or PR.",
             },
             {
               q: "Can Replay QA test apps that require login?",
