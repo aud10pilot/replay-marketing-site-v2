@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
-import replayLogoVariations from "@/images/replay-logo-variations.gif";
 
 export const metadata: Metadata = {
   title: "About Replay — Making Software Visible",
@@ -118,13 +117,17 @@ export default function AboutPage() {
           change that &mdash; for developers, for AI agents, and for anyone
           building with code.
         </p>
-        <div className="mt-12 mx-auto max-w-sm">
-          <Image
-            src={replayLogoVariations}
-            alt="Replay logo variations"
-            className="w-full rounded-xl"
-            unoptimized
-          />
+        <div className="mt-12 mx-auto max-w-2xl">
+          <div className="rounded-2xl border border-border overflow-hidden aspect-video shadow-2xl">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/h3mWlgZmatM"
+              title="About Replay"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
         </div>
       </section>
 
