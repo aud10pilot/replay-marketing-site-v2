@@ -1,31 +1,106 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
-import LoopQAHowItWorks from "@/app/qa/LoopQAHowItWorks";
-import CopyPromptBlock from "@/app/qa/CopyPromptBlock";
 import HeroUrlInput from "@/components/HeroUrlInput";
+import ThemedVideo from "@/components/ThemedVideo";
+import StepSideNav from "./StepSideNav";
+import {
+  IlloTesting,
+  IlloAnalysis,
+  IlloReports,
+  IlloLoop,
+} from "./StepIllos";
 
 export const metadata: Metadata = {
-  title: "How Replay QA Works",
+  title: "How Replay QA Works — From URL to Bug Report",
   description:
-    "From URL to bug report — automatically. See how Replay QA explores your app, records every session, and delivers root cause and fix for every bug it finds.",
+    "One URL in, a full QA team's worth of work out. See how Replay QA explores your app, runs every journey, time-travels through the recordings, and delivers root-caused bug reports — automatically.",
   alternates: { canonical: "/how-it-works" },
   openGraph: {
-    title: "How Replay QA Works",
+    title: "How Replay QA Works — From URL to Bug Report",
     description:
-      "From URL to bug report — automatically. See how Replay QA explores your app, records every session, and delivers root cause and fix for every bug it finds.",
+      "One URL in. A full QA team's worth of work out. Explore, test, analyze, report — automatically.",
   },
 };
 
-const FULL_PROMPT = `Set up a continuous QA loop for the app we're building using Replay QA (https://loop-qa.replay.io).
+type Tone = "plain" | "tinted" | "dark";
 
-Drive everything through the REST API at https://loop-qa.replay.io/api/v1 — read the OpenAPI spec at /api/v1/openapi.json first; it documents the full workflow. Authenticate with my API token ("Authorization: Bearer lqa_..."), asking me for it if needed.
+// --- copy helpers (strings live in JS so apostrophes/em-dashes need no escaping) ---
+function P(text: string, opts: { strong?: boolean } = {}) {
+  const color = opts.strong ? "text-foreground font-medium" : "text-muted";
+  return <p className={`text-base leading-relaxed max-w-[680px] mb-4 ${color}`}>{text}</p>;
+}
 
-Your job:
-1. Create a QA project for the running app — give it the target_url and a short note on the key flows. If the app is only reachable from this machine (e.g. http://localhost:3000), enable the reverse proxy and follow the spec's setup steps.
-2. Let QA run — poll the project status and don't kick off explorations or test runs yourself; QA drives those.
-3. For each open bug, read its full root-caused report and apply the fix directly in the codebase, then mark it fixed via the API.
-4. Keep looping until no open bugs remain.`;
+function Checklist(items: string[]) {
+  return (
+    <ul className="list-none p-0 mt-4 space-y-1.5 text-[15px] text-muted">
+      {items.map((t) => (
+        <li key={t} className="leading-relaxed">
+          <span className="text-brand-pink font-bold mr-1.5">&#10003;</span>
+          {t}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function Step({
+  index,
+  eyebrow,
+  headline,
+  caption,
+  illo,
+  media,
+  tone = "plain",
+  children,
+}: {
+  index: number;
+  eyebrow: string;
+  headline: string;
+  caption?: string;
+  illo?: ReactNode;
+  /** Finished artwork for this step; replaces the placeholder block entirely. */
+  media?: ReactNode;
+  tone?: Tone;
+  children: ReactNode;
+}) {
+  const shell =
+    tone === "dark"
+      ? "bg-surface-tinted dark:bg-[#050507] rounded-2xl px-6 sm:px-10 py-12 my-6"
+      : tone === "tinted"
+        ? "bg-surface-tinted rounded-2xl px-6 sm:px-10 py-12 my-6"
+        : "py-14";
+
+  return (
+    <section id={`step-${index}`} className={`scroll-mt-24 ${shell}`}>
+      <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-brand-pink mb-4">
+        {eyebrow}
+      </p>
+      <h2 className="text-3xl font-bold leading-tight tracking-tight mb-5">{headline}</h2>
+      {children}
+
+      {media ? (
+        <div className="mt-10">{media}</div>
+      ) : (
+        /* placeholder illustration */
+        <div
+          className="relative mt-10 rounded-2xl border border-dashed border-border flex flex-col items-center justify-center text-center gap-2.5 text-[13px] p-6 min-h-[220px] text-muted"
+          style={{
+            background:
+              "repeating-linear-gradient(135deg, var(--surface), var(--surface) 10px, var(--surface-hover) 10px, var(--surface-hover) 20px)",
+          }}
+        >
+          <span className="absolute top-3.5 right-3.5 text-[10px] font-bold uppercase tracking-[0.15em] px-2.5 py-1 rounded-full bg-foreground text-background">
+            Placeholder
+          </span>
+          {illo}
+          <span className="max-w-[420px]">{caption}</span>
+        </div>
+      )}
+    </section>
+  );
+}
 
 export default function HowItWorksPage() {
   return (
@@ -33,212 +108,160 @@ export default function HowItWorksPage() {
       <Nav />
 
       {/* Hero */}
-      <section className="hero-fade-in flex flex-col items-center text-center px-6 pt-24 pb-16 max-w-3xl mx-auto">
+      <section className="hero-fade-in text-center px-6 pt-[72px] pb-8 max-w-3xl mx-auto">
         <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-surface text-sm text-muted mb-6">
           <span className="w-1.5 h-1.5 rounded-full bg-brand-pink" />
-          How it works
+          How Replay QA works
         </span>
-        <h1 className="text-5xl sm:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
-          From URL to bug report.
-          <br />
-          <span className="text-brand-pink">Automatically.</span>
+        <h1 className="text-4xl sm:text-5xl font-bold leading-[1.1] tracking-tight mb-4">
+          One URL in. A full QA team&rsquo;s worth of work out.
         </h1>
-        <p className="text-lg text-muted max-w-2xl leading-relaxed">
-          Give Replay QA a URL. It explores your app, records every session with our time-travel debugger, and delivers a root cause and suggested fix for every bug it finds.
+        <p className="text-lg text-muted leading-relaxed max-w-2xl mx-auto">
+          Learn how Replay QA goes from knowing nothing about your app, to delivering robust bug
+          reports automatically.
         </p>
       </section>
 
-      {/* How it works stepper */}
-      <div className="bg-surface-tinted">
-        <LoopQAHowItWorks />
-      </div>
+      {/* Steps + side nav */}
+      <div className="flex gap-12 max-w-6xl mx-auto px-6">
+        <StepSideNav />
 
-      {/* GitHub repo integration — continuous quality gate */}
-      <section className="px-6 py-24 max-w-5xl mx-auto">
-        <p className="text-sm font-medium uppercase tracking-widest text-brand-pink mb-4 text-center">
-          Testing continuously
-        </p>
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 leading-tight">
-          Connect your GitHub repo
-        </h2>
-        <p className="text-muted text-center max-w-2xl mx-auto mb-16">
-          The URL drop is a run-it-once check. When you want a quality gate that stays on as your team ships, connect a repo instead &mdash; same autonomous QA, running on every change. No test suite, no pipeline config.
-        </p>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {[
-            {
-              number: "01",
-              title: "Add your repo URL",
-              description:
-                "Paste a link to your GitHub repository — the same “paste a link to your thing” pattern as the URL drop.",
-            },
-            {
-              number: "02",
-              title: "Authenticate with GitHub",
-              description:
-                "Sign in with your GitHub account. One technical lead can complete setup — no procurement, no engineering ticket.",
-            },
-            {
-              number: "03",
-              title: "The Replay QA app installs",
-              description:
-                "The GitHub app installs on your repo. No existing Playwright suite, no playwright.config.ts changes, no separate bot to wire up.",
-            },
-            {
-              number: "04",
-              title: "Choose your run cadence",
-              description:
-                "Run on every main-branch update, on every pull request, or both. On PRs, root cause and a suggested fix are posted right on the pull request.",
-            },
-          ].map((step) => (
-            <div
-              key={step.number}
-              className="rounded-xl border border-border bg-surface p-6 flex flex-col"
-            >
-              <span className="text-sm font-bold tabular-nums text-brand-pink mb-3">
-                {step.number}
-              </span>
-              <h3 className="text-base font-semibold mb-2 leading-snug">{step.title}</h3>
-              <p className="text-sm text-muted leading-relaxed">{step.description}</p>
-            </div>
-          ))}
-        </div>
-        <div className="flex justify-center mt-12">
-          <a
-            href="https://qa.replay.io/new"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-base font-medium text-white hover:opacity-90 transition"
-            style={{ background: "var(--brand-gradient)" }}
+        <div className="flex-1 min-w-0">
+          <Step
+            index={0}
+            eyebrow="01 Start"
+            headline="Drop in a URL. That's it."
+            media={
+              <ThemedVideo
+                lightSrc="/03-UrlInput-Light.webm"
+                darkSrc="/03-UrlInput-Dark.webm"
+                className="w-full aspect-video"
+                ariaLabel="A URL being typed into Replay QA to kick off a test run"
+              />
+            }
           >
-            <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-            </svg>
-            Connect your GitHub repo
-          </a>
-        </div>
-      </section>
+            {P(
+              "Paste any live web app URL and Replay QA gets to work immediately. No test suite to write — Replay QA handles that. No QA team to brief — it's like having eight seasoned QA engineers operating at once. No setup of any kind.",
+            )}
+            {P(
+              "If you want a continuous quality gate instead of on-demand testing, connect a GitHub repo — Replay QA installs as a GitHub app and runs automatically on every push or pull request.",
+            )}
+          </Step>
 
-      {/* What you get — bug report example */}
-      <section className="px-6 py-24 max-w-3xl mx-auto">
-        <p className="text-sm font-medium uppercase tracking-widest text-brand-pink mb-4 text-center">
-          What you get
-        </p>
-        <h2 className="text-3xl font-bold text-center mb-4 leading-tight">
-          Root cause. Suggested fix. Full recording.
-        </h2>
-        <p className="text-muted text-center max-w-2xl mx-auto mb-12">
-          Every bug Replay QA finds comes with everything your agent needs to fix it &mdash; not just &ldquo;something broke.&rdquo;
-        </p>
-        <div className="rounded-xl border border-border bg-surface overflow-hidden text-sm">
-          <div className="px-5 py-3 border-b border-border bg-surface-tinted flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-red-400" />
-              <span className="text-xs font-semibold uppercase tracking-widest text-muted">Bug found</span>
-            </div>
-            <span className="text-xs text-muted">confidence: high</span>
-          </div>
-          <div className="px-6 py-5 border-b border-border">
-            <p className="font-semibold text-base">Checkout button does nothing on mobile Safari</p>
-          </div>
-          <div className="px-6 py-5 border-b border-border">
-            <p className="text-xs font-semibold uppercase tracking-widest text-muted mb-2">Root cause</p>
-            <p className="text-sm text-foreground leading-relaxed">
-              <code className="bg-surface-tinted px-1.5 py-0.5 rounded font-mono text-xs">handleSubmit</code> is never called because the button is rendered outside the{" "}
-              <code className="bg-surface-tinted px-1.5 py-0.5 rounded font-mono text-xs">{"<form>"}</code>{" "}
-              element after the responsive layout change on screens under 768px.
+          <Step
+            index={1}
+            tone="tinted"
+            eyebrow="02 Exploration"
+            headline="Replay QA figures out what your app does"
+            media={
+              <ThemedVideo
+                lightSrc="/02-Exploration-v2-Light.webm"
+                darkSrc="/02-Exploration-v2-Dark.webm"
+                className="w-full aspect-video"
+                ariaLabel="Replay QA agents exploring an app, mapping pages and user journeys as a growing web of connections"
+              />
+            }
+          >
+            {P(
+              "Before a single test runs, Replay QA explores your app the way a QA engineer would on day one. It navigates the interface, identifies what flows exist, and maps the key user journeys that matter most: onboarding, core actions, edge cases.",
+            )}
+            {P(
+              "This is powered by a bespoke exploration harness we've spent years building — purpose-built for autonomous discovery, not adapted from something else.",
+            )}
+          </Step>
+
+          <Step
+            index={2}
+            eyebrow="03 Testing"
+            headline="A swarm of agents runs every journey — and records everything"
+            illo={<IlloTesting />}
+            caption="Split screen — parallel live browser sessions on the left, a real-time DOM/network/JS data stream filling in on the right."
+          >
+            {P(
+              "Once the journeys are mapped, a fleet of Replay QA agents spins up in parallel virtual containers and runs them using Playwright — interacting with your app exactly as a real user would. You can watch them work in real time.",
+            )}
+            {P(
+              "What makes this different from any other automated testing tool is what happens underneath: every session is captured as a Replay Recording — every DOM mutation, every network call, every JavaScript execution frame.",
+            )}
+            {P(
+              "Before AI, reproducing a bug was the job. With Replay Recordings, you will never need to reproduce a bug yourself again.",
+            )}
+          </Step>
+
+          <Step
+            index={3}
+            tone="dark"
+            eyebrow="04 Analysis"
+            headline="Then the agents go back in time"
+            illo={<IlloAnalysis />}
+            caption="A Replay Recording timeline being scrubbed by an agent — as the playhead moves, annotations flag issues: a red outline on a broken button, a highlight on a slow network call, a contrast warning."
+          >
+            {P(
+              "This is where Replay QA does something no other QA tool can. With the recordings captured, a second wave of agents moves through them — backwards, forwards, frame by frame — looking for exactly where things went wrong. This isn't static code analysis or a linter with opinions. It's a live interrogation of your app's actual runtime behavior.",
+            )}
+            {Checklist([
+              "UI glitches — layout shifts, broken buttons, elements hidden behind overlays",
+              "Accessibility failures — WCAG contrast violations, missing ARIA labels, keyboard traps",
+              "Performance problems — slow network calls, render-blocking resources, long tasks",
+              "Deep runtime bugs — errors invisible to every other tool",
+            ])}
+            <div className="mt-4" />
+            {P(
+              "Replay's time-travel debugger is proprietary technology we've been building since before AI coding agents existed. It was built to make the invisible visible. Now it powers an autonomous agent swarm doing the work of a senior QA engineer — at the speed of a computer.",
+            )}
+          </Step>
+
+          <Step
+            index={4}
+            tone="tinted"
+            eyebrow="05 Reports"
+            headline="Every bug. Documented. Prioritized. Ready to fix."
+            illo={<IlloReports />}
+            caption="A rendered bug report card: video thumbnail, annotated screenshot, severity badge, and root-cause text — real and detailed, not a wireframe."
+          >
+            {P(
+              "The agents don't just find bugs — they write the report. Each one comes with everything needed to understand and fix the issue immediately.",
+            )}
+            {Checklist([
+              "A video recording of the exact moment the bug occurs",
+              "Annotated screenshots with problem areas highlighted",
+              "A root cause analysis — specifically what, where, and why",
+              "A suggested fix, ready to paste directly into your coding agent",
+            ])}
+            <div className="mt-4" />
+            {P(
+              "Bugs are grouped by type and severity so you always know where to start. If you connected a GitHub repo, reports go to your agent automatically — no copy-pasting required.",
+            )}
+          </Step>
+
+          <Step
+            index={5}
+            eyebrow="06 The Loop"
+            headline="Fix. Ship. Run it again."
+            illo={<IlloLoop />}
+            caption="Flywheel diagram: Ship → Test → Bugs Found → Fix → Ship. GitHub path runs automatically; URL path runs on demand."
+          >
+            {P(
+              "QA isn't a one-time event. After your coding agent applies the fixes and you push an update, run Replay QA again — it re-tests the same journeys to confirm the bugs are truly gone, and looks for anything new that crept in during the fix.",
+            )}
+            {P(
+              "For teams shipping continuously, connecting a GitHub repo makes this automatic. Every push. Every PR. The loop runs without anyone having to think about it.",
+            )}
+            {P("The result: bugs get caught before users do. Every time.", { strong: true })}
+          </Step>
+
+          {/* Final CTA */}
+          <section
+            id="step-6"
+            className="scroll-mt-24 bg-surface-tinted rounded-2xl px-6 sm:px-10 py-16 my-6 text-center"
+          >
+            <h2 className="text-3xl font-bold leading-tight mb-4">Try it on your app for free.</h2>
+            <p className="text-muted max-w-xl mx-auto mb-8 text-lg">
+              Give Replay QA a URL. No test suite, no QA team, no credit card required.
             </p>
-          </div>
-          <div className="px-6 py-5 border-b border-border">
-            <p className="text-xs font-semibold uppercase tracking-widest text-muted mb-2">Suggested fix</p>
-            <p className="text-sm leading-relaxed">
-              Move the button inside the form, or add{" "}
-              <code className="bg-surface-tinted px-1.5 py-0.5 rounded font-mono text-xs">{'form="checkout-form"'}</code>{" "}
-              to the button element.
-            </p>
-          </div>
-          <div className="px-6 py-4">
-            <p className="text-xs font-semibold uppercase tracking-widest text-muted mb-3">Evidence</p>
-            <div className="flex flex-wrap gap-2">
-              {["Replay recording", "DOM mutations", "Network trace", "React state"].map((item) => (
-                <span
-                  key={item}
-                  className="inline-flex items-center px-2.5 py-1 rounded-full border border-border text-xs text-muted bg-surface-tinted"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-          </div>
+            <HeroUrlInput />
+          </section>
         </div>
-        <p className="text-xs text-muted text-center mt-5 italic">
-          Example output &mdash; actual reports are generated from your app&apos;s real runtime data.
-        </p>
-      </section>
-
-      {/* Ask Your Agent */}
-      <div className="bg-surface-tinted">
-        <section className="px-6 py-24 max-w-3xl mx-auto">
-          <p className="text-sm font-medium uppercase tracking-widest text-brand-pink mb-4 text-center">
-            Ask Your Agent
-          </p>
-          <h2 className="text-3xl font-bold text-center mb-4 leading-tight">
-            One prompt. Your agent does the rest.
-          </h2>
-          <p className="text-muted text-center max-w-xl mx-auto mb-10">
-            Try feeding this prompt to your coding agent to see the magic unfold.
-          </p>
-          <CopyPromptBlock prompt={FULL_PROMPT} collapsible />
-          <p className="text-xs text-muted text-center mt-5">
-            Works with Codex, Claude Code, Cursor, and any agent you&apos;re using.
-          </p>
-        </section>
-      </div>
-
-      {/* Technology */}
-      <section className="px-6 py-24 max-w-5xl mx-auto">
-        <p className="text-sm font-medium uppercase tracking-widest text-brand-pink mb-4 text-center">
-          The technology
-        </p>
-        <h2 className="text-3xl font-bold text-center mb-4">
-          Underneath it all: our time-travel debugger.
-        </h2>
-        <p className="text-muted text-center max-w-2xl mx-auto mb-16">
-          Whether you&apos;re running Replay QA on a web app or analyzing a CI failure, the same recording engine is at work. Replay captures the full browser runtime deterministically &mdash; making AI analysis possible where it wasn&apos;t before.
-        </p>
-        <div className="max-w-3xl mx-auto rounded-xl border border-border overflow-hidden">
-          {[
-            { label: "Render chains", detail: "Which component re-rendered, what triggered it, what changed" },
-            { label: "State flow", detail: "Redux actions, React state updates, context changes across the component tree" },
-            { label: "Network timing", detail: "Every request and response, with exact payload and timing data" },
-            { label: "JS execution", detail: "Every function call on every frame, with arguments and return values" },
-            { label: "DOM mutations", detail: "What changed in the DOM, when, and what code caused it" },
-          ].map((row, i, arr) => (
-            <div
-              key={row.label}
-              className={`flex items-baseline gap-6 px-6 py-4 ${i < arr.length - 1 ? "border-b border-border" : ""} ${i % 2 === 0 ? "bg-surface" : "bg-surface-tinted"}`}
-            >
-              <span className="w-36 flex-shrink-0 text-sm font-semibold text-foreground">{row.label}</span>
-              <span className="text-sm text-muted leading-relaxed">{row.detail}</span>
-            </div>
-          ))}
-        </div>
-        <p className="text-center text-sm text-muted italic mt-8">
-          This isn&apos;t guessing from error messages. It&apos;s reading the actual execution.
-        </p>
-      </section>
-
-      {/* Final CTA */}
-      <div className="bg-surface-tinted">
-        <section className="px-6 py-24 max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 leading-tight">
-            Test your app for free.
-          </h2>
-          <p className="text-muted max-w-xl mx-auto mb-8 text-lg">
-            Give Replay QA a URL. No test suite, no QA team, no credit card required.
-          </p>
-          <HeroUrlInput />
-        </section>
       </div>
 
       <Footer />
