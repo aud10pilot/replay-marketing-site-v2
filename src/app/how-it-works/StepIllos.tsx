@@ -1,28 +1,6 @@
 // Decorative placeholder illustrations for the How-it-works steps.
 // Static SVG/markup driven by CSS keyframes defined in globals.css.
 
-export function IlloTesting() {
-  return (
-    <div className="flex gap-3.5">
-      {[0, 1, 2].map((i) => (
-        <div
-          key={i}
-          className="w-[90px] rounded-lg border border-border bg-background overflow-hidden"
-        >
-          <div className="flex items-center gap-1.5 px-2 py-1.5 border-b border-border">
-            <span
-              className="w-[7px] h-[7px] rounded-full bg-red-400"
-              style={{ animation: `recDot 1.4s ease-in-out ${i * 0.3}s infinite` }}
-            />
-            <span className="text-[9px] text-muted">REC</span>
-          </div>
-          <div className="h-[50px] bg-surface-hover" />
-        </div>
-      ))}
-    </div>
-  );
-}
-
 export function IlloAnalysis() {
   return (
     <div className="w-[280px] px-1.5">

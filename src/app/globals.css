@@ -52,10 +52,6 @@
 }
 
 /* How-it-works step illustrations */
-@keyframes recDot {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
-}
 @keyframes scrubMove {
   0% { left: 6%; }
   50% { left: 88%; }

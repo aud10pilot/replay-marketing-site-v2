@@ -6,7 +6,6 @@ import HeroUrlInput from "@/components/HeroUrlInput";
 import ThemedVideo from "@/components/ThemedVideo";
 import StepSideNav from "./StepSideNav";
 import {
-  IlloTesting,
   IlloAnalysis,
   IlloReports,
   IlloLoop,
@@ -174,8 +173,14 @@ export default function HowItWorksPage() {
             index={2}
             eyebrow="03 Testing"
             headline="A swarm of agents runs every journey — and records everything"
-            illo={<IlloTesting />}
-            caption="Split screen — parallel live browser sessions on the left, a real-time DOM/network/JS data stream filling in on the right."
+            media={
+              <ThemedVideo
+                lightSrc="/03-Testing-Light.webm"
+                darkSrc="/03-Testing-Dark.webm"
+                className="w-full aspect-video"
+                ariaLabel="Parallel agent sessions running user journeys while every DOM mutation, network call, and JavaScript frame is recorded"
+              />
+            }
           >
             {P(
               "Once the journeys are mapped, a fleet of Replay QA agents spins up in parallel virtual containers and runs them using Playwright — interacting with your app exactly as a real user would. You can watch them work in real time.",
