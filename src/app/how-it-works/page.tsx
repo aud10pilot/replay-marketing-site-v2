@@ -113,7 +113,7 @@ export default function HowItWorksPage() {
           How Replay QA works
         </span>
         <h1 className="text-4xl sm:text-5xl font-bold leading-[1.1] tracking-tight mb-4">
-          Replay QA acts like a swarm of seasoned QA engineers.
+          Replay QA acts like a swarm of seasoned app testers.
         </h1>
         <p className="text-lg text-muted leading-relaxed max-w-2xl mx-auto">
           It explores your app on its own, detects the user journeys, and comes back with bug reports
@@ -140,10 +140,7 @@ export default function HowItWorksPage() {
             }
           >
             {P(
-              "Paste any live web app URL and Replay QA gets to work immediately. No test suite to write — Replay QA handles that. No QA team to brief — it's like having eight seasoned QA engineers operating at once. No setup of any kind.",
-            )}
-            {P(
-              "If you want a continuous quality gate instead of on-demand testing, connect a GitHub repo — Replay QA installs as a GitHub app and runs automatically on every push or pull request.",
+              "Paste any live web app URL and Replay QA gets to work immediately. No test suite to write or maintain. It handles all of it.",
             )}
           </Step>
 
@@ -151,7 +148,7 @@ export default function HowItWorksPage() {
             index={1}
             tone="tinted"
             eyebrow="02 Exploration"
-            headline="It explores your app first."
+            headline="It discovers the user journeys"
             media={
               <ThemedVideo
                 lightSrc="/02-Exploration-v2-Light.webm"
@@ -169,7 +166,7 @@ export default function HowItWorksPage() {
           <Step
             index={2}
             eyebrow="03 Testing"
-            headline="Our agents write tests for every journey, interacts with your app in a browser while capturing runtime recordings."
+            headline="It tests your app thoroughly"
             media={
               <ThemedVideo
                 lightSrc="/03-Testing-Light.webm"
@@ -193,7 +190,7 @@ export default function HowItWorksPage() {
             index={3}
             tone="dark"
             eyebrow="04 Analysis"
-            headline="Failed tests are analyzed to find the cause and a fix."
+            headline="It analyzes the failed tests"
             illo={<IlloAnalysis />}
             caption="A Replay Recording timeline being scrubbed by an agent — as the playhead moves, annotations flag issues: a red outline on a broken button, a highlight on a slow network call, a contrast warning."
           >
@@ -212,7 +209,7 @@ export default function HowItWorksPage() {
             index={4}
             tone="tinted"
             eyebrow="05 Reports"
-            headline="Bugs are documented, prioritized and ready to fix."
+            headline="It writes detailed bug reports"
             illo={<IlloReports />}
             caption="A rendered bug report card: video thumbnail, annotated screenshot, severity badge, and root-cause text — real and detailed, not a wireframe."
           >
@@ -234,7 +231,7 @@ export default function HowItWorksPage() {
           <Step
             index={5}
             eyebrow="06 The Loop"
-            headline="Fix. Ship. Verify."
+            headline="Fix. Ship. Verify"
             illo={<IlloLoop />}
             caption="Flywheel diagram: Ship → Test → Bugs Found → Fix → Ship. GitHub path runs automatically; URL path runs on demand."
           >
