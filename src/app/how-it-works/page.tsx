@@ -129,7 +129,7 @@ export default function HowItWorksPage() {
           <Step
             index={0}
             eyebrow="01 Start"
-            headline="Drop in a URL. That's it."
+            headline="Drop in a URL. Replay QA takes it from there."
             media={
               <ThemedVideo
                 lightSrc="/03-UrlInput-Light.webm"
