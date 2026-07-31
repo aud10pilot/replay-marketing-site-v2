@@ -12,14 +12,14 @@ import {
 } from "./StepIllos";
 
 export const metadata: Metadata = {
-  title: "How Replay QA Works — From URL to Bug Report",
+  title: "How Replay QA Works: From URL to Bug Report",
   description:
-    "One URL in, a full QA team's worth of work out. See how Replay QA explores your app, runs every journey, time-travels through the recordings, and delivers root-caused bug reports — automatically.",
+    "One URL in, a full QA team's worth of work out. See how Replay QA explores your app, runs every journey, time-travels through the recordings, and delivers root-caused bug reports automatically.",
   alternates: { canonical: "/how-it-works" },
   openGraph: {
-    title: "How Replay QA Works — From URL to Bug Report",
+    title: "How Replay QA Works: From URL to Bug Report",
     description:
-      "One URL in. A full QA team's worth of work out. Explore, test, analyze, report — automatically.",
+      "One URL in. A full QA team's worth of work out. Explore, test, analyze, report. Automatically.",
   },
 };
 
@@ -179,10 +179,10 @@ export default function HowItWorksPage() {
             }
           >
             {P(
-              "Replay QA spins up a fleet of agents and runs all the mapped journeys in parallel. You can watch them work in real time.",
+              "Replay QA spins up a swarm of agents that runs all of the mapped journeys in parallel, in a browser. You can watch them work in real time.",
             )}
             {P(
-              "Every journey test gets recorded, capturing every DOM mutation, every network call, every JavaScript frame.",
+              "Each journey test gets recorded, capturing every DOM mutation, every network call, every JavaScript frame. All the bits of data that will be used later to figure out why something doesn't work.",
             )}
           </Step>
 
@@ -192,13 +192,13 @@ export default function HowItWorksPage() {
             eyebrow="04 Analysis"
             headline="It analyzes the failed tests"
             illo={<IlloAnalysis />}
-            caption="A Replay Recording timeline being scrubbed by an agent — as the playhead moves, annotations flag issues: a red outline on a broken button, a highlight on a slow network call, a contrast warning."
+            caption="A Replay Recording timeline being scrubbed by an agent. As the playhead moves, annotations flag issues: a red outline on a broken button, a highlight on a slow network call, a contrast warning."
           >
             {P(
               "Our QA agents identify the tests that failed, and timetravels through the recordings, forward and backward, frame by frame. Because the recording is deterministic, the session behaves identically every time it's replayed, so the agents work from the full runtime picture instead of a guess: the state of the page, the network calls, the code that ran. They're reading what your app did, not what the code says it should do.",
             )}
             {Checklist([
-              "Deep runtime bugs: [open: needs a specific example from Brian]",
+              "Deep runtime bugs: State and framework errors, asynchronous and network timing flaws, DOM mutation and UI rendering issues, and more.",
               "UI glitches: layout shifts, broken buttons, elements hidden behind overlays",
               "Accessibility failures: WCAG contrast violations, missing ARIA labels, keyboard traps",
               "Performance problems: slow network calls, render-blocking resources, long tasks",
@@ -211,20 +211,20 @@ export default function HowItWorksPage() {
             eyebrow="05 Reports"
             headline="It writes detailed bug reports"
             illo={<IlloReports />}
-            caption="A rendered bug report card: video thumbnail, annotated screenshot, severity badge, and root-cause text — real and detailed, not a wireframe."
+            caption="A rendered bug report card: video thumbnail, annotated screenshot, severity badge, and root-cause text. Real and detailed, not a wireframe."
           >
             {P(
-              "The agents don't just find bugs — they write the report. Each one comes with everything needed to understand and fix the issue immediately.",
+              "The agents don't just find bugs, they write the report. Each one comes with everything needed to understand and fix the issue immediately.",
             )}
             {Checklist([
               "A video recording of the exact moment the bug occurs",
               "Annotated screenshots with problem areas highlighted",
-              "A root cause analysis — specifically what, where, and why",
+              "A root cause analysis: specifically what, where, and why",
               "A suggested fix, ready to paste directly into your coding agent",
             ])}
             <div className="mt-4" />
             {P(
-              "Bugs are grouped by type and severity so you always know where to start. If you connected a GitHub repo, reports go to your agent automatically — no copy-pasting required.",
+              "Bugs are grouped by type and severity so you always know where to start. If you connected a GitHub repo, reports go to your agent automatically, with no copy-pasting required.",
             )}
           </Step>
 
