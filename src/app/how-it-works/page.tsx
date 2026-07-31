@@ -33,11 +33,14 @@ function P(text: string, opts: { strong?: boolean } = {}) {
 
 function Checklist(items: string[]) {
   return (
-    <ul className="list-none p-0 mt-4 space-y-1.5 text-[15px] text-muted">
+    <ul className="list-none mt-4 pl-6 space-y-1.5 text-[15px] text-muted">
       {items.map((t) => (
-        <li key={t} className="leading-relaxed">
-          <span className="text-brand-pink font-bold mr-1.5">&#10003;</span>
-          {t}
+        // flex keeps wrapped lines aligned with the text instead of tucking under the check
+        <li key={t} className="flex gap-2 leading-relaxed">
+          <span aria-hidden="true" className="text-brand-pink font-bold flex-shrink-0">
+            &#10003;
+          </span>
+          <span>{t}</span>
         </li>
       ))}
     </ul>
@@ -195,8 +198,9 @@ export default function HowItWorksPage() {
             caption="A Replay Recording timeline being scrubbed by an agent. As the playhead moves, annotations flag issues: a red outline on a broken button, a highlight on a slow network call, a contrast warning."
           >
             {P(
-              "Our QA agents identify the tests that failed, and time-travel through the recordings, forward and backward, frame by frame. Because the recording is deterministic, the session behaves identically every time it's replayed, so the agents work from the full runtime picture instead of a guess: the state of the page, the network calls, the code that ran. They're reading what your app did, not what the code says it should do.",
+              "For all tests that fail, our agents time-travel through the recordings to find out why. Because our recordings are deterministic, the session behaves identically every time it's replayed, so the agents work from the full runtime picture instead of a guess. They can see the state of the page, the network calls, and the code that ran.",
             )}
+            {P("They're reading what your app did, not what the code says it should do.")}
             {Checklist([
               "Deep runtime bugs: React-Specific Component Failures, Elusive state mutations, Race conditions, Async timing",
               "UI glitches: layout shifts, broken buttons, elements hidden behind overlays",
