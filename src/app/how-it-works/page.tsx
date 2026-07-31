@@ -195,10 +195,10 @@ export default function HowItWorksPage() {
             caption="A Replay Recording timeline being scrubbed by an agent. As the playhead moves, annotations flag issues: a red outline on a broken button, a highlight on a slow network call, a contrast warning."
           >
             {P(
-              "Our QA agents identify the tests that failed, and timetravels through the recordings, forward and backward, frame by frame. Because the recording is deterministic, the session behaves identically every time it's replayed, so the agents work from the full runtime picture instead of a guess: the state of the page, the network calls, the code that ran. They're reading what your app did, not what the code says it should do.",
+              "Our QA agents identify the tests that failed, and time-travel through the recordings, forward and backward, frame by frame. Because the recording is deterministic, the session behaves identically every time it's replayed, so the agents work from the full runtime picture instead of a guess: the state of the page, the network calls, the code that ran. They're reading what your app did, not what the code says it should do.",
             )}
             {Checklist([
-              "Deep runtime bugs: State and framework errors, asynchronous and network timing flaws, DOM mutation and UI rendering issues, and more.",
+              "Deep runtime bugs: React-Specific Component Failures, Elusive state mutations, Race conditions, Async timing",
               "UI glitches: layout shifts, broken buttons, elements hidden behind overlays",
               "Accessibility failures: WCAG contrast violations, missing ARIA labels, keyboard traps",
               "Performance problems: slow network calls, render-blocking resources, long tasks",
