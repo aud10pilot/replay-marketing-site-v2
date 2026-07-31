@@ -177,6 +177,8 @@ export default function HowItWorksPage() {
               <ThemedVideo
                 lightSrc="/03-Testing-Light.webm"
                 darkSrc="/03-Testing-Dark.webm"
+                lightFallbackSrc="/03-Testing-Light.mp4"
+                darkFallbackSrc="/03-Testing-Dark.mp4"
                 className="w-full aspect-video"
                 ariaLabel="Parallel agent sessions running user journeys while every DOM mutation, network call, and JavaScript frame is recorded"
               />
