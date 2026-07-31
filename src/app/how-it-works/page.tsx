@@ -113,11 +113,11 @@ export default function HowItWorksPage() {
           How Replay QA works
         </span>
         <h1 className="text-4xl sm:text-5xl font-bold leading-[1.1] tracking-tight mb-4">
-          One URL in. A full QA team&rsquo;s worth of work out.
+          Replay QA acts like a swarm of seasoned QA engineers.
         </h1>
         <p className="text-lg text-muted leading-relaxed max-w-2xl mx-auto">
-          Learn how Replay QA goes from knowing nothing about your app, to delivering robust bug
-          reports automatically.
+          It explores your app on its own, detects the user journeys, and comes back with bug reports
+          so your agent can fix them.
         </p>
       </section>
 
