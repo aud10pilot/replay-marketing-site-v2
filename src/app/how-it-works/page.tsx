@@ -6,7 +6,6 @@ import HeroUrlInput from "@/components/HeroUrlInput";
 import ThemedVideo from "@/components/ThemedVideo";
 import StepSideNav from "./StepSideNav";
 import {
-  IlloAnalysis,
   IlloReports,
   IlloLoop,
 } from "./StepIllos";
@@ -194,8 +193,15 @@ export default function HowItWorksPage() {
             tone="dark"
             eyebrow="04 Analysis"
             headline="It analyzes the failed tests"
-            illo={<IlloAnalysis />}
-            caption="A Replay Recording timeline being scrubbed by an agent. As the playhead moves, annotations flag issues: a red outline on a broken button, a highlight on a slow network call, a contrast warning."
+            media={
+              // MP4 for now; swap these to the fallback props once the VP9 WebMs land.
+              <ThemedVideo
+                lightSrc="/04-Analysis-Light.mp4"
+                darkSrc="/04-Analysis-Dark.mp4"
+                className="w-full aspect-video"
+                ariaLabel="An agent scrubbing a Replay Recording timeline, flagging a broken button, a slow network call, and a contrast warning as the playhead moves"
+              />
+            }
           >
             {P(
               "For all tests that fail, our agents time-travel through the recordings to find out why. Because our recordings are deterministic, the session behaves identically every time it's replayed, so the agents work from the full runtime picture instead of a guess. They can see the state of the page, the network calls, and the code that ran.",

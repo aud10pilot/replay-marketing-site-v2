@@ -1,26 +1,6 @@
 // Decorative placeholder illustrations for the How-it-works steps.
 // Static SVG/markup driven by CSS keyframes defined in globals.css.
 
-export function IlloAnalysis() {
-  return (
-    <div className="w-[280px] px-1.5">
-      <div className="relative h-2 rounded-full bg-foreground/10">
-        {[15, 40, 65, 85].map((p, i) => (
-          <span
-            key={i}
-            className="absolute -top-1 w-0.5 h-4 bg-red-400"
-            style={{ left: `${p}%`, animation: `tickFlag 3s ease-in-out ${i * 0.4}s infinite` }}
-          />
-        ))}
-        <div
-          className="absolute -top-[5px] w-[18px] h-[18px] rounded-full bg-brand-pink border-2 border-background"
-          style={{ animation: "scrubMove 3s ease-in-out infinite" }}
-        />
-      </div>
-    </div>
-  );
-}
-
 export function IlloReports() {
   return (
     <div className="w-[240px] rounded-[10px] border border-border bg-background p-3.5 flex flex-col gap-2">
