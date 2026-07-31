@@ -7,8 +7,8 @@ const steps = [
   { n: "02", label: "Exploration" },
   { n: "03", label: "Testing" },
   { n: "04", label: "Analysis" },
-  { n: "05", label: "Reports" },
-  { n: "06", label: "The Loop" },
+  { n: "05", label: "Bug Reports" },
+  { n: "06", label: "Fix. Ship. Verify" },
   { n: "07", label: "Try It Now" },
 ];
 

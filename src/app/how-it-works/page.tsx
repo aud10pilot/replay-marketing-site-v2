@@ -151,7 +151,7 @@ export default function HowItWorksPage() {
             index={1}
             tone="tinted"
             eyebrow="02 Exploration"
-            headline="Replay QA figures out what your app does"
+            headline="It explores your app first."
             media={
               <ThemedVideo
                 lightSrc="/02-Exploration-v2-Light.webm"
@@ -162,17 +162,14 @@ export default function HowItWorksPage() {
             }
           >
             {P(
-              "Before a single test runs, Replay QA explores your app the way a QA engineer would on day one. It navigates the interface, identifies what flows exist, and maps the key user journeys that matter most: onboarding, core actions, edge cases.",
-            )}
-            {P(
-              "This is powered by a bespoke exploration harness we've spent years building — purpose-built for autonomous discovery, not adapted from something else.",
+              "Replay QA clicks through your app the way a new QA hire would, with no spec and no one to show them around. It finds the pages, the paths between them, and the journeys your users take most, including the ones nobody wrote down.",
             )}
           </Step>
 
           <Step
             index={2}
             eyebrow="03 Testing"
-            headline="A swarm of agents runs every journey — and records everything"
+            headline="Our agents write tests for every journey, interacts with your app in a browser while capturing runtime recordings."
             media={
               <ThemedVideo
                 lightSrc="/03-Testing-Light.webm"
@@ -185,13 +182,10 @@ export default function HowItWorksPage() {
             }
           >
             {P(
-              "Once the journeys are mapped, a fleet of Replay QA agents spins up in parallel virtual containers and runs them using Playwright — interacting with your app exactly as a real user would. You can watch them work in real time.",
+              "Replay QA spins up a fleet of agents and runs all the mapped journeys in parallel. You can watch them work in real time.",
             )}
             {P(
-              "What makes this different from any other automated testing tool is what happens underneath: every session is captured as a Replay Recording — every DOM mutation, every network call, every JavaScript execution frame.",
-            )}
-            {P(
-              "Before AI, reproducing a bug was the job. With Replay Recordings, you will never need to reproduce a bug yourself again.",
+              "Every journey test gets recorded, capturing every DOM mutation, every network call, every JavaScript frame.",
             )}
           </Step>
 
@@ -199,30 +193,26 @@ export default function HowItWorksPage() {
             index={3}
             tone="dark"
             eyebrow="04 Analysis"
-            headline="Then the agents go back in time"
+            headline="Failed tests are analyzed to find the cause and a fix."
             illo={<IlloAnalysis />}
             caption="A Replay Recording timeline being scrubbed by an agent — as the playhead moves, annotations flag issues: a red outline on a broken button, a highlight on a slow network call, a contrast warning."
           >
             {P(
-              "This is where Replay QA does something no other QA tool can. With the recordings captured, a second wave of agents moves through them — backwards, forwards, frame by frame — looking for exactly where things went wrong. This isn't static code analysis or a linter with opinions. It's a live interrogation of your app's actual runtime behavior.",
+              "Our QA agents identify the tests that failed, and timetravels through the recordings, forward and backward, frame by frame. Because the recording is deterministic, the session behaves identically every time it's replayed, so the agents work from the full runtime picture instead of a guess: the state of the page, the network calls, the code that ran. They're reading what your app did, not what the code says it should do.",
             )}
             {Checklist([
-              "UI glitches — layout shifts, broken buttons, elements hidden behind overlays",
-              "Accessibility failures — WCAG contrast violations, missing ARIA labels, keyboard traps",
-              "Performance problems — slow network calls, render-blocking resources, long tasks",
-              "Deep runtime bugs — errors invisible to every other tool",
+              "Deep runtime bugs: [open: needs a specific example from Brian]",
+              "UI glitches: layout shifts, broken buttons, elements hidden behind overlays",
+              "Accessibility failures: WCAG contrast violations, missing ARIA labels, keyboard traps",
+              "Performance problems: slow network calls, render-blocking resources, long tasks",
             ])}
-            <div className="mt-4" />
-            {P(
-              "Replay's time-travel debugger is proprietary technology we've been building since before AI coding agents existed. It was built to make the invisible visible. Now it powers an autonomous agent swarm doing the work of a senior QA engineer — at the speed of a computer.",
-            )}
           </Step>
 
           <Step
             index={4}
             tone="tinted"
             eyebrow="05 Reports"
-            headline="Every bug. Documented. Prioritized. Ready to fix."
+            headline="Bugs are documented, prioritized and ready to fix."
             illo={<IlloReports />}
             caption="A rendered bug report card: video thumbnail, annotated screenshot, severity badge, and root-cause text — real and detailed, not a wireframe."
           >
@@ -244,17 +234,16 @@ export default function HowItWorksPage() {
           <Step
             index={5}
             eyebrow="06 The Loop"
-            headline="Fix. Ship. Run it again."
+            headline="Fix. Ship. Verify."
             illo={<IlloLoop />}
             caption="Flywheel diagram: Ship → Test → Bugs Found → Fix → Ship. GitHub path runs automatically; URL path runs on demand."
           >
             {P(
-              "QA isn't a one-time event. After your coding agent applies the fixes and you push an update, run Replay QA again — it re-tests the same journeys to confirm the bugs are truly gone, and looks for anything new that crept in during the fix.",
+              "Apply the fixes from the Replay QA bug reports, ship it, and run it again. The same journeys re-run, confirming the fix and catching anything it broke. If you've made other changes to your app, they'll be detected and tested automatically.",
             )}
             {P(
-              "For teams shipping continuously, connecting a GitHub repo makes this automatic. Every push. Every PR. The loop runs without anyone having to think about it.",
+              "If you're running this on a GitHub repo, a new test run will trigger on every push to Main and with every PR. (configurable)",
             )}
-            {P("The result: bugs get caught before users do. Every time.", { strong: true })}
           </Step>
 
           {/* Final CTA */}
