@@ -22,7 +22,8 @@ export const metadata: Metadata = {
   },
 };
 
-type Tone = "plain" | "tinted" | "dark";
+// Steps alternate plain/tinted, ending tinted so the closing CTA keeps its panel.
+type Tone = "plain" | "tinted";
 
 // --- copy helpers (strings live in JS so apostrophes/em-dashes need no escaping) ---
 function P(text: string, opts: { strong?: boolean } = {}) {
@@ -67,11 +68,9 @@ function Step({
   children: ReactNode;
 }) {
   const shell =
-    tone === "dark"
-      ? "bg-surface-tinted dark:bg-[#050507] rounded-2xl px-6 sm:px-10 py-12 my-6"
-      : tone === "tinted"
-        ? "bg-surface-tinted rounded-2xl px-6 sm:px-10 py-12 my-6"
-        : "py-14";
+    tone === "tinted"
+      ? "bg-surface-tinted rounded-2xl px-6 sm:px-10 py-12 my-6"
+      : "py-14";
 
   return (
     <section id={`step-${index}`} className={`scroll-mt-24 ${shell}`}>
@@ -130,6 +129,7 @@ export default function HowItWorksPage() {
         <div className="flex-1 min-w-0">
           <Step
             index={0}
+            tone="tinted"
             eyebrow="01 Start"
             headline="Drop in a URL. Replay QA takes it from there."
             media={
@@ -148,7 +148,6 @@ export default function HowItWorksPage() {
 
           <Step
             index={1}
-            tone="tinted"
             eyebrow="02 Exploration"
             headline="It discovers the user journeys"
             media={
@@ -167,6 +166,7 @@ export default function HowItWorksPage() {
 
           <Step
             index={2}
+            tone="tinted"
             eyebrow="03 Testing"
             headline="It tests your app thoroughly"
             media={
@@ -190,7 +190,6 @@ export default function HowItWorksPage() {
 
           <Step
             index={3}
-            tone="dark"
             eyebrow="04 Analysis"
             headline="It analyzes the failed tests"
             media={
