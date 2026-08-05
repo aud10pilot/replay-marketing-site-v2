@@ -5,10 +5,6 @@ import Nav from "@/components/Nav";
 import HeroUrlInput from "@/components/HeroUrlInput";
 import ThemedVideo from "@/components/ThemedVideo";
 import StepSideNav from "./StepSideNav";
-import {
-  IlloReports,
-  IlloLoop,
-} from "./StepIllos";
 
 export const metadata: Metadata = {
   title: "How Replay QA Works: From URL to Bug Report",
@@ -219,8 +215,15 @@ export default function HowItWorksPage() {
             tone="tinted"
             eyebrow="05 Reports"
             headline="It writes detailed bug reports"
-            illo={<IlloReports />}
-            caption="A rendered bug report card: video thumbnail, annotated screenshot, severity badge, and root-cause text. Real and detailed, not a wireframe."
+            media={
+              // MP4 for now; swap these to the fallback props once the VP9 WebMs land.
+              <ThemedVideo
+                lightSrc="/05-Reports-Light.mp4"
+                darkSrc="/05-Reports-Dark.mp4"
+                className="w-full aspect-video"
+                ariaLabel="A bug report card assembling itself: video thumbnail, annotated screenshot, severity badge, and root-cause text"
+              />
+            }
           >
             {P(
               "The agents don't just find bugs, they write the report. Each one comes with everything needed to understand and fix the issue immediately.",
@@ -241,8 +244,15 @@ export default function HowItWorksPage() {
             index={5}
             eyebrow="06 The Loop"
             headline="Fix. Ship. Verify"
-            illo={<IlloLoop />}
-            caption="Flywheel diagram: Ship → Test → Bugs Found → Fix → Ship. GitHub path runs automatically; URL path runs on demand."
+            media={
+              // MP4 for now; swap these to the fallback props once the VP9 WebMs land.
+              <ThemedVideo
+                lightSrc="/06-TheLoop-Light.mp4"
+                darkSrc="/06-TheLoop-Dark.mp4"
+                className="w-full aspect-video"
+                ariaLabel="Flywheel diagram cycling through Ship, Test, Bugs Found, and Fix"
+              />
+            }
           >
             {P(
               "Apply the fixes from the Replay QA bug reports, ship it, and run it again. The same journeys re-run, confirming the fix and catching anything it broke. If you've made other changes to your app, they'll be detected and tested automatically.",
@@ -261,7 +271,7 @@ export default function HowItWorksPage() {
             <p className="text-muted max-w-xl mx-auto mb-8 text-lg">
               Give Replay QA a URL. No test suite, no QA team, no credit card required.
             </p>
-            <HeroUrlInput />
+            <HeroUrlInput showGitHubLink={false} />
           </section>
         </div>
       </div>
