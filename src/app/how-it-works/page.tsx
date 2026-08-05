@@ -132,6 +132,8 @@ export default function HowItWorksPage() {
               <ThemedVideo
                 lightSrc="/03-UrlInput-Light.webm"
                 darkSrc="/03-UrlInput-Dark.webm"
+                lightFallbackSrc="/03-UrlInput-Light.mp4"
+                darkFallbackSrc="/03-UrlInput-Dark.mp4"
                 className="w-full aspect-video"
                 ariaLabel="A URL being typed into Replay QA to kick off a test run"
               />
@@ -150,6 +152,8 @@ export default function HowItWorksPage() {
               <ThemedVideo
                 lightSrc="/02-Exploration-v2-Light.webm"
                 darkSrc="/02-Exploration-v2-Dark.webm"
+                lightFallbackSrc="/02-Exploration-v2-Light.mp4"
+                darkFallbackSrc="/02-Exploration-v2-Dark.mp4"
                 className="w-full aspect-video"
                 ariaLabel="Replay QA agents exploring an app, mapping pages and user journeys as a growing web of connections"
               />
@@ -189,10 +193,11 @@ export default function HowItWorksPage() {
             eyebrow="04 Analysis"
             headline="It analyzes the failed tests"
             media={
-              // MP4 for now; swap these to the fallback props once the VP9 WebMs land.
               <ThemedVideo
-                lightSrc="/04-Analysis-Light.mp4"
-                darkSrc="/04-Analysis-Dark.mp4"
+                lightSrc="/04-Analysis-Light.webm"
+                darkSrc="/04-Analysis-Dark.webm"
+                lightFallbackSrc="/04-Analysis-Light.mp4"
+                darkFallbackSrc="/04-Analysis-Dark.mp4"
                 className="w-full aspect-video"
                 ariaLabel="An agent scrubbing a Replay Recording timeline, flagging a broken button, a slow network call, and a contrast warning as the playhead moves"
               />
@@ -216,10 +221,11 @@ export default function HowItWorksPage() {
             eyebrow="05 Reports"
             headline="It writes detailed bug reports"
             media={
-              // MP4 for now; swap these to the fallback props once the VP9 WebMs land.
               <ThemedVideo
-                lightSrc="/05-Reports-Light.mp4"
-                darkSrc="/05-Reports-Dark.mp4"
+                lightSrc="/05-Reports-Light.webm"
+                darkSrc="/05-Reports-Dark.webm"
+                lightFallbackSrc="/05-Reports-Light.mp4"
+                darkFallbackSrc="/05-Reports-Dark.mp4"
                 className="w-full aspect-video"
                 ariaLabel="A bug report card assembling itself: video thumbnail, annotated screenshot, severity badge, and root-cause text"
               />
@@ -245,10 +251,11 @@ export default function HowItWorksPage() {
             eyebrow="06 The Loop"
             headline="Fix. Ship. Verify"
             media={
-              // MP4 for now; swap these to the fallback props once the VP9 WebMs land.
               <ThemedVideo
-                lightSrc="/06-TheLoop-Light.mp4"
-                darkSrc="/06-TheLoop-Dark.mp4"
+                lightSrc="/06-TheLoop-Light.webm"
+                darkSrc="/06-TheLoop-Dark.webm"
+                lightFallbackSrc="/06-TheLoop-Light.mp4"
+                darkFallbackSrc="/06-TheLoop-Dark.mp4"
                 className="w-full aspect-video"
                 ariaLabel="Flywheel diagram cycling through Ship, Test, Bugs Found, and Fix"
               />
