@@ -6,18 +6,18 @@ import HeroUrlInput from "@/components/HeroUrlInput";
 export const metadata: Metadata = {
   title: "Replay QA vs. Playwright & Selenium | Replay",
   description:
-    "You have Playwright. You still have bugs. Replay QA writes its own tests, explores your whole app, and tells you the root cause when something fails — no test authoring required.",
+    "You have Playwright. You still have bugs. Replay QA writes its own tests, explores your whole app, and tells you the root cause when something fails. No test authoring required.",
   alternates: { canonical: "/replay-vs-test-suites" },
   openGraph: {
     title: "Replay QA vs. Playwright & Selenium | Replay",
     description:
-      "Playwright runs the plays you designed. Replay QA scouts the whole field. See what your test suite is missing.",
+      "Your test suite covers what someone wrote a test for. Replay QA covers the rest, and tells you the root cause when it finds a bug.",
   },
 };
 
 const compareRows: [string, string, string][] = [
-  ["Setup", "Write and maintain test scripts", "Give it a URL — it explores automatically"],
-  ["Test authoring", "Manual, ongoing", "None — generates its own test sessions"],
+  ["Setup", "Write and maintain test scripts", "Give it a URL. It explores automatically"],
+  ["Test authoring", "Manual, ongoing", "None. It generates its own test sessions"],
   ["Coverage", "Only what someone wrote a test for", "Full app surface, continuously"],
   ["When a test fails", "Stack trace + screenshot", "Root cause analysis + suggested fix"],
   ["Debugging", "Manual reproduction", "Time-travel through a full recording"],
@@ -28,23 +28,23 @@ const compareRows: [string, string, string][] = [
 const faqs = [
   {
     q: "We already have 80% test coverage. Why do we need this?",
-    a: "Coverage metrics measure how many lines of code are touched by tests — not whether your app actually works for users. Replay QA tests the real experience: does the button work, does the page load in time, does the flow complete without errors? These are different questions, and most coverage metrics don't answer them.",
+    a: "Coverage metrics measure how many lines of code are touched by tests, not whether your app works for users. Replay QA tests the real experience: does the button work, does the page load in time, does the flow complete without errors? Most coverage metrics don't answer those questions.",
   },
   {
     q: "Won't this create duplicate work alongside our existing suite?",
-    a: "No — it runs in parallel, not instead. Your existing Playwright tests keep doing what they do. Replay QA covers the surface area they don't: new features without tests, edge cases, full user journeys, visual and accessibility checks. The output (bug reports, root cause analysis) feeds the same coding agents your team is already using.",
+    a: "No, it runs in parallel. Your existing Playwright tests keep doing what they do, and Replay QA covers the surface area they don't: new features without tests, edge cases, full user journeys, visual and accessibility checks. The output (bug reports, root cause analysis) feeds the same coding agents your team is already using.",
   },
   {
     q: "We don't want to give up control over our test cases.",
-    a: "You don't have to. If you prefer to keep writing your own tests, Replay QA still adds value as a second layer — running autonomous exploration in addition to your test suite, and providing root cause analysis when those tests fail.",
+    a: "You don't have to. If you prefer to keep writing your own tests, Replay QA still works as a second layer: it runs autonomous exploration alongside your suite and gives you root cause analysis when your tests fail.",
   },
   {
     q: "How is this different from something like Cypress or Testim?",
-    a: "Cypress and Testim are still test runners — they require someone to author and maintain test cases, and their output when a test fails is a failed assertion. Replay QA is autonomous: it writes its own sessions, requires no test authoring, and when it finds a bug, it tells you the root cause and how to fix it. The key capability is the time-travel debugger — no other tool has it.",
+    a: "Cypress and Testim are still test runners. Someone has to author and maintain the test cases, and when a test fails you get a failed assertion. Replay QA writes its own sessions, needs no test authoring, and tells you the root cause and the fix when it finds a bug. The time-travel debugger is what makes that possible, and no other tool has one.",
   },
   {
     q: "What if our app requires login or has complex auth flows?",
-    a: "Replay QA supports authenticated flows. You can provide login credentials and it handles the auth wall — then tests everything behind it.",
+    a: "Replay QA supports authenticated flows. Give it login credentials and it gets past the auth wall, then tests everything behind it.",
   },
 ];
 
@@ -67,7 +67,7 @@ export default function ReplayVsTestSuitesPage() {
         <p className="text-lg text-muted max-w-2xl mb-10 leading-relaxed">
           Playwright and Selenium are great test runners. But someone has to write the
           tests, maintain them, and debug every failure. Replay QA does all of that
-          automatically — and catches bugs your test suite never could.
+          automatically, and catches bugs your test suite never could.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3">
           <a
@@ -99,14 +99,13 @@ export default function ReplayVsTestSuitesPage() {
         <div className="space-y-4 text-muted leading-relaxed">
           <p>
             Playwright is excellent software. So is Selenium. They&apos;re the right tools
-            for running automated browser tests — and if you have them set up, you should
+            for running automated browser tests, and if you have them set up, you should
             keep them.
           </p>
           <p>
-            The question tech leads keep asking us is: if we already have Playwright, why
-            do we need Replay QA?
+            Tech leads keep asking us the same question: if we already have Playwright,
+            why do we need Replay QA?
           </p>
-          <p>It&apos;s a fair question. Here&apos;s the honest answer.</p>
         </div>
       </section>
 
@@ -123,7 +122,7 @@ export default function ReplayVsTestSuitesPage() {
             <p>
               When you write a Playwright test, you&apos;re encoding an assumption: this
               flow should work this way. That&apos;s valuable. But it means your test suite
-              is only as good as your foresight — and it only grows when someone takes the
+              is only as good as your foresight, and it only grows when someone takes the
               time to write more tests.
             </p>
             <p>Two things happen in practice:</p>
@@ -144,8 +143,8 @@ export default function ReplayVsTestSuitesPage() {
               </li>
             </ol>
             <p>
-              Replay QA solves both of these — not by replacing Playwright, but by doing
-              the things Playwright was never designed to do.
+              Replay QA solves both. It runs alongside Playwright and does the things
+              Playwright was never designed to do.
             </p>
           </div>
         </section>
@@ -200,10 +199,10 @@ export default function ReplayVsTestSuitesPage() {
       <div className="bg-surface-tinted">
         <section className="px-6 py-24 max-w-3xl mx-auto">
           <p className="text-xs font-semibold uppercase tracking-widest text-brand-pink mb-4">
-            Four things that are genuinely different
+            Four things that are different
           </p>
           <h2 className="text-3xl font-bold tracking-tight leading-tight mb-12">
-            This isn&apos;t a different test runner. It&apos;s a different layer entirely.
+            Replay QA sits a layer above your test runner.
           </h2>
 
           <div className="flex flex-col">
@@ -214,10 +213,10 @@ export default function ReplayVsTestSuitesPage() {
                 Someone has to fix them.
               </p>
               <p>
-                Replay QA starts with a URL. That&apos;s it. It explores your app, maps the
-                user journeys itself, and generates its own test sessions — no input
-                required. When your code changes, it adapts automatically. There are no
-                test files to maintain because there are no test files.
+                Replay QA starts with a URL. It explores your app, maps the user journeys
+                itself, and generates its own test sessions with no further input. When
+                your code changes, it adapts automatically. There are no test files to
+                maintain.
               </p>
             </Difference>
 
@@ -226,11 +225,10 @@ export default function ReplayVsTestSuitesPage() {
               headline="Replay QA writes Playwright tests. You don't have to."
             >
               <p>
-                Here&apos;s what most teams don&apos;t expect: Replay QA actually generates
-                Playwright tests as part of its process — based on what it discovers about
-                your app. Those tests get captured as Replay Recordings, which means
-                they&apos;re not just scripts that pass or fail. They&apos;re full runtime
-                snapshots your team can inspect, share, and feed to a coding agent.
+                Replay QA generates Playwright tests as part of its process, based on what
+                it discovers about your app. Those tests get captured as Replay Recordings,
+                so you get a full runtime snapshot your team can inspect, share, and feed
+                to a coding agent instead of a script that only reports pass or fail.
               </p>
               <p>
                 If you connect a GitHub repo, those tests run automatically on every push.
@@ -240,24 +238,22 @@ export default function ReplayVsTestSuitesPage() {
             </Difference>
 
             <Difference n={3} headline="When something fails, Replay QA tells you why.">
-              <p>This is the part that surprises engineers most.</p>
               <p>
                 When a Playwright test fails, you get a stack trace and a screenshot. You
-                know that something broke — not why. Someone still has to go dig through
-                logs, reproduce the bug locally, and trace it back to a root cause. On a
-                busy team, this takes hours. Sometimes days.
+                know something broke, but not why. Someone still has to dig through logs,
+                reproduce the bug locally, and trace it back to a root cause. On a busy
+                team, that takes hours. Sometimes days.
               </p>
               <p>
-                Replay QA captures every session as a Replay Recording — billions of data
-                points including every DOM mutation, network call, and JavaScript
-                execution frame. When something fails, our agents time-travel through the
-                recording to find exactly where it went wrong: what function threw the
-                error, what network call timed out, what state change caused the UI to
-                break.
+                Replay QA captures every session as a Replay Recording, billions of data
+                points covering every DOM mutation, network call, and JavaScript execution
+                frame. When something fails, our agents time-travel through the recording
+                to find where it went wrong: what function threw the error, what network
+                call timed out, what state change broke the UI.
               </p>
               <p>
-                The output isn&apos;t a stack trace. It&apos;s a root cause analysis and a
-                suggested fix — ready to hand to your coding agent.
+                You get a root cause analysis and a suggested fix, ready to hand to your
+                coding agent.
               </p>
             </Difference>
 
@@ -303,17 +299,13 @@ export default function ReplayVsTestSuitesPage() {
         </h2>
         <div className="space-y-4 text-muted leading-relaxed">
           <p>
-            If you have Playwright tests set up in CI, keep them. They&apos;re a safety net
-            you&apos;ve invested in building — don&apos;t throw that away.
+            If you have Playwright tests set up in CI, keep them. You invested in that
+            safety net and it still works.
           </p>
           <p>
             What Replay QA adds is the layer above: autonomous exploration of your full app
             surface, coverage of everything your test suite doesn&apos;t cover, and root
             cause analysis when things go wrong.
-          </p>
-          <p className="italic">
-            Think of it this way: Playwright runs the plays you designed. Replay QA scouts
-            the whole field.
           </p>
         </div>
         <a
@@ -352,7 +344,7 @@ export default function ReplayVsTestSuitesPage() {
           See what your test suite is missing.
         </h2>
         <p className="text-lg text-muted max-w-xl mx-auto mb-8 leading-relaxed">
-          Drop in a URL and Replay QA finds real bugs in minutes — no setup, no test cases,
+          Drop in a URL and Replay QA finds real bugs in minutes. No setup, no test cases,
           no credit card.
         </p>
         <HeroUrlInput showGitHubLink={false} />
