@@ -15,6 +15,9 @@ export default function Footer() {
           <Link href="/about" className="hover:text-foreground transition">
             About
           </Link>
+          <Link href="/for-teams" className="hover:text-foreground transition">
+            For Teams
+          </Link>
           <Link href="/replay-vs-test-suites" className="hover:text-foreground transition">
             vs. Test Suites
           </Link>
