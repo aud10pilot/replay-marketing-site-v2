@@ -278,7 +278,7 @@ export default function HowItWorksPage() {
             <p className="text-muted max-w-xl mx-auto mb-8 text-lg">
               Give Replay QA a URL. No test suite, no QA team, no credit card required.
             </p>
-            <HeroUrlInput showGitHubLink={false} />
+            <HeroUrlInput />
           </section>
         </div>
       </div>

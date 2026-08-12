@@ -347,7 +347,7 @@ export default function ReplayVsTestSuitesPage() {
           Drop in a URL and Replay QA finds real bugs in minutes. No setup, no test cases,
           no credit card.
         </p>
-        <HeroUrlInput showGitHubLink={false} />
+        <HeroUrlInput />
       </section>
 
       <Footer />
