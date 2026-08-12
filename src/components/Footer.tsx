@@ -21,6 +21,12 @@ export default function Footer() {
           <Link href="/replay-vs-test-suites" className="hover:text-foreground transition">
             vs. Test Suites
           </Link>
+          <Link
+            href="/replayqa-vs-competitors"
+            className="hover:text-foreground transition"
+          >
+            Compare
+          </Link>
           <Link href="/roi-calculator" className="hover:text-foreground transition">
             ROI Calculator
           </Link>
