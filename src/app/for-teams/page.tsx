@@ -62,8 +62,8 @@ const benefits = [
     body: "Invite as many collaborators to a project as you want. Designers, PMs, and contractors can read a bug report and watch the recording without a seat license or a debugging background.",
   },
   {
-    title: "One plan covers the team",
-    body: "Priced on how much testing you run, not how many people are on the account. Adding a teammate costs nothing, so the person who spots the bug is never the person who can't file it.",
+    title: "Bug reports your coding agent deserves",
+    body: "Each bug report is prepared with coding agents in mind. A detailed root cause analysis, a suggested fix, a deterministic runtime recording, and all the context needed to do the job.",
   },
 ];
 
@@ -97,7 +97,7 @@ const setupSteps = [
   },
 ];
 
-const faqs = [
+const faqs: { q: string; a: React.ReactNode }[] = [
   {
     q: "Do we need an existing test suite?",
     a: "No. Replay QA explores your app and writes its own Playwright tests based on what it finds. If you already have a suite, keep it. Replay QA runs alongside it and covers the surface area your tests don't.",
@@ -124,7 +124,19 @@ const faqs = [
   },
   {
     q: "How much does it cost for a team?",
-    a: "Pricing is based on how many analyses you run each month, not per seat. There's a free tier to try it on a real repo before you decide. See the pricing page for current plans.",
+    a: (
+      <>
+        Pricing is based on how many analyses you run each month, not per seat.
+        There&apos;s a free tier to try it on a real repo before you decide. See the{" "}
+        <a
+          href="/pricing"
+          className="text-brand-pink hover:opacity-80 transition font-medium"
+        >
+          pricing page
+        </a>{" "}
+        for current plans.
+      </>
+    ),
   },
 ];
 
@@ -277,7 +289,7 @@ export default function ForTeamsPage() {
           Setup
         </p>
         <h2 className="text-3xl font-bold tracking-tight text-center mb-14 leading-tight">
-          Two minutes once, then it&apos;s on
+          Up and running in under 5 minutes
         </h2>
         <div className="flex flex-col gap-8">
           {setupSteps.map((step, i, arr) => (
@@ -316,7 +328,7 @@ export default function ForTeamsPage() {
       {/* FAQ */}
       <section className="px-6 py-24 max-w-3xl mx-auto">
         <h2 className="text-3xl font-bold tracking-tight text-center mb-10">
-          Questions from team leads
+          Frequently asked questions
         </h2>
         <div className="space-y-2">
           {faqs.map((faq, i) => (
@@ -412,7 +424,7 @@ function FaqItem({
   defaultOpen = false,
 }: {
   question: string;
-  answer: string;
+  answer: React.ReactNode;
   defaultOpen?: boolean;
 }) {
   return (
