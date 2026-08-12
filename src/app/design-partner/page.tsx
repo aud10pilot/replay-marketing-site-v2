@@ -1,20 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import WarpSpeedBg from "@/components/WarpSpeedBg";
 import DesignPartnerForm from "./DesignPartnerForm";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Become a Replay MCP Design Partner",
   description:
     "Get free access to Replay MCP for 30 days to 3 months, direct time with the Replay engineering team, and preferred pricing when the engagement wraps.",
-  alternates: { canonical: "/design-partner" },
-  openGraph: {
-    title: "Become a Replay MCP Design Partner",
-    description:
-      "Get free access to Replay MCP for 30 days to 3 months, direct time with the Replay engineering team, and preferred pricing when the engagement wraps.",
-  },
-};
+  canonical: "/design-partner",
+});
 
 const perks = [
   {

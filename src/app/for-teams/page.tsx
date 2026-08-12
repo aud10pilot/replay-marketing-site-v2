@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import HeroUrlInput from "@/components/HeroUrlInput";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Replay QA for Teams — Verification for Agent-Written Code",
   description:
     "Replay QA explores your app, finds what's broken, works out why, and delivers a fix your coding agent can apply. Connect a GitHub repo and it runs on every update. Built for startups, agencies, and dev shops.",
-  alternates: { canonical: "/for-teams" },
-  openGraph: {
-    title: "Replay QA for Teams — Verification for Agent-Written Code",
+  canonical: "/for-teams",
+  social: {
     description:
       "Autonomous QA for teams who ship faster than they can verify. A swarm of agents explores your app, root-causes what breaks, and hands your coding agent the fix.",
   },
-};
+});
 
 const gaps = [
   {

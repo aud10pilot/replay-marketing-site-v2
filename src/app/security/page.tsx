@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Security & Privacy",
   description:
     "Learn about Replay's security practices, encryption standards, compliance reporting, and privacy commitments.",
-  alternates: { canonical: "/security" },
-};
+  canonical: "/security",
+});
 
 export default function SecurityPage() {
   return (

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import type { ReactNode } from "react";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
@@ -6,17 +7,16 @@ import HeroUrlInput from "@/components/HeroUrlInput";
 import ThemedVideo from "@/components/ThemedVideo";
 import StepSideNav from "./StepSideNav";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "How Replay QA Works: From URL to Bug Report",
   description:
     "One URL in, a full QA team's worth of work out. See how Replay QA explores your app, runs every journey, time-travels through the recordings, and delivers root-caused bug reports automatically.",
-  alternates: { canonical: "/how-it-works" },
-  openGraph: {
-    title: "How Replay QA Works: From URL to Bug Report",
+  canonical: "/how-it-works",
+  social: {
     description:
       "One URL in. A full QA team's worth of work out. Explore, test, analyze, report. Automatically.",
   },
-};
+});
 
 // Steps alternate plain/tinted, ending tinted so the closing CTA keeps its panel.
 type Tone = "plain" | "tinted";

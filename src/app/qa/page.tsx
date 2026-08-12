@@ -1,21 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import Orb from "@/components/Orb";
 import LoopQAHowItWorks from "./LoopQAHowItWorks";
 import CopyPromptBlock from "./CopyPromptBlock";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Replay QA — Autonomous QA for the Vibecoding Era",
   description:
     "Drop in a URL. Replay QA explores your app, writes Playwright tests, captures Replay recordings, and files detailed bug reports — automatically.",
-  alternates: { canonical: "/qa" },
-  openGraph: {
-    title: "Replay QA — Autonomous QA for the Vibecoding Era",
-    description:
-      "Drop in a URL. Replay QA explores your app, writes Playwright tests, captures Replay recordings, and files detailed bug reports — automatically.",
-  },
-};
+  canonical: "/qa",
+});
 
 const bugReportItems = [
   {

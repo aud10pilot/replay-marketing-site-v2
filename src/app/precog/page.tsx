@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import WarpSpeedBg from "@/components/WarpSpeedBg";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Replay Precog",
   description:
     "Deterministic debugging for bugs in code that doesn't exist yet. Replay Precog analyzes your potential execution state before you write a single line.",
-  alternates: { canonical: "/precog" },
-  openGraph: {
-    title: "Replay Precog",
+  canonical: "/precog",
+  social: {
     description:
       "Deterministic debugging for bugs in code that doesn't exist yet.",
   },
-};
+});
 
 export default function PrecogPage() {
   return (

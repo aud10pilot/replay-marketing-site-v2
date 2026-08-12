@@ -1,19 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "About Replay — Making Software Visible",
   description:
     "Replay records your software and shows you exactly what happened. Founded by ex-Mozilla engineers, we're building the debugging tools that AI agents and developers need to fix bugs on the first try.",
-  alternates: { canonical: "/about" },
-  openGraph: {
-    title: "About Replay — Making Software Visible",
-    description:
-      "Replay records your software and shows you exactly what happened. Founded by ex-Mozilla engineers, we're building the debugging tools that AI agents and developers need to fix bugs on the first try.",
-  },
-};
+  canonical: "/about",
+});
 
 const team = [
   {

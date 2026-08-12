@@ -1,21 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import BugToFixTabs from "@/components/BugToFixTabs";
 import WarpSpeedBg from "@/components/WarpSpeedBg";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Replay for Debugging — Fix the Bug Your Agent Can't Figure Out",
   description:
     "Record your app and get a deterministic capture of everything that happened. Let your coding agent investigate via Replay MCP, or dig in yourself with Replay DevTools.",
-  alternates: { canonical: "/debugging" },
-  openGraph: {
-    title: "Replay for Debugging — Fix the Bug Your Agent Can't Figure Out",
-    description:
-      "Record your app and get a deterministic capture of everything that happened. Let your coding agent investigate via Replay MCP, or dig in yourself with Replay DevTools.",
-  },
-};
+  canonical: "/debugging",
+});
 
 const faqs = [
   {

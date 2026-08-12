@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Privacy Policy",
   description:
     "Replay privacy policy. Learn how we collect, use, and protect your personal data.",
-  alternates: { canonical: "/privacy" },
-};
+  canonical: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (

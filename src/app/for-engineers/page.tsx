@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import WarpSpeedBg from "@/components/WarpSpeedBg";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Replay for Engineers — AI-Assisted CI/CD",
   description:
     "Replay records every test run in CI. When something breaks, Replay's time-travel agent analyzes the recording, identifies the root cause, and posts the analysis and a suggested fix as a PR comment. No manual debugging.",
-  alternates: { canonical: "/for-engineers" },
-  openGraph: {
-    title: "Replay for Engineers — AI-Assisted CI/CD",
+  canonical: "/for-engineers",
+  social: {
     description:
       "Test fails. Agent time-travels. Root cause and suggested fix posted to your PR.",
   },
-};
+});
 
 export default function ForEngineersPage() {
   return (

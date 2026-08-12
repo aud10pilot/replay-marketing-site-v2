@@ -1,21 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import WarpSpeedBg from "@/components/WarpSpeedBg";
 import CIAgentHowItWorks from "./CIAgentHowItWorks";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Replay QA for CI — Automated Analysis on Every Test Failure",
   description:
     "Replay QA records every test run, analyzes failures using time-travel data, and posts a root cause and suggested fix as a comment on your PR — automatically.",
-  alternates: { canonical: "/ci-agent" },
-  openGraph: {
-    title: "Replay QA for CI — Automated Analysis on Every Test Failure",
-    description:
-      "Replay QA records every test run, analyzes failures using time-travel data, and posts a root cause and suggested fix as a comment on your PR — automatically.",
-  },
-};
+  canonical: "/ci-agent",
+});
 
 const useCases = [
   {

@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Terms of Service",
   description:
     "Replay terms of service. Read the terms and conditions for using Replay products and services.",
-  alternates: { canonical: "/terms" },
-};
+  canonical: "/terms",
+});
 
 export default function TermsPage() {
   return (

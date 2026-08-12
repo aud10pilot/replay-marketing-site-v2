@@ -9,29 +9,33 @@ const inter = Inter({
   display: "swap",
 });
 
+const OG_IMAGE = "/replayQA_og-image.png";
+const SITE_TITLE = "Replay QA — AI wrote the app. Replay QA finds what broke.";
+const SITE_DESCRIPTION =
+  "Connect a GitHub repo for continuous testing, or drop in a URL to test on demand. Replay QA finds real bugs and gives your coding agent the root cause and fix.";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://replay.io"),
   title: {
-    default: "Replay — Superpowers for Your Agent",
+    default: SITE_TITLE,
     template: "%s | Replay",
   },
-  description:
-    "Replay records your app, runs automated root-cause analysis, and posts the root cause and a suggested fix as a PR comment — no manual debugging required.",
+  description: SITE_DESCRIPTION,
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     siteName: "Replay",
-    title: "Replay — Superpowers for Your Agent",
-    description:
-      "Replay records your app, runs automated root-cause analysis, and posts the root cause and a suggested fix as a PR comment — no manual debugging required.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [{ url: OG_IMAGE, width: 1200, height: 642 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Replay — Superpowers for Your Agent",
-    description:
-      "Replay records your app, runs automated root-cause analysis, and posts the root cause and a suggested fix as a PR comment — no manual debugging required.",
-    images: ["/og-image.png"],
+    site: "@replayio",
+    creator: "@replayio",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [OG_IMAGE],
   },
 };
 

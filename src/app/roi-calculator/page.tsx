@@ -1,19 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import RoiCalculator from "@/components/RoiCalculator";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "ROI Calculator — Replay",
   description:
     "Estimate how much debugging time and engineering cost your team will save by plugging Replay into your CI/CD pipeline.",
-  alternates: { canonical: "/roi-calculator" },
-  openGraph: {
-    title: "ROI Calculator — Replay",
-    description:
-      "Estimate how much debugging time and engineering cost your team will save by plugging Replay into your CI/CD pipeline.",
-  },
-};
+  canonical: "/roi-calculator",
+});
 
 export default function RoiPage() {
   return (

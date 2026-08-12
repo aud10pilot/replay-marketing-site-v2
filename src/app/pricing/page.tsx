@@ -1,20 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import PricingCards from "@/components/PricingCards";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Pricing — Replay",
   description:
     "Simple, usage-based pricing. Start free with 20 AI analyses per month. Upgrade as you grow.",
-  alternates: { canonical: "/pricing" },
-  openGraph: {
-    title: "Pricing — Replay",
-    description:
-      "Simple, usage-based pricing. Start free with 20 AI analyses per month. Upgrade as you grow.",
-  },
-};
+  canonical: "/pricing",
+});
 
 const faqs = [
   {

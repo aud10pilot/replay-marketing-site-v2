@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import HeroUrlInput from "@/components/HeroUrlInput";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Replay QA vs. the Alternatives | Replay",
   description:
     "How Replay QA compares to QA Wolf, Ranger, Meticulous, Tester Army, CodeRabbit, Qodo, Checkly, and the test suite you already have. Most of them read code or need a test suite. Replay QA runs the app.",
-  alternates: { canonical: "/replayqa-comparisons" },
-  openGraph: {
-    title: "Replay QA vs. the Alternatives | Replay",
+  canonical: "/replayqa-comparisons",
+  social: {
     description:
       "Yeah, but how is this different from what we already have? The honest answer, tool by tool.",
   },
-};
+});
 
 const axes = [
   {

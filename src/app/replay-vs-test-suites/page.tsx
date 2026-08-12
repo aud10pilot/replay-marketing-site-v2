@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import HeroUrlInput from "@/components/HeroUrlInput";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Replay QA vs. Playwright & Selenium | Replay",
   description:
     "You have Playwright. You still have bugs. Replay QA writes its own tests, explores your whole app, and tells you the root cause when something fails. No test authoring required.",
-  alternates: { canonical: "/replay-vs-test-suites" },
-  openGraph: {
-    title: "Replay QA vs. Playwright & Selenium | Replay",
+  canonical: "/replay-vs-test-suites",
+  social: {
     description:
       "Your test suite covers what someone wrote a test for. Replay QA covers the rest, and tells you the root cause when it finds a bug.",
   },
-};
+});
 
 const compareRows: [string, string, string][] = [
   ["Setup", "Write and maintain test scripts", "Give it a URL. It explores automatically"],

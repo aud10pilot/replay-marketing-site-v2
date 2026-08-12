@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Footer from "@/components/Footer";
 import HeroFormula from "@/components/HeroFormula";
 import Nav from "@/components/Nav";
 import WarpSpeedBg from "@/components/WarpSpeedBg";
 import NotifyForm from "./NotifyForm";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Replay for Vibe Coders",
   description:
     "You built something with Lovable. It was working. Now it's not. Replay Extension shows you exactly what went wrong — in plain English — so you can fix it.",
-  alternates: { canonical: "/for-vibe-coders" },
-  openGraph: {
-    title: "Replay for Vibe Coders",
+  canonical: "/for-vibe-coders",
+  social: {
     description:
       "Replay Extension shows you exactly what went wrong — in plain English — so you can fix it.",
   },
-};
+});
 
 export default function ForVibeCodersPage() {
   return (
