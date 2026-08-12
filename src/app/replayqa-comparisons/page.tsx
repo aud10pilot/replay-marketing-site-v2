@@ -222,7 +222,7 @@ export default function ReplayQaVsCompetitorsPage() {
         </span>
         <h1 className="text-4xl sm:text-5xl font-bold leading-[1.1] tracking-tight mb-6">
           &ldquo;How is this different from{" "}
-          <span className="text-brand-pink italic">what we already have?</span>&rdquo;
+          <span className="text-brand-pink">what we already have?</span>&rdquo;
         </h1>
         <p className="text-lg text-muted max-w-2xl mb-10 leading-relaxed">
           It&apos;s the first question every team asks. Here&apos;s the honest answer,
