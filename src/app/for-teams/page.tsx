@@ -178,8 +178,8 @@ export default function ForTeamsPage() {
           </h1>
           <p className="text-lg text-muted max-w-2xl mb-10 leading-relaxed">
             Replay QA explores your app, finds what&apos;s broken, works out exactly why,
-            and delivers a fix your coding agent can apply. Startups, agencies, and dev
-            shops connect a repo and it runs on every update.
+            and delivers a fix your coding agent can apply. Perfect for teams at
+            startups, agencies and dev shops.
           </p>
           <a
             href="https://qa.replay.io/new"
