@@ -336,12 +336,12 @@ export default function ForTeamsPage() {
           ))}
         </div>
         <p className="text-sm text-muted text-center mt-8">
-          Comparing against your existing suite?{" "}
+          Comparing against your existing tool stack?{" "}
           <a
-            href="/replay-vs-test-suites"
+            href="/replayqa-comparisons"
             className="text-brand-pink hover:opacity-80 transition font-medium"
           >
-            Replay QA vs. Playwright and Selenium
+            Replay QA Comparisons
           </a>
         </p>
       </section>

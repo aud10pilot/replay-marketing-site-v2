@@ -33,7 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: "https://replay.io/replayqa-vs-competitors",
+      url: "https://replay.io/replayqa-comparisons",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,

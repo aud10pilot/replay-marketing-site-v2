@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Replay QA vs. the Alternatives | Replay",
   description:
     "How Replay QA compares to QA Wolf, Ranger, Meticulous, Tester Army, CodeRabbit, Qodo, Checkly, and the test suite you already have. Most of them read code or need a test suite. Replay QA runs the app.",
-  alternates: { canonical: "/replayqa-vs-competitors" },
+  alternates: { canonical: "/replayqa-comparisons" },
   openGraph: {
     title: "Replay QA vs. the Alternatives | Replay",
     description:

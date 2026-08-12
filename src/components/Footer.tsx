@@ -22,7 +22,7 @@ export default function Footer() {
             vs. Test Suites
           </Link>
           <Link
-            href="/replayqa-vs-competitors"
+            href="/replayqa-comparisons"
             className="hover:text-foreground transition"
           >
             Compare
