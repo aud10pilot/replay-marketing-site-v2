@@ -15,22 +15,24 @@ export const metadata: Metadata = pageMetadata({
   },
 });
 
-const gaps = [
-  {
-    problem: "Nobody owns QA",
-    headline: "Testing happens when someone has time",
-    body: "There's no QA hire and no spare afternoon. Checking the app falls to whoever notices, which means it slips the week you're busiest. Replay QA runs whether anyone has time or not.",
-  },
-  {
-    problem: "Agents outpace review",
-    headline: "More lands each week than a person can click through",
-    body: "Your team merges more changes than anyone can verify by hand. Replay QA explores the whole app on every update, so coverage stops depending on who remembered to check.",
-  },
-  {
-    problem: "You hear it from someone else",
-    headline: "Your end users find the bug first",
-    body: "It reaches someone outside the team before anyone inside it notices, and the report lands as a vague support ticket. Replay QA catches it first, root-caused, so nobody loses an afternoon reproducing it.",
-  },
+// The two timelines are deliberately parallel: same team, same 47 pull requests,
+// same checkout bug. Only who finds it and how long it takes changes, so the
+// elapsed-time phrases in each list are what carry the contrast.
+const weekNow = [
+  "Your team merges 47 pull requests. Agents wrote most of the code.",
+  "Static analysis passes on all of them. It reads the code without ever running the app.",
+  "Nobody can review 47 pull requests by hand, let alone click through what they changed.",
+  "It ships to staging and looks fine, because the happy path is fine.",
+  "Three days later, an end user emails to say checkout is broken on their phone.",
+  "An engineer loses an afternoon reproducing it. The fix itself takes twenty minutes.",
+];
+
+const weekWithReplay = [
+  "The same 47 pull requests merge. A swarm of agents explores the app on every one.",
+  "Minutes later, it finds checkout dead on mobile Safari and time-travels back to the cause.",
+  "A ticket lands in your tracker with the root cause, a suggested fix, and the recording.",
+  "Your coding agent applies the fix. The next run confirms it holds.",
+  "You ship. Nobody hears from an end user.",
 ];
 
 const swarm = [
@@ -177,9 +179,8 @@ export default function ForTeamsPage() {
             <span className="text-brand-pink italic">frickin&apos; fast.</span>
           </h1>
           <p className="text-lg text-muted max-w-2xl mb-10 leading-relaxed">
-            Replay QA explores your app, finds what&apos;s broken, works out exactly why,
-            and delivers a fix your coding agent can apply. Perfect for teams at
-            startups, agencies and dev shops.
+            Replay QA lets you ship even faster with its always-on verification.
+            Perfect for fast-moving teams at startups, agencies and dev shops.
           </p>
           <a
             href="https://qa.replay.io/new"
@@ -196,65 +197,44 @@ export default function ForTeamsPage() {
         </section>
       </div>
 
-      {/* Problem */}
+      {/* The week now */}
       <div className="bg-surface-tinted">
         <section className="px-6 py-24 max-w-3xl mx-auto">
           <p className="text-xs font-semibold uppercase tracking-widest text-brand-pink mb-4">
             The problem
           </p>
-          <h2 className="text-3xl font-bold tracking-tight leading-tight mb-6">
-            Agents made writing code cheap. Checking it didn&apos;t get cheaper.
+          <h2 className="text-3xl font-bold tracking-tight leading-tight mb-10">
+            The week you&apos;re having now
           </h2>
-          <div className="space-y-4 text-muted leading-relaxed">
-            <p>
-              Your agent closes a ticket in ten minutes. Confirming it didn&apos;t quietly
-              break checkout takes somebody forty minutes of clicking through the app. So
-              on a busy week, nobody does it.
-            </p>
-            <p>
-              The work still happens, just later and more expensively. An end user
-              reports a broken signup form. An engineer spends an afternoon reproducing
-              it. The fix takes twenty minutes once they can finally see what went wrong.
-            </p>
-            <p>
-              <span className="text-foreground font-medium">
-                Verification is the bottleneck now, and it&apos;s the part your team is
-                still doing by hand.
-              </span>
-            </p>
-          </div>
+          <WeekTimeline items={weekNow} accent="muted" />
+          <p className="text-foreground font-medium leading-relaxed mt-10">
+            Verification is the bottleneck now, and it&apos;s the part your team is still
+            doing by hand.
+          </p>
         </section>
       </div>
 
-      {/* Shared gaps */}
-      <section className="px-6 py-24 max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold tracking-tight text-center mb-3 leading-tight">
-          Whatever you&apos;re building, the gaps are the same
-        </h2>
-        <p className="text-muted text-center max-w-2xl mx-auto mb-12 leading-relaxed">
-          Three things hold true across every team shipping with agents, whether
-          it&apos;s one product or a dozen codebases.
+      {/* The same week, with Replay QA */}
+      <section className="px-6 py-24 max-w-3xl mx-auto">
+        <p className="text-xs font-semibold uppercase tracking-widest text-brand-pink mb-4">
+          The same week, with Replay QA
         </p>
-        <div className="grid md:grid-cols-3 gap-6">
-          {gaps.map((g) => (
-            <div key={g.problem} className="rounded-xl border border-border bg-surface p-7">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-brand-pink mb-3">
-                {g.problem}
-              </p>
-              <h3 className="text-base font-semibold tracking-tight mb-3 leading-snug">
-                {g.headline}
-              </h3>
-              <p className="text-sm text-muted leading-relaxed">{g.body}</p>
-            </div>
-          ))}
-        </div>
+        <h2 className="text-3xl font-bold tracking-tight leading-tight mb-10">
+          The same bug, found in minutes
+        </h2>
+        <WeekTimeline items={weekWithReplay} accent="pink" />
+        <p className="text-foreground font-medium leading-relaxed mt-10">
+          Same forty-seven pull requests, same team, still no QA hire. An agent found
+          the bug minutes after the merge instead of an end user finding it three days
+          later.
+        </p>
       </section>
 
-      {/* What it is — the swarm */}
+      {/* How it does that — the swarm */}
       <div className="bg-surface-tinted">
         <section className="px-6 py-24 max-w-5xl mx-auto">
           <p className="text-xs font-semibold uppercase tracking-widest text-brand-pink mb-4 text-center">
-            What it actually is
+            How it does that
           </p>
           <h2 className="text-3xl font-bold tracking-tight text-center mb-4 leading-tight">
             An agentic testing harness that works like a swarm of QA testers
@@ -409,6 +389,36 @@ export default function ForTeamsPage() {
 
       <Footer />
     </div>
+  );
+}
+
+/**
+ * One shipping story as a timeline. A single rail runs the full height behind
+ * the markers rather than a segment per row, which is what stops the list
+ * reading as bullet points. The rail is inset top and bottom so it starts and
+ * ends at the first and last dot instead of floating past them.
+ */
+function WeekTimeline({ items, accent }: { items: string[]; accent: "muted" | "pink" }) {
+  const dot =
+    accent === "pink"
+      ? "bg-brand-pink border-brand-pink"
+      : "bg-surface border-muted/50";
+
+  return (
+    <ol className="relative flex flex-col">
+      <div
+        aria-hidden="true"
+        className="absolute left-[6px] top-3 bottom-3 w-0.5 bg-border"
+      />
+      {items.map((event) => (
+        <li key={event} className="relative flex gap-6 pb-9 last:pb-0">
+          <span
+            className={`relative z-10 w-3.5 h-3.5 rounded-full border-2 mt-1.5 flex-shrink-0 ${dot}`}
+          />
+          <p className="flex-1 text-base leading-relaxed text-muted">{event}</p>
+        </li>
+      ))}
+    </ol>
   );
 }
 
