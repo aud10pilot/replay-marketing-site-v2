@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import Nav from "@/components/Nav";
+import WarpSpeedBg from "@/components/WarpSpeedBg";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = pageMetadata({
@@ -145,33 +146,55 @@ export default function ForTeamsPage() {
       <Nav />
 
       {/* Hero */}
-      <section className="hero-fade-in flex flex-col items-center text-center px-6 pt-24 pb-16 max-w-3xl mx-auto">
-        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-surface text-sm text-muted mb-6">
-          <span className="w-1.5 h-1.5 rounded-full bg-brand-pink" aria-hidden="true" />
-          Replay QA for Teams
-        </span>
-        <h1 className="text-4xl sm:text-5xl font-bold leading-[1.1] tracking-tight mb-6">
-          Autonomous QA for teams who ship{" "}
-          <span className="text-brand-pink italic">frickin&apos; fast.</span>
-        </h1>
-        <p className="text-lg text-muted max-w-2xl mb-10 leading-relaxed">
-          Replay QA explores your app, finds what&apos;s broken, works out exactly why,
-          and delivers a fix your coding agent can apply. Startups, agencies, and dev
-          shops connect a repo and it runs on every update.
-        </p>
-        <a
-          href="https://qa.replay.io/new"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block rounded-full px-8 py-3.5 text-base font-medium text-white hover:opacity-90 transition"
-          style={{ background: "var(--brand-gradient)" }}
-        >
-          Get started for free
-        </a>
-        <p className="text-xs text-muted mt-4">
-          Set up in under 5min &bull; No credit card &bull; No test suite required
-        </p>
-      </section>
+      <div className="relative overflow-hidden">
+        <WarpSpeedBg
+          className="absolute inset-0 opacity-30 dark:opacity-40"
+          config={{
+            speed: 10,
+            targetSpeed: 10,
+            speedAdjFactor: 0.8,
+            density: 0.7,
+            starSize: 2,
+            warpEffect: true,
+            warpEffectLength: 5,
+            depthFade: true,
+            shape: "square",
+            backgroundColor: "#FFFFFF",
+            starColor: "hsl(263,45%,7%)",
+          }}
+          darkConfig={{
+            backgroundColor: "hsl(263,45%,7%)",
+            starColor: "#FFFFFF",
+          }}
+        />
+        <section className="hero-fade-in relative z-10 flex flex-col items-center text-center px-6 pt-24 pb-16 max-w-3xl mx-auto">
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-surface text-sm text-muted mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-pink" aria-hidden="true" />
+            Replay QA for Teams
+          </span>
+          <h1 className="text-4xl sm:text-5xl font-bold leading-[1.1] tracking-tight mb-6">
+            Autonomous QA for teams who ship{" "}
+            <span className="text-brand-pink italic">frickin&apos; fast.</span>
+          </h1>
+          <p className="text-lg text-muted max-w-2xl mb-10 leading-relaxed">
+            Replay QA explores your app, finds what&apos;s broken, works out exactly why,
+            and delivers a fix your coding agent can apply. Startups, agencies, and dev
+            shops connect a repo and it runs on every update.
+          </p>
+          <a
+            href="https://qa.replay.io/new"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block rounded-full px-8 py-3.5 text-base font-medium text-white hover:opacity-90 transition"
+            style={{ background: "var(--brand-gradient)" }}
+          >
+            Get started for free
+          </a>
+          <p className="text-xs text-muted mt-4">
+            Set up in under 5min &bull; No credit card &bull; No test suite required
+          </p>
+        </section>
+      </div>
 
       {/* Problem */}
       <div className="bg-surface-tinted">
