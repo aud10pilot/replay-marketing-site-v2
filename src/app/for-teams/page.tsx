@@ -140,9 +140,8 @@ export default function ForTeamsPage() {
           Replay QA for Teams
         </span>
         <h1 className="text-4xl sm:text-5xl font-bold leading-[1.1] tracking-tight mb-6">
-          Autonomous QA for teams who ship
-          <br />
-          <span className="text-brand-pink">faster than they can verify.</span>
+          Autonomous QA for teams who ship{" "}
+          <span className="text-brand-pink italic">frickin&apos; fast.</span>
         </h1>
         <p className="text-lg text-muted max-w-2xl mb-10 leading-relaxed">
           Replay QA explores your app, finds what&apos;s broken, works out exactly why,
