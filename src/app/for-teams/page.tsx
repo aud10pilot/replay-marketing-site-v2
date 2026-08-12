@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import HeroUrlInput from "@/components/HeroUrlInput";
 
 export const metadata: Metadata = pageMetadata({
   title: "Replay QA for Teams — Verification for Agent-Written Code",
@@ -350,13 +349,21 @@ export default function ForTeamsPage() {
       <div className="bg-surface-tinted">
         <section className="px-6 py-24 max-w-3xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight mb-4">
-            Put it on a real repo this afternoon.
+            Test it on your own repo
           </h2>
           <p className="text-lg text-muted max-w-xl mx-auto mb-8 leading-relaxed">
-            Start with a URL and see what Replay QA finds in your app, then connect the
-            repo when you want it running on every push.
+            In just a few minutes, Replay QA will start exploring your app to identify
+            the user journeys, and hunting for bugs.
           </p>
-          <HeroUrlInput />
+          <a
+            href="https://qa.replay.io/new"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block rounded-full px-8 py-3.5 text-base font-medium text-white hover:opacity-90 transition"
+            style={{ background: "var(--brand-gradient)" }}
+          >
+            Get started for free
+          </a>
           <p className="text-sm text-muted mt-8">
             Running Replay QA across a lot of projects?{" "}
             <a

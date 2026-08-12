@@ -18,17 +18,11 @@ export default function Footer() {
           <Link href="/for-teams" className="hover:text-foreground transition">
             For Teams
           </Link>
-          <Link href="/replay-vs-test-suites" className="hover:text-foreground transition">
-            vs. Test Suites
-          </Link>
           <Link
             href="/replayqa-comparisons"
             className="hover:text-foreground transition"
           >
             Compare
-          </Link>
-          <Link href="/roi-calculator" className="hover:text-foreground transition">
-            ROI Calculator
           </Link>
           <Link href="/security" className="hover:text-foreground transition">
             Security
