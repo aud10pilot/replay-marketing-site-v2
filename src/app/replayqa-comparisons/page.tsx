@@ -39,7 +39,6 @@ type Tool = {
   /** Parallel claims. `them[i]` and `us[i]` should answer the same question. */
   them: string[];
   us: string[];
-  href?: string;
 };
 
 const groups: { objection: string; kind: string; tools: Tool[] }[] = [
@@ -59,7 +58,6 @@ const groups: { objection: string; kind: string; tools: Tool[] }[] = [
           "Coverage is the whole app, on every change.",
           "A failure gives you the root cause and a fix.",
         ],
-        href: "/replay-vs-test-suites",
       },
       {
         name: "QA Wolf",
@@ -207,17 +205,6 @@ function ToolCompare({ tool }: { tool: Tool }) {
           </div>
         </div>
       </div>
-
-      {tool.href && (
-        <div className="px-6 py-4 border-t border-border">
-          <a
-            href={tool.href}
-            className="inline-block text-sm font-medium text-brand-pink hover:opacity-80 transition"
-          >
-            Full comparison &rarr;
-          </a>
-        </div>
-      )}
     </div>
   );
 }
