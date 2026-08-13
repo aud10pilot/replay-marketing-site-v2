@@ -242,7 +242,7 @@ export default function ForTeamsPage() {
         </div>
       </section>
 
-      {/* How Replay QA works — the five stages of a run */}
+      {/* How Replay QA works — the three stages of a run */}
       <div className="bg-surface-tinted">
         <section className="px-6 py-24 max-w-5xl mx-auto">
           {/* Same clip as step 02 on /how-it-works. MP4 only — the VP9 WebM
@@ -315,6 +315,40 @@ export default function ForTeamsPage() {
         </div>
       </section>
 
+      {/* Testimonial. Brand-pink tint rather than bg-surface-tinted so this band
+          reads as its own treatment and the plain/tinted alternation either side
+          of it still holds. */}
+      <div className="bg-brand-pink/[0.04] border-y border-brand-pink/15">
+        <section className="px-6 py-20 max-w-3xl mx-auto text-center">
+          <blockquote className="text-xl sm:text-2xl font-medium leading-relaxed tracking-tight mb-8">
+            &ldquo;Love the tooling! Our QA workflows and bug discovery has become 10X
+            faster. The devs are able to cycle through loopholes much faster and delivery
+            timelines have been enhanced&rdquo;
+          </blockquote>
+          <div className="flex items-center justify-center gap-3.5">
+            {/* Swap for <Image src="/avatars/harshil-tomar.jpg" width={48} height={48} … />
+                to match the other avatars on the site. */}
+            <div
+              aria-hidden="true"
+              className="w-12 h-12 rounded-full border border-dashed border-brand-pink/40 bg-surface flex items-center justify-center flex-shrink-0"
+            >
+              <span className="text-sm font-semibold text-brand-pink">HT</span>
+            </div>
+            <div className="text-left">
+              <p className="text-sm font-semibold">Harshil Tomar</p>
+              <a
+                href="https://x.com/Hartdrawss"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-muted hover:text-brand-pink transition"
+              >
+                @Hartdrawss
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+
       {/* Setup */}
       <div className="bg-surface-tinted">
         <section className="px-6 py-24 max-w-3xl mx-auto">
@@ -322,7 +356,7 @@ export default function ForTeamsPage() {
           Setup
         </p>
         <h2 className="text-3xl font-bold tracking-tight text-center mb-10 leading-tight">
-          Up and running in under 5 minutes
+          Connect a GitHub repo in 5 minutes or less
         </h2>
         {/* Natural aspect (1660x1080); the clip has no audio track despite the
             filename, so muted autoplay loses nothing. */}
