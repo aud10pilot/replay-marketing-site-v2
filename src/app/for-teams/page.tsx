@@ -104,12 +104,24 @@ const faqs: { q: string; a: React.ReactNode }[] = [
     a: "No. Replay QA explores your app and writes its own Playwright tests based on what it finds. If you already have a suite, keep it. Replay QA runs alongside it and covers the surface area your tests don't.",
   },
   {
+    q: "How does Replay QA connect to my GitHub repository?",
+    a: "During project setup you'll be taken through the GitHub authentication flow, where you'll be prompted to install the Replay QA GitHub app and specify which repositories it can monitor. Once the app is added to a repository, it listens for changes like pushes to main or new pull requests. You configure which events trigger a new test run.",
+  },
+  {
     q: "Will this flood our issue tracker?",
     a: "You control what gets filed. Submit bugs manually, only after Replay QA confirms them, or automatically for every report including unconfirmed ones. Confirmed-only is the safest setting to start with, and you can loosen it once you trust the signal.",
   },
   {
     q: "Can it test our staging or preview environments?",
-    a: "Yes. Replay QA tests against whatever URL you point it at, including Vercel or Netlify preview deployments for pull requests. Authenticated apps work too: provide credentials and it gets past the login wall.",
+    a: "Yes. Replay QA tests against whatever URL you point it at, including Vercel or Netlify preview deployments for pull requests.",
+  },
+  {
+    q: "Can Replay QA test my app if it has authentication enabled?",
+    a: "Yes. Replay QA can create its own accounts as needed, as long as they're email and password (Google Auth and other OAuth providers won't work). You can also give the agent one or more sets of test account credentials and it will use them, which is great for testing role-specific areas of an app.",
+  },
+  {
+    q: "How does Replay QA handle bot detection, like Cloudflare?",
+    a: "This is a tricky one. If you're able to disable bot detection while Replay QA tests your app, that's the recommendation. Otherwise we won't be able to pass that Turing test.",
   },
   {
     q: "Can it test apps running on localhost?",
