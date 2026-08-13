@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import AutoplayVideo from "@/components/AutoplayVideo";
 import Nav from "@/components/Nav";
+import ThemedVideo from "@/components/ThemedVideo";
 import WarpSpeedBg from "@/components/WarpSpeedBg";
 import Footer from "@/components/Footer";
 
@@ -254,6 +255,15 @@ export default function ForTeamsPage() {
       {/* How Replay QA works — the five stages of a run */}
       <div className="bg-surface-tinted">
         <section className="px-6 py-24 max-w-5xl mx-auto">
+          {/* Same clip as step 02 on /how-it-works */}
+          <ThemedVideo
+            lightSrc="/02-Exploration-v2-Light.webm"
+            darkSrc="/02-Exploration-v2-Dark.webm"
+            lightFallbackSrc="/02-Exploration-v2-Light.mp4"
+            darkFallbackSrc="/02-Exploration-v2-Dark.mp4"
+            className="w-full aspect-video mb-12"
+            ariaLabel="Replay QA agents exploring an app, mapping pages and user journeys as a growing web of connections"
+          />
           <p className="text-xs font-semibold uppercase tracking-widest text-brand-pink mb-4 text-center">
             How Replay QA works
           </p>
