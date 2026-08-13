@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
+import AutoplayVideo from "@/components/AutoplayVideo";
 import Nav from "@/components/Nav";
 import WarpSpeedBg from "@/components/WarpSpeedBg";
 import Footer from "@/components/Footer";
@@ -15,57 +16,54 @@ export const metadata: Metadata = pageMetadata({
   },
 });
 
-// The two timelines are deliberately parallel: same team, same 47 pull requests,
-// same checkout bug. Only who finds it and how long it takes changes, so the
-// elapsed-time phrases in each list are what carry the contrast.
-const weekNow = [
-  "Your team merges 47 pull requests. Agents wrote most of the code.",
-  "Static analysis passes on all of them. It reads the code without ever running the app.",
-  "Nobody can review 47 pull requests by hand, let alone click through what they changed.",
-  "It ships to staging and looks fine, because the happy path is fine.",
-  "Three days later, an end user emails to say checkout is broken on their phone.",
-  "An engineer loses an afternoon reproducing it. The fix itself takes twenty minutes.",
-];
-
-const weekWithReplay = [
-  "The same 47 pull requests merge. A swarm of agents explores the app on every one.",
-  "Minutes later, it finds checkout dead on mobile Safari and time-travels back to the cause.",
-  "A ticket lands in your tracker with the root cause, a suggested fix, and the recording.",
-  "Your coding agent applies the fix. The next run confirms it holds.",
-  "You ship. Nobody hears from an end user.",
-];
-
-const swarm = [
+// The five stages of a run, in order. Each one names what Replay QA does and
+// why that stage is the reason the next one is possible.
+const stages = [
   {
-    title: "They decide where to go",
-    body: "No script tells them what to click. Each agent maps the app, picks a journey worth testing, and works through it the way a new QA hire would in their first week.",
+    n: 1,
+    title: "Explore",
+    body: "No script tells it what to click. Agents map the app, find the journeys worth verifying, and work through them the way a new QA hire would in their first week.",
   },
   {
-    title: "They run in parallel",
-    body: "Sessions happen side by side, not one after another. Coverage scales with how much you ship instead of how many hours your team has left over.",
+    n: 2,
+    title: "Reproduce",
+    body: "When something breaks, the agent drives it again to confirm it's real and not a flake. You never get a report for something nobody can reproduce.",
   },
   {
-    title: "They investigate what they find",
-    body: "Every session is recorded deterministically. When one breaks, an agent time-travels back through the recording to the line that caused it, then writes the report.",
+    n: 3,
+    title: "Record",
+    body: "Every session is captured deterministically: DOM mutations, network calls, and JavaScript frames. Replayed later, it behaves identically every time.",
+  },
+  {
+    n: 4,
+    title: "Investigate",
+    body: "An agent time-travels back through the recording to the line that caused the failure, working from the full runtime picture instead of guessing from the code.",
+  },
+  {
+    n: 5,
+    title: "Report",
+    body: "The finding lands as a root cause, a suggested fix, and the recording that proves it, written for whoever picks it up next.",
   },
 ];
 
-const benefits = [
+// Workflow fit: the three places Replay QA touches an existing team's process,
+// plus who can read the output once it lands there.
+const workflow = [
   {
-    title: "Set it and forget it",
-    body: "Connect a GitHub repo in under two minutes. The Replay QA GitHub app runs a new pass whenever your codebase changes: every push to main, every pull request, or both. Configure it once and stop thinking about it.",
+    title: "Connect a repo, then forget it",
+    body: "Add your GitHub repo and authenticate. The Replay QA GitHub app installs itself and runs a new pass whenever your codebase changes: every push to main, every pull request, or both. No config file, no CI changes.",
   },
   {
-    title: "Works where you already work",
-    body: "Bugs go to your tracker, not another dashboard nobody opens. GitHub Issues, Linear, Jira, or any endpoint that accepts a webhook. PR runs post the root cause and fix as a comment on the pull request.",
+    title: "Every pull request gets checked",
+    body: "PR runs test against your preview deployment and post the root cause and suggested fix as a comment on the pull request, next to the diff that caused it.",
   },
   {
-    title: "Everyone on the team, included",
-    body: "Invite as many collaborators to a project as you want. Designers, PMs, and contractors can read a bug report and watch the recording without a seat license or a debugging background.",
+    title: "Bugs land in your tracker",
+    body: "Not another dashboard nobody opens. GitHub Issues, Linear, Jira, or any endpoint that accepts a webhook. You control whether everything gets filed or only what Replay QA has confirmed.",
   },
   {
-    title: "Bug reports your coding agent deserves",
-    body: "Each bug report is prepared with coding agents in mind. A detailed root cause analysis, a suggested fix, a deterministic runtime recording, and all the context needed to do the job.",
+    title: "Everyone on the team can read it",
+    body: "Invite as many collaborators to a project as you want. Designers, PMs, and contractors can read a report and watch the recording without a seat license or a debugging background.",
   },
 ];
 
@@ -175,12 +173,13 @@ export default function ForTeamsPage() {
             Replay QA for Teams
           </span>
           <h1 className="text-4xl sm:text-5xl font-bold leading-[1.1] tracking-tight mb-6">
-            Autonomous QA for teams who ship{" "}
-            <span className="text-brand-pink italic">frickin&apos; fast.</span>
+            Autonomous QA for teams shipping faster than manual verification can keep
+            up.
           </h1>
           <p className="text-lg text-muted max-w-2xl mb-10 leading-relaxed">
-            Replay QA lets you ship even faster with its always-on verification.
-            Perfect for fast-moving teams at startups, agencies and dev shops.
+            Replay QA autonomously explores every new build, reproduces the failures it
+            finds, and sends your team evidence they can fix before users discover the
+            bug.
           </p>
           <a
             href="https://qa.replay.io/new"
@@ -189,71 +188,100 @@ export default function ForTeamsPage() {
             className="inline-block rounded-full px-8 py-3.5 text-base font-medium text-white hover:opacity-90 transition"
             style={{ background: "var(--brand-gradient)" }}
           >
-            Get started for free
+            Test Replay QA on my app
           </a>
           <p className="text-xs text-muted mt-4">
-            Set up in under 5min &bull; No credit card &bull; No test suite required
+            No credit card. No existing test suite required.
           </p>
         </section>
       </div>
 
-      {/* The week now */}
+      {/* Show the output */}
       <div className="bg-surface-tinted">
-        <section className="px-6 py-24 max-w-3xl mx-auto">
-          <p className="text-xs font-semibold uppercase tracking-widest text-brand-pink mb-4">
-            The problem
+        <section className="px-6 py-24 max-w-4xl mx-auto">
+          <p className="text-xs font-semibold uppercase tracking-widest text-brand-pink mb-4 text-center">
+            What you get
           </p>
-          <h2 className="text-3xl font-bold tracking-tight leading-tight mb-10">
-            The week you&apos;re having now
+          <h2 className="text-3xl font-bold tracking-tight text-center mb-4 leading-tight">
+            Bug reports your coding agent deserves
           </h2>
-          <WeekTimeline items={weekNow} accent="muted" />
-          <p className="text-foreground font-medium leading-relaxed mt-10">
-            Verification is the bottleneck now, and it&apos;s the part your team is still
-            doing by hand.
+          <p className="text-muted text-center max-w-2xl mx-auto mb-10 leading-relaxed">
+            Each report is prepared with coding agents in mind. A detailed root cause
+            analysis, a suggested fix, a deterministic runtime recording, and all the
+            context needed to do the job.
           </p>
+          {/* Natural aspect (1756x1080), not aspect-video — cropping a UI
+              recording would cut off the report text. */}
+          <div className="rounded-xl border border-border overflow-hidden shadow-2xl">
+            <AutoplayVideo
+              src="/ReplayQA_exampleBug.mp4"
+              className="w-full h-auto block"
+            />
+          </div>
         </section>
       </div>
 
-      {/* The same week, with Replay QA */}
+      {/* The verification problem */}
       <section className="px-6 py-24 max-w-3xl mx-auto">
         <p className="text-xs font-semibold uppercase tracking-widest text-brand-pink mb-4">
-          The same week, with Replay QA
+          The problem
         </p>
-        <h2 className="text-3xl font-bold tracking-tight leading-tight mb-10">
-          The same bug, found in minutes
+        <h2 className="text-3xl font-bold tracking-tight leading-tight mb-6">
+          Your team ships 47 pull requests a week. Nobody can check them all.
         </h2>
-        <WeekTimeline items={weekWithReplay} accent="pink" />
-        <p className="text-foreground font-medium leading-relaxed mt-10">
-          Same forty-seven pull requests, same team, still no QA hire. An agent found
-          the bug minutes after the merge instead of an end user finding it three days
-          later.
-        </p>
+        <div className="space-y-4 text-muted leading-relaxed">
+          <p>
+            Agents wrote most of that code. Static analysis passes on all of it, because
+            static analysis reads the code without ever running the app. Nobody can
+            review 47 pull requests by hand, let alone click through what each one
+            changed.
+          </p>
+          <p>
+            So it ships to staging and looks fine, because the happy path is fine. Three
+            days later an end user emails to say checkout is broken on their phone. An
+            engineer loses an afternoon reproducing it, and the fix itself takes twenty
+            minutes.
+          </p>
+          <p>
+            <span className="text-foreground font-medium">
+              Writing code got faster. Verifying it didn&apos;t, and it&apos;s still the
+              part your team does by hand.
+            </span>
+          </p>
+        </div>
       </section>
 
-      {/* How it does that — the swarm */}
+      {/* How Replay QA works — the five stages of a run */}
       <div className="bg-surface-tinted">
         <section className="px-6 py-24 max-w-5xl mx-auto">
           <p className="text-xs font-semibold uppercase tracking-widest text-brand-pink mb-4 text-center">
-            How it does that
+            How Replay QA works
           </p>
           <h2 className="text-3xl font-bold tracking-tight text-center mb-4 leading-tight">
             An agentic testing harness that works like a swarm of QA testers
           </h2>
           <p className="text-muted text-center max-w-2xl mx-auto mb-12 leading-relaxed">
-            Every other tool in this category runs the tests a person wrote, in the order
-            they wrote them. Replay QA puts a swarm of agents in your app instead. They
-            explore it, break it, and explain what happened.
+            Most QA tooling starts with flows your team defines. Replay QA begins by
+            exploring the application and identifying flows worth verifying.
           </p>
-          <div className="grid md:grid-cols-3 gap-6">
-            {swarm.map((s) => (
-              <div key={s.title} className="rounded-xl border border-border bg-surface p-7">
-                <h3 className="text-base font-semibold tracking-tight mb-3 leading-snug">
-                  {s.title}
-                </h3>
+          <ol className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {stages.map((s) => (
+              <li
+                key={s.title}
+                className="rounded-xl border border-border bg-surface p-7"
+              >
+                <span className="inline-flex items-center gap-2.5 mb-3">
+                  <span className="w-7 h-7 rounded-full bg-brand-pink/10 border border-brand-pink/30 flex items-center justify-center flex-shrink-0">
+                    <span className="text-brand-pink font-bold text-xs">{s.n}</span>
+                  </span>
+                  <h3 className="text-base font-semibold tracking-tight leading-snug">
+                    {s.title}
+                  </h3>
+                </span>
                 <p className="text-sm text-muted leading-relaxed">{s.body}</p>
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
           <p className="text-sm text-muted text-center mt-10">
             <a
               href="/how-it-works"
@@ -266,25 +294,29 @@ export default function ForTeamsPage() {
         </section>
       </div>
 
-      {/* Benefits */}
+      {/* Workflow fit */}
       <section className="px-6 py-24 max-w-5xl mx-auto">
         <p className="text-xs font-semibold uppercase tracking-widest text-brand-pink mb-4 text-center">
-          Why teams run it
+          How it fits your workflow
         </p>
-        <h2 className="text-3xl font-bold tracking-tight text-center mb-12 leading-tight">
-          A verification layer that runs itself
+        <h2 className="text-3xl font-bold tracking-tight text-center mb-4 leading-tight">
+          It runs where your team already works
         </h2>
+        <p className="text-muted text-center max-w-2xl mx-auto mb-12 leading-relaxed">
+          Replay QA hooks into GitHub, comments on pull requests, and files into the
+          tracker you already use. Nobody has to adopt a new tool to get the benefit.
+        </p>
         <div className="grid md:grid-cols-2 gap-6">
-          {benefits.map((b) => (
-            <div key={b.title} className="rounded-xl border border-border bg-surface p-7">
-              <h3 className="text-base font-semibold tracking-tight mb-3">{b.title}</h3>
-              <p className="text-sm text-muted leading-relaxed">{b.body}</p>
+          {workflow.map((w) => (
+            <div key={w.title} className="rounded-xl border border-border bg-surface p-7">
+              <h3 className="text-base font-semibold tracking-tight mb-3">{w.title}</h3>
+              <p className="text-sm text-muted leading-relaxed">{w.body}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* How it works */}
+      {/* Setup */}
       <div className="bg-surface-tinted">
         <section className="px-6 py-24 max-w-3xl mx-auto">
         <p className="text-xs font-semibold uppercase tracking-widest text-brand-pink mb-4 text-center">
@@ -365,8 +397,11 @@ export default function ForTeamsPage() {
             className="inline-block rounded-full px-8 py-3.5 text-base font-medium text-white hover:opacity-90 transition"
             style={{ background: "var(--brand-gradient)" }}
           >
-            Get started for free
+            Test Replay QA on my app
           </a>
+          <p className="text-xs text-muted mt-4">
+            No credit card. No existing test suite required.
+          </p>
           <p className="text-sm text-muted mt-8">
             Running Replay QA across a lot of projects?{" "}
             <a
@@ -389,36 +424,6 @@ export default function ForTeamsPage() {
 
       <Footer />
     </div>
-  );
-}
-
-/**
- * One shipping story as a timeline. A single rail runs the full height behind
- * the markers rather than a segment per row, which is what stops the list
- * reading as bullet points. The rail is inset top and bottom so it starts and
- * ends at the first and last dot instead of floating past them.
- */
-function WeekTimeline({ items, accent }: { items: string[]; accent: "muted" | "pink" }) {
-  const dot =
-    accent === "pink"
-      ? "bg-brand-pink border-brand-pink"
-      : "bg-surface border-muted/50";
-
-  return (
-    <ol className="relative flex flex-col">
-      <div
-        aria-hidden="true"
-        className="absolute left-[6px] top-3 bottom-3 w-0.5 bg-border"
-      />
-      {items.map((event) => (
-        <li key={event} className="relative flex gap-6 pb-9 last:pb-0">
-          <span
-            className={`relative z-10 w-3.5 h-3.5 rounded-full border-2 mt-1.5 flex-shrink-0 ${dot}`}
-          />
-          <p className="flex-1 text-base leading-relaxed text-muted">{event}</p>
-        </li>
-      ))}
-    </ol>
   );
 }
 
