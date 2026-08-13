@@ -57,33 +57,22 @@ const workflow = [
   },
 ];
 
-// Each step's visual. `asset` is the basename the finished clips should use in
-// public/, so swapping a placeholder for real media is a one-line change: see
-// the ThemedVideo example in StepMedia below.
+// The three setup steps, walked through in the video above them.
 const setupSteps = [
   {
     n: 1,
     title: "Connect the repo",
     body: "Add your GitHub repo URL and authenticate. The Replay QA GitHub app installs itself. No config file, no test suite, no CI changes.",
-    asset: "Teams-01-Connect",
-    caption:
-      "Pasting a GitHub repo URL, the OAuth prompt, and the Replay QA GitHub app confirming install. Ends on the connected-repo state.",
   },
   {
     n: 2,
     title: "Choose when it runs",
     body: "Every push to main, every pull request, or both. Replay QA tests against your preview or staging environment and explores the app the way a user would.",
-    asset: "Teams-02-Triggers",
-    caption:
-      "The trigger settings panel: toggles for push-to-main and pull request, then a run kicking off automatically after a commit lands.",
   },
   {
     n: 3,
     title: "Bugs land in your tracker",
     body: "Each one arrives with the root cause, a suggested fix, and a full Replay recording. When the run came from a pull request, Replay QA comments on that PR directly.",
-    asset: "Teams-03-BugReport",
-    caption:
-      "A finished bug report filing itself as a Linear issue, alongside the same report posted as a comment on a GitHub pull request.",
   },
 ];
 
@@ -332,9 +321,17 @@ export default function ForTeamsPage() {
         <p className="text-xs font-semibold uppercase tracking-widest text-brand-pink mb-4 text-center">
           Setup
         </p>
-        <h2 className="text-3xl font-bold tracking-tight text-center mb-14 leading-tight">
+        <h2 className="text-3xl font-bold tracking-tight text-center mb-10 leading-tight">
           Up and running in under 5 minutes
         </h2>
+        {/* Natural aspect (1660x1080); the clip has no audio track despite the
+            filename, so muted autoplay loses nothing. */}
+        <div className="rounded-xl border border-border overflow-hidden shadow-2xl mb-14">
+          <AutoplayVideo
+            src="/ReplayQA_githubSetupFlow_audiopilot.mp4"
+            className="w-full h-auto block"
+          />
+        </div>
         <div className="flex flex-col gap-8">
           {setupSteps.map((step, i, arr) => (
             <div key={step.n} className="flex gap-6">
@@ -349,7 +346,6 @@ export default function ForTeamsPage() {
                   {step.title}
                 </h3>
                 <p className="text-sm text-muted leading-relaxed">{step.body}</p>
-                <StepMedia asset={step.asset} caption={step.caption} />
               </div>
             </div>
           ))}
@@ -433,42 +429,6 @@ export default function ForTeamsPage() {
       </div>
 
       <Footer />
-    </div>
-  );
-}
-
-/**
- * Placeholder for a setup-step visual. Drop the finished clips into public/ as
- * `{asset}-Light.webm` / `-Dark.webm` (plus matching .mp4 for Safari) and
- * replace the body of this component with:
- *
- *   <ThemedVideo
- *     lightSrc={`/${asset}-Light.webm`}
- *     darkSrc={`/${asset}-Dark.webm`}
- *     lightFallbackSrc={`/${asset}-Light.mp4`}
- *     darkFallbackSrc={`/${asset}-Dark.mp4`}
- *     className="w-full aspect-video rounded-xl border border-border mt-5"
- *     ariaLabel={caption}
- *   />
- *
- * An animated GIF works too: swap in a next/image with the same wrapper classes.
- */
-function StepMedia({ asset, caption }: { asset: string; caption: string }) {
-  return (
-    <div
-      className="relative mt-5 rounded-xl border border-dashed border-border aspect-video flex flex-col items-center justify-center text-center gap-2.5 p-6 text-[13px] text-muted"
-      style={{
-        background:
-          "repeating-linear-gradient(135deg, var(--surface), var(--surface) 10px, var(--surface-hover) 10px, var(--surface-hover) 20px)",
-      }}
-    >
-      <span className="absolute top-3.5 right-3.5 text-[10px] font-bold uppercase tracking-[0.15em] px-2.5 py-1 rounded-full bg-foreground text-background">
-        Placeholder
-      </span>
-      <span className="max-w-[440px] leading-relaxed">{caption}</span>
-      <code className="font-mono text-[11px] text-muted/70 bg-background/60 px-2 py-1 rounded">
-        {asset}-&#123;Light,Dark&#125;
-      </code>
     </div>
   );
 }
