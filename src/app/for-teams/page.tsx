@@ -17,33 +17,22 @@ export const metadata: Metadata = pageMetadata({
   },
 });
 
-// The five stages of a run, in order. Each one names what Replay QA does and
-// why that stage is the reason the next one is possible.
+// The three stages of a run, in order.
 const stages = [
   {
     n: 1,
     title: "Explore",
-    body: "No script tells it what to click. Agents map the app, find the journeys worth verifying, and work through them the way a new QA hire would in their first week.",
+    body: "Agents map the app, quickly discover user journeys, and work through them the way a new QA hire would in their first week.",
   },
   {
     n: 2,
-    title: "Reproduce",
-    body: "When something breaks, the agent drives it again to confirm it's real and not a flake. You never get a report for something nobody can reproduce.",
+    title: "Test & Record",
+    body: "Agents then write tests that they run while puppeting your app in our Chromium browser, capturing deterministic runtime recordings of every session.",
   },
   {
     n: 3,
-    title: "Record",
-    body: "Every session is captured deterministically: DOM mutations, network calls, and JavaScript frames. Replayed later, it behaves identically every time.",
-  },
-  {
-    n: 4,
-    title: "Investigate",
-    body: "An agent time-travels back through the recording to the line that caused the failure, working from the full runtime picture instead of guessing from the code.",
-  },
-  {
-    n: 5,
-    title: "Report",
-    body: "The finding lands as a root cause, a suggested fix, and the recording that proves it, written for whoever picks it up next.",
+    title: "Investigate & Report",
+    body: "Our QA agents look for bugs across a range of types: deep runtime bugs, SEO issues, UI glitches, accessibility issues, and performance problems (more coming soon). They deliver robust bug reports with a root cause and a suggested fix.",
   },
 ];
 
@@ -285,7 +274,7 @@ export default function ForTeamsPage() {
             Most QA tooling starts with flows your team defines. Replay QA begins by
             exploring the application and identifying flows worth verifying.
           </p>
-          <ol className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <ol className="grid md:grid-cols-3 gap-6">
             {stages.map((s) => (
               <li
                 key={s.title}
