@@ -149,11 +149,10 @@ export default function HowItWorksPage() {
             eyebrow="02 Exploration"
             headline="It discovers the user journeys"
             media={
+              // MP4 only: the VP9 WebM wouldn't autoplay reliably.
               <ThemedVideo
-                lightSrc="/02-Exploration-v2-Light.webm"
-                darkSrc="/02-Exploration-v2-Dark.webm"
-                lightFallbackSrc="/02-Exploration-v2-Light.mp4"
-                darkFallbackSrc="/02-Exploration-v2-Dark.mp4"
+                lightSrc="/02-Exploration-v2-Light.mp4"
+                darkSrc="/02-Exploration-v2-Dark.mp4"
                 className="w-full aspect-video"
                 ariaLabel="Replay QA agents exploring an app, mapping pages and user journeys as a growing web of connections"
               />
