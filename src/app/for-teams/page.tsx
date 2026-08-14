@@ -5,6 +5,7 @@ import Nav from "@/components/Nav";
 import ThemedVideo from "@/components/ThemedVideo";
 import WarpSpeedBg from "@/components/WarpSpeedBg";
 import Footer from "@/components/Footer";
+import Testimonials, { type Testimonial } from "./Testimonials";
 
 export const metadata: Metadata = pageMetadata({
   title: "Replay QA for Teams — Verification for Agent-Written Code",
@@ -73,6 +74,35 @@ const setupSteps = [
     n: 3,
     title: "Bugs land in your tracker",
     body: "Each one arrives with the root cause, a suggested fix, and a full Replay recording. When the run came from a pull request, Replay QA comments on that PR directly.",
+  },
+];
+
+// Quotes are verbatim. Handles are shown as written by each person; the links
+// are the URLs they gave us, so Kaitee's points at the specific post.
+const testimonials: Testimonial[] = [
+  {
+    quote:
+      "Love the tooling! Our QA workflows and bug discovery has become 10X faster. The devs are able to cycle through loopholes much faster and delivery timelines have been enhanced",
+    name: "Harshil Tomar",
+    handle: "@Hartdrawss",
+    href: "https://x.com/Hartdrawss",
+    image: "/testimonial_photos/harshiltomar.jpg",
+  },
+  {
+    quote:
+      "Blown away by what Replay QA discovered for my solo startup, helped me identify and fix bugs that could potentially affect conversions.",
+    name: "Peter Mick",
+    handle: "@ThePeterMick",
+    href: "https://x.com/ThePeterMick",
+    image: "/testimonial_photos/petermick.jpg",
+  },
+  {
+    quote:
+      "Connecting my GitHub repository took only a few seconds, and the first run uncovered issues across functionality, UX, and accessibility that would've been easy to miss manually.",
+    name: "Kaitee",
+    handle: "@KaiteeShiks",
+    href: "https://x.com/KaiteeShiks/status/2079904638191735181",
+    image: "/testimonial_photos/kaiteeshiks.jpg",
   },
 ];
 
@@ -193,7 +223,7 @@ export default function ForTeamsPage() {
             Autonomous QA for teams shipping faster than manual verification can keep
             up.
           </h1>
-          <p className="text-lg text-muted max-w-2xl mb-10 leading-relaxed">
+          <p className="text-lg text-muted max-w-2xl mb-10 leading-relaxed text-balance">
             Replay QA autonomously explores every new build, reproduces the failures it
             finds, and sends your team evidence they can fix before users discover the
             bug.
@@ -222,7 +252,7 @@ export default function ForTeamsPage() {
           <h2 className="text-3xl font-bold tracking-tight text-center mb-4 leading-tight">
             Bug reports your coding agent deserves
           </h2>
-          <p className="text-muted text-center max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-muted text-center max-w-2xl mx-auto mb-10 leading-relaxed text-balance">
             Each report is prepared with coding agents in mind. A detailed root cause
             analysis, a suggested fix, a deterministic runtime recording, and all the
             context needed to do the job.
@@ -251,7 +281,7 @@ export default function ForTeamsPage() {
         <h2 className="text-3xl font-bold tracking-tight leading-tight mb-6">
           Your team ships 47 pull requests a week. Nobody can check them all.
         </h2>
-        <div className="space-y-4 text-muted leading-relaxed">
+        <div className="space-y-4 text-muted leading-relaxed text-pretty">
           <p>
             Agents wrote most of that code. Static analysis passes on all of it, because
             static analysis reads the code without ever running the app. Nobody can
@@ -276,6 +306,16 @@ export default function ForTeamsPage() {
       {/* How Replay QA works — the three stages of a run */}
       <div className="bg-surface-tinted">
         <section className="px-6 py-24 max-w-5xl mx-auto">
+          <p className="text-xs font-semibold uppercase tracking-widest text-brand-pink mb-4 text-center">
+            How Replay QA works
+          </p>
+          <h2 className="text-3xl font-bold tracking-tight text-center mb-4 leading-tight">
+            An agentic testing harness that works like a swarm of QA testers
+          </h2>
+          <p className="text-muted text-center max-w-2xl mx-auto mb-10 leading-relaxed text-balance">
+            Most QA tooling starts with flows your team defines. Replay QA begins by
+            exploring the application and identifying flows worth verifying.
+          </p>
           {/* Same clip as step 02 on /how-it-works. MP4 only — the VP9 WebM
               wouldn't autoplay reliably.
 
@@ -289,16 +329,6 @@ export default function ForTeamsPage() {
             className="w-full aspect-video mb-12 mix-blend-multiply dark:mix-blend-screen"
             ariaLabel="Replay QA agents exploring an app, mapping pages and user journeys as a growing web of connections"
           />
-          <p className="text-xs font-semibold uppercase tracking-widest text-brand-pink mb-4 text-center">
-            How Replay QA works
-          </p>
-          <h2 className="text-3xl font-bold tracking-tight text-center mb-4 leading-tight">
-            An agentic testing harness that works like a swarm of QA testers
-          </h2>
-          <p className="text-muted text-center max-w-2xl mx-auto mb-12 leading-relaxed">
-            Most QA tooling starts with flows your team defines. Replay QA begins by
-            exploring the application and identifying flows worth verifying.
-          </p>
           <ol className="grid md:grid-cols-3 gap-6">
             {stages.map((s) => (
               <li
@@ -313,7 +343,7 @@ export default function ForTeamsPage() {
                     {s.title}
                   </h3>
                 </span>
-                <p className="text-sm text-muted leading-relaxed">{s.body}</p>
+                <p className="text-sm text-muted leading-relaxed text-pretty">{s.body}</p>
               </li>
             ))}
           </ol>
@@ -342,7 +372,7 @@ export default function ForTeamsPage() {
         <h2 className="text-3xl font-bold tracking-tight text-center mb-4 leading-tight">
           It runs where your team already works
         </h2>
-        <p className="text-muted text-center max-w-2xl mx-auto mb-12 leading-relaxed">
+        <p className="text-muted text-center max-w-2xl mx-auto mb-12 leading-relaxed text-balance">
           Replay QA hooks into GitHub, comments on pull requests, and files into the
           tracker you already use. Nobody has to adopt a new tool to get the benefit.
         </p>
@@ -350,43 +380,18 @@ export default function ForTeamsPage() {
           {workflow.map((w) => (
             <div key={w.title} className="rounded-xl border border-border bg-surface p-7">
               <h3 className="text-base font-semibold tracking-tight mb-3">{w.title}</h3>
-              <p className="text-sm text-muted leading-relaxed">{w.body}</p>
+              <p className="text-sm text-muted leading-relaxed text-pretty">{w.body}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Testimonial. Brand-pink tint rather than bg-surface-tinted so this band
+      {/* Testimonials. Brand-pink tint rather than bg-surface-tinted so this band
           reads as its own treatment and the plain/tinted alternation either side
           of it still holds. */}
       <div className="bg-brand-pink/[0.04] border-y border-brand-pink/15">
         <section className="px-6 py-20 max-w-3xl mx-auto text-center">
-          <blockquote className="text-xl sm:text-2xl font-medium leading-relaxed tracking-tight mb-8">
-            &ldquo;Love the tooling! Our QA workflows and bug discovery has become 10X
-            faster. The devs are able to cycle through loopholes much faster and delivery
-            timelines have been enhanced&rdquo;
-          </blockquote>
-          <div className="flex items-center justify-center gap-3.5">
-            {/* Swap for <Image src="/avatars/harshil-tomar.jpg" width={48} height={48} … />
-                to match the other avatars on the site. */}
-            <div
-              aria-hidden="true"
-              className="w-12 h-12 rounded-full border border-dashed border-brand-pink/40 bg-surface flex items-center justify-center flex-shrink-0"
-            >
-              <span className="text-sm font-semibold text-brand-pink">HT</span>
-            </div>
-            <div className="text-left">
-              <p className="text-sm font-semibold">Harshil Tomar</p>
-              <a
-                href="https://x.com/Hartdrawss"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-brand-pink transition"
-              >
-                @Hartdrawss
-              </a>
-            </div>
-          </div>
+          <Testimonials items={testimonials} />
         </section>
       </div>
 
@@ -420,7 +425,7 @@ export default function ForTeamsPage() {
                 <h3 className="text-base font-semibold tracking-tight mb-2">
                   {step.title}
                 </h3>
-                <p className="text-sm text-muted leading-relaxed">{step.body}</p>
+                <p className="text-sm text-muted leading-relaxed text-pretty">{step.body}</p>
               </div>
             </div>
           ))}
@@ -467,7 +472,7 @@ export default function ForTeamsPage() {
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight mb-4">
             Test it on your own repo
           </h2>
-          <p className="text-lg text-muted max-w-xl mx-auto mb-8 leading-relaxed">
+          <p className="text-lg text-muted max-w-xl mx-auto mb-8 leading-relaxed text-balance">
             In just a few minutes, Replay QA will start exploring your app to identify
             the user journeys, and hunting for bugs.
           </p>
@@ -538,7 +543,7 @@ function FaqItem({
           <path d="M8 3v10M3 8h10" />
         </svg>
       </summary>
-      <div className="bg-background px-5 pb-4 pt-3 text-sm text-muted leading-relaxed border-t border-border">
+      <div className="bg-background px-5 pb-4 pt-3 text-sm text-muted leading-relaxed text-pretty border-t border-border">
         {answer}
       </div>
     </details>
