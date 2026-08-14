@@ -76,18 +76,48 @@ const setupSteps = [
   },
 ];
 
-const faqs: { q: string; a: React.ReactNode }[] = [
+type Faq = { q: string; a: React.ReactNode };
+
+// Asked inline under "What you get" — all about the output itself.
+const outputFaqs: Faq[] = [
   {
-    q: "Do we need an existing test suite?",
+    q: "What types of issues does Replay QA look for?",
+    a: "Deep runtime bugs (race conditions, async timing, elusive state mutations, React component failures), UI glitches (layout shifts, broken buttons, elements hidden behind overlays), accessibility failures (WCAG contrast violations, missing ARIA labels, keyboard traps), performance problems (slow network calls, render-blocking resources, long tasks), and SEO issues. More categories are coming.",
+  },
+  {
+    q: "Does Replay QA also fix the bugs it finds?",
+    a: "No, and that's deliberate. Replay QA finds the bug, works out the root cause, and writes a suggested fix, but applying it stays with your team. The report is built so your coding agent can act on it directly, which means you keep the review step on anything that touches your codebase.",
+  },
+  {
+    q: "Can I push bug reports into our issue tracker?",
+    a: "Yes. GitHub Issues, Linear, Jira, or any endpoint that accepts a webhook. You control what gets filed: manually, only after Replay QA confirms a bug, or automatically for every report including unconfirmed ones. Confirmed-only is the safest place to start. When a run came from a pull request, the root cause and fix are also posted as a comment on that PR.",
+  },
+  {
+    q: "Does Replay QA categorize and prioritize the issues it finds?",
+    a: "Yes. Reports are grouped by type and severity, and each root-cause analysis carries a confidence score, so you can start with the high-severity, high-confidence findings instead of reading the whole list.",
+  },
+];
+
+// Asked inline under "How Replay QA works" — all about the mechanism.
+const mechanismFaqs: Faq[] = [
+  {
+    q: "Do I need to have a test suite in place?",
     a: "No. Replay QA explores your app and writes its own Playwright tests based on what it finds. If you already have a suite, keep it. Replay QA runs alongside it and covers the surface area your tests don't.",
   },
   {
-    q: "How does Replay QA connect to my GitHub repository?",
-    a: "During project setup you'll be taken through the GitHub authentication flow, where you'll be prompted to install the Replay QA GitHub app and specify which repositories it can monitor. Once the app is added to a repository, it listens for changes like pushes to main or new pull requests. You configure which events trigger a new test run.",
+    q: "How does Replay QA find the root cause of an issue?",
+    a: "Every session is recorded deterministically, so it replays identically every time instead of behaving differently on each attempt. When a test fails, an agent time-travels back through that recording to the moment things went wrong and inspects the actual runtime: the state of the page, the network calls, and the code that ran. It reports what your app did, not what the code says it should do.",
   },
   {
-    q: "Will this flood our issue tracker?",
-    a: "You control what gets filed. Submit bugs manually, only after Replay QA confirms them, or automatically for every report including unconfirmed ones. Confirmed-only is the safest setting to start with, and you can loosen it once you trust the signal.",
+    q: "How are these recordings different from production monitoring like FullStory, LogRocket, or Datadog?",
+    a: "Those tools watch real users in production and tell you something went wrong after it already affected someone. They capture session replay, logs, and traces, which is genuinely useful, but you're still reconstructing the cause from the outside. Replay records the actual JavaScript execution during testing, before the code ships, and an agent steps through it to find the line responsible. Different job: monitoring tells you production is unhealthy, Replay QA tells you why a specific change broke and how to fix it.",
+  },
+];
+
+const faqs: Faq[] = [
+  {
+    q: "How does Replay QA connect to my GitHub repository?",
+    a: "During project setup you'll be taken through the GitHub authentication flow, where you'll be prompted to install the Replay QA GitHub app and specify which repositories it can monitor. Once the app is added to a repository, it listens for changes like pushes to main or new pull requests. You configure which events trigger a new test run.",
   },
   {
     q: "Can it test our staging or preview environments?",
@@ -108,10 +138,6 @@ const faqs: { q: string; a: React.ReactNode }[] = [
   {
     q: "What happens after we fix a bug?",
     a: "The webhook sends a callback URL with every report. POST to it when the fix ships and Replay QA marks the bug resolved, then re-enables that user journey for future runs so you find out immediately if it regresses.",
-  },
-  {
-    q: "How is this different from our Playwright tests?",
-    a: "Playwright is a test runner: it executes the scripts a person wrote, in the order they wrote them. Replay QA is a swarm of agents that explores the app on its own, decides what's worth testing, and root-causes anything it breaks. It uses Playwright internally to drive the sessions. Full comparison on the vs. test suites page.",
   },
   {
     q: "How much does it cost for a team?",
@@ -209,6 +235,11 @@ export default function ForTeamsPage() {
               className="w-full h-auto block"
             />
           </div>
+          <div className="space-y-2 mt-12 max-w-3xl mx-auto">
+            {outputFaqs.map((faq) => (
+              <FaqItem key={faq.q} question={faq.q} answer={faq.a} />
+            ))}
+          </div>
         </section>
       </div>
 
@@ -281,6 +312,11 @@ export default function ForTeamsPage() {
               </li>
             ))}
           </ol>
+          <div className="space-y-2 mt-12 max-w-3xl mx-auto">
+            {mechanismFaqs.map((faq) => (
+              <FaqItem key={faq.q} question={faq.q} answer={faq.a} />
+            ))}
+          </div>
           <p className="text-sm text-muted text-center mt-10">
             <a
               href="/how-it-works"
@@ -477,8 +513,10 @@ function FaqItem({
   defaultOpen?: boolean;
 }) {
   return (
+    /* Transparent shell so the question row always picks up whatever background
+       its section has; the answer panel below sits on --background. */
     <details
-      className="group rounded-xl border border-border bg-surface overflow-hidden"
+      className="group rounded-xl border border-border bg-transparent overflow-hidden"
       open={defaultOpen || undefined}
     >
       <summary className="flex items-center justify-between gap-4 px-5 py-4 text-sm font-medium cursor-pointer list-none select-none hover:text-foreground transition [&::-webkit-details-marker]:hidden">
@@ -495,7 +533,7 @@ function FaqItem({
           <path d="M8 3v10M3 8h10" />
         </svg>
       </summary>
-      <div className="px-5 pb-4 pt-3 text-sm text-muted leading-relaxed border-t border-border">
+      <div className="bg-background px-5 pb-4 pt-3 text-sm text-muted leading-relaxed border-t border-border">
         {answer}
       </div>
     </details>
