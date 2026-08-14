@@ -33,7 +33,7 @@ const stages = [
   {
     n: 3,
     title: "Investigate & Report",
-    body: "Our QA agents look for bugs across a range of types: deep runtime bugs, SEO issues, UI glitches, accessibility issues, and performance problems (more coming soon). They deliver robust bug reports with a root cause and a suggested fix.",
+    body: "Our QA agents look for bugs across a range of types: deep runtime bugs, UI glitches, accessibility issues, and performance problems (more coming soon). They deliver robust bug reports with a root cause and a suggested fix.",
   },
 ];
 
@@ -112,7 +112,11 @@ type Faq = { q: string; a: React.ReactNode };
 const outputFaqs: Faq[] = [
   {
     q: "What types of issues does Replay QA look for?",
-    a: "Deep runtime bugs (race conditions, async timing, elusive state mutations, React component failures), UI glitches (layout shifts, broken buttons, elements hidden behind overlays), accessibility failures (WCAG contrast violations, missing ARIA labels, keyboard traps), performance problems (slow network calls, render-blocking resources, long tasks), and SEO issues. More categories are coming.",
+    a: "Deep runtime bugs (race conditions, async timing, elusive state mutations, React component failures), UI glitches (layout shifts, broken buttons, elements hidden behind overlays), accessibility failures (WCAG contrast violations, missing ARIA labels, keyboard traps), and performance problems (slow network calls, render-blocking resources, long tasks). We've got plans to continue rolling out new QA capabilities.",
+  },
+  {
+    q: "How does Replay QA find these issues? Are you analyzing code?",
+    a: "Not the way a static analyzer does. Replay QA drives your running app in a browser and records what actually happens: every DOM mutation, every network call, every JavaScript frame. Those recordings are deterministic, so the same session behaves identically on every replay and an agent can return to the exact moment things went wrong. Your code does come into it. When your deployed app ships source maps, agents tie that recorded execution back to your original source and step through the functions that ran, which is what makes deeper React problems like elusive state mutations and component-level failures findable. Without source maps Replay QA still finds functional bugs, UI glitches, accessibility failures, and performance problems, it just can't go as deep on React internals. Either way it starts from what the app did at runtime, which is how it catches a race condition that only shows up under real timing, or a button made unclickable by an overlay — neither of which exists in the source to be scanned.",
   },
   {
     q: "Does Replay QA also fix the bugs it finds?",
