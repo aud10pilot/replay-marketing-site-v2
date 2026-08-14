@@ -277,11 +277,16 @@ export default function ForTeamsPage() {
       <div className="bg-surface-tinted">
         <section className="px-6 py-24 max-w-5xl mx-auto">
           {/* Same clip as step 02 on /how-it-works. MP4 only — the VP9 WebM
-              wouldn't autoplay reliably. */}
+              wouldn't autoplay reliably.
+
+              Neither encode carries alpha, but the light clip's background is
+              pure #ffffff and the dark one's is pure #000000. multiply drops
+              white to nothing against any backdrop, screen does the same for
+              black, so the clip sits on the tinted panel without a hard edge. */}
           <ThemedVideo
             lightSrc="/02-Exploration-v2-Light.mp4"
             darkSrc="/02-Exploration-v2-Dark.mp4"
-            className="w-full aspect-video mb-12"
+            className="w-full aspect-video mb-12 mix-blend-multiply dark:mix-blend-screen"
             ariaLabel="Replay QA agents exploring an app, mapping pages and user journeys as a growing web of connections"
           />
           <p className="text-xs font-semibold uppercase tracking-widest text-brand-pink mb-4 text-center">
