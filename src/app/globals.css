@@ -87,3 +87,21 @@ body {
   font-family: var(--font-inter), system-ui, sans-serif;
   overflow-x: clip;
 }
+
+/* Stop headings and copy dropping a single word onto its own last line.
+   `balance` evens out line lengths and is meant for short blocks — browsers cap
+   it at a handful of lines, so it applies cleanly to headings. `pretty` leaves
+   line breaking alone except to avoid a one-word last line, which is what body
+   copy wants. Unsupported browsers ignore both. */
+h1,
+h2,
+h3,
+h4,
+blockquote {
+  text-wrap: balance;
+}
+
+p,
+li {
+  text-wrap: pretty;
+}
