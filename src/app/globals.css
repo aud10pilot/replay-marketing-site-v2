@@ -88,20 +88,19 @@ body {
   overflow-x: clip;
 }
 
-/* Stop headings and copy dropping a single word onto its own last line.
-   `balance` evens out line lengths and is meant for short blocks — browsers cap
-   it at a handful of lines, so it applies cleanly to headings. `pretty` leaves
-   line breaking alone except to avoid a one-word last line, which is what body
-   copy wants. Unsupported browsers ignore both. */
+/* Stop headings dropping a single word onto their own last line. `balance` evens
+   out line lengths across the block; browsers cap it at a handful of lines, so
+   it only ever applies to short text like these. Unsupported browsers ignore it.
+
+   Deliberately no `p` rule here. This file's rules end up unlayered, and
+   unlayered CSS beats every cascade layer including Tailwind's utilities, so a
+   global `p { text-wrap: pretty }` would silently override `text-balance` on any
+   paragraph that asked for it. Paragraphs opt in per element instead:
+   `text-balance` for short centred subheadings, `text-pretty` for long prose. */
 h1,
 h2,
 h3,
 h4,
 blockquote {
   text-wrap: balance;
-}
-
-p,
-li {
-  text-wrap: pretty;
 }
